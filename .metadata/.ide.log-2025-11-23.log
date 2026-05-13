@@ -1,0 +1,653 @@
+2025-11-23 00:23:45,043 [INFO] WebApp:194 - Connection lost
+2025-11-23 00:23:45,537 [INFO] WebApp:191 - Connection restablished
+2025-11-23 00:24:37,522 [INFO] WebApp:194 - Connection lost
+2025-11-23 00:24:37,693 [INFO] WebApp:191 - Connection restablished
+2025-11-23 00:29:10,019 [INFO] WebApp:194 - Connection lost
+2025-11-23 00:29:10,221 [INFO] WebApp:191 - Connection restablished
+2025-11-23 00:29:31,988 [INFO] WebApp:194 - Connection lost
+2025-11-23 00:29:32,180 [INFO] WebApp:191 - Connection restablished
+2025-11-23 10:03:50,203 [INFO] WebApp:194 - Connection lost
+2025-11-23 10:04:04,745 [INFO] WebApp:191 - Connection restablished
+2025-11-23 10:04:07,433 [INFO] WebApp:194 - Connection lost
+2025-11-23 10:04:07,600 [INFO] WebApp:191 - Connection restablished
+2025-11-23 10:04:42,814 [INFO] WebApp:194 - Connection lost
+2025-11-23 10:04:42,993 [INFO] WebApp:191 - Connection restablished
+2025-11-23 11:16:02,408 [INFO] WebApp:194 - Connection lost
+2025-11-23 11:16:02,643 [INFO] WebApp:191 - Connection restablished
+2025-11-23 11:18:14,345 [INFO] WebApp:194 - Connection lost
+2025-11-23 11:18:14,539 [INFO] WebApp:191 - Connection restablished
+2025-11-23 11:48:14,926 [INFO] WebApp:194 - Connection lost
+2025-11-23 11:48:15,124 [INFO] WebApp:191 - Connection restablished
+2025-11-23 11:59:17,953 [INFO] WebApp:194 - Connection lost
+2025-11-23 11:59:18,193 [INFO] WebApp:191 - Connection restablished
+2025-11-23 12:10:22,958 [INFO] WebApp:194 - Connection lost
+2025-11-23 12:10:23,185 [INFO] WebApp:191 - Connection restablished
+2025-11-23 12:12:24,443 [INFO] WebApp:194 - Connection lost
+2025-11-23 12:12:24,644 [INFO] WebApp:191 - Connection restablished
+2025-11-23 12:41:31,901 [INFO] WebApp:194 - Connection lost
+2025-11-23 12:41:32,078 [INFO] WebApp:191 - Connection restablished
+2025-11-23 12:53:39,291 [INFO] WebApp:194 - Connection lost
+2025-11-23 12:53:39,456 [INFO] WebApp:191 - Connection restablished
+2025-11-23 13:01:40,800 [INFO] WebApp:194 - Connection lost
+2025-11-23 13:01:40,973 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:25:08,306 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:25:08,472 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:25:52,796 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:25:52,960 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:27:00,360 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:27:10,003 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:27:12,764 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:27:12,920 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:30:40,813 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:30:40,969 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:34:19,302 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:34:19,752 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:38:48,285 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:38:48,737 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:40:52,819 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:40:53,021 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:41:57,799 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:42:16,231 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:42:19,795 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:42:19,964 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:43:26,027 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:44:12,783 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:50:22,070 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:51:02,628 [INFO] WebApp:191 - Connection restablished
+2025-11-23 14:51:05,849 [INFO] WebApp:194 - Connection lost
+2025-11-23 14:51:06,025 [INFO] WebApp:191 - Connection restablished
+2025-11-23 15:05:01,449 [INFO] WebApp:194 - Connection lost
+2025-11-23 15:05:01,643 [INFO] WebApp:191 - Connection restablished
+2025-11-23 15:07:40,991 [INFO] WebApp:194 - Connection lost
+2025-11-23 15:07:41,163 [INFO] WebApp:191 - Connection restablished
+2025-11-23 16:33:29,829 [INFO] WebApp:194 - Connection lost
+2025-11-23 16:33:33,724 [INFO] WebApp:191 - Connection restablished
+2025-11-23 16:33:37,335 [INFO] WebApp:194 - Connection lost
+2025-11-23 16:33:37,515 [INFO] WebApp:191 - Connection restablished
+2025-11-23 16:33:53,332 [INFO] WebApp:194 - Connection lost
+2025-11-23 16:33:53,515 [INFO] WebApp:191 - Connection restablished
+2025-11-23 16:34:53,373 [INFO] WebApp:194 - Connection lost
+2025-11-23 16:34:53,561 [INFO] WebApp:191 - Connection restablished
+2025-11-23 17:10:15,421 [INFO] WebApp:194 - Connection lost
+2025-11-23 17:10:17,073 [INFO] WebApp:191 - Connection restablished
+2025-11-23 17:10:18,802 [INFO] WebApp:194 - Connection lost
+2025-11-23 17:10:18,964 [INFO] WebApp:191 - Connection restablished
+2025-11-23 17:10:21,958 [INFO] WebApp:194 - Connection lost
+2025-11-23 17:10:22,139 [INFO] WebApp:191 - Connection restablished
+2025-11-23 17:11:00,785 [INFO] WebApp:194 - Connection lost
+2025-11-23 17:11:00,950 [INFO] WebApp:191 - Connection restablished
+2025-11-23 17:11:41,834 [INFO] WebApp:194 - Connection lost
+2025-11-23 17:12:01,025 [INFO] WebApp:191 - Connection restablished
+2025-11-23 17:12:03,821 [INFO] WebApp:194 - Connection lost
+2025-11-23 17:12:03,979 [INFO] WebApp:191 - Connection restablished
+2025-11-23 21:21:16,436 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-11-23 21:21:16,511 [INFO] I2sManager:553 - AudioClock : 31990Divider : 29Odd : 0
+2025-11-23 21:21:21,950 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 769989504 Bytes (1073741824)
+2025-11-23 21:21:23,239 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 787901440 Bytes (1073741824)
+2025-11-23 21:21:25,194 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 827487808 Bytes (1073741824)
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-11-23 21:21:25,770 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-11-23 21:21:25,771 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-11-23 21:21:25,771 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ADC
+2025-11-23 21:21:25,771 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-11-23 21:21:25,772 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.1.202504091515\\db\
+2025-11-23 21:21:25,786 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-11-23 21:21:25,786 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:25,786 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream0
+2025-11-23 21:21:25,787 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream0
+2025-11-23 21:21:25,787 [INFO] Argument:325 - Argument : Initvalue: null
+2025-11-23 21:21:25,787 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:25,787 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:25,787 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:25,787 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-11-23 21:21:25,787 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-11-23 21:21:25,787 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:25,787 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:25,787 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:25,787 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:25,787 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:25,787 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:325 - Argument : Statevalue: null
+2025-11-23 21:21:25,788 [INFO] Argument:335 - Argument : Statevalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:25,789 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:25,791 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : Initvalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:25,792 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : Statevalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : Statevalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:25,794 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:25,816 [WARN] IP:2250 - DEVICE_SERIAL0_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:21:25,816 [WARN] IP:2250 - DEVICE_SERIAL1_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:21:25,816 [WARN] IP:2250 - DEVICE_SERIAL2_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:21:25,963 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp_save
+2025-11-23 21:21:26,226 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp
+2025-11-23 21:21:26,315 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp_save
+2025-11-23 21:21:26,518 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp
+2025-11-23 21:21:26,626 [WARN] IPConfigManager:3217 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-11-23 21:21:26,658 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-11-23 21:21:26,813 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-11-23 21:21:26,827 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-11-23 21:21:26,956 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-11-23 21:21:26,985 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-11-23 21:21:27,161 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-11-23 21:21:27,178 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-11-23 21:21:27,308 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-11-23 21:21:27,728 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-11-23 21:21:27,772 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp_save
+2025-11-23 21:21:27,862 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp
+2025-11-23 21:21:27,878 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp_save
+2025-11-23 21:21:27,948 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp
+2025-11-23 21:21:27,972 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-11-23 21:21:28,011 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.c_save
+2025-11-23 21:21:28,111 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.c
+2025-11-23 21:21:28,152 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.h_save
+2025-11-23 21:21:28,250 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.h
+2025-11-23 21:21:28,282 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.h_save
+2025-11-23 21:21:28,387 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.h
+2025-11-23 21:21:28,429 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.c_save
+2025-11-23 21:21:28,545 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.c
+2025-11-23 21:21:28,584 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.h_save
+2025-11-23 21:21:28,681 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.h
+2025-11-23 21:21:28,712 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.c_save
+2025-11-23 21:21:28,823 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.c
+2025-11-23 21:21:28,864 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c_save
+2025-11-23 21:21:29,069 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c
+2025-11-23 21:21:29,098 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h_save
+2025-11-23 21:21:29,190 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h
+2025-11-23 21:21:29,261 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c_save
+2025-11-23 21:21:29,412 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c
+2025-11-23 21:21:29,427 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp_save
+2025-11-23 21:21:29,513 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp
+2025-11-23 21:21:29,551 [INFO] CodeEngine:319 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-11-23 21:21:29,662 [INFO] CodeEngine:343 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h
+2025-11-23 21:21:29,698 [WARN] IPConfigManager:3790 - IP not found : TIM
+2025-11-23 21:21:29,699 [WARN] CodeGenerator:4198 - IP not found : null
+2025-11-23 21:21:29,738 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h_save
+2025-11-23 21:21:29,854 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h
+2025-11-23 21:21:29,887 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c_save
+2025-11-23 21:21:30,051 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c
+2025-11-23 21:21:30,480 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 251mS.
+2025-11-23 21:21:30,489 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0.1-B1
+2025-11-23 21:21:30,599 [INFO] ConfigFileManager:1590 - The Die is : DIE431
+2025-11-23 21:21:31,837 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1349mS.
+2025-11-23 21:21:31,838 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-11-23 21:21:31,846 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-11-23 21:21:45,067 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-11-23 21:21:47,838 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 771554424 Bytes (1073741824)
+2025-11-23 21:21:48,742 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 788857976 Bytes (1073741824)
+2025-11-23 21:21:50,072 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 828703864 Bytes (1073741824)
+2025-11-23 21:21:50,304 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ADC
+2025-11-23 21:21:50,305 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-11-23 21:21:50,307 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.1.202504091515\\db\
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-11-23 21:21:50,312 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream0
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream0
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : Initvalue: null
+2025-11-23 21:21:50,312 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:50,312 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:50,312 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : Statevalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : Statevalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:50,313 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Initvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Statevalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Statevalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:21:50,315 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:50,316 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-11-23 21:21:50,328 [WARN] IP:2250 - DEVICE_SERIAL0_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:21:50,328 [WARN] IP:2250 - DEVICE_SERIAL1_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:21:50,328 [WARN] IP:2250 - DEVICE_SERIAL2_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:21:50,385 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp_save
+2025-11-23 21:21:50,466 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp
+2025-11-23 21:21:50,493 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp_save
+2025-11-23 21:21:50,586 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp
+2025-11-23 21:21:50,616 [WARN] IPConfigManager:3217 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-11-23 21:21:50,627 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-11-23 21:21:50,703 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-11-23 21:21:50,707 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-11-23 21:21:50,770 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-11-23 21:21:50,776 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-11-23 21:21:50,853 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-11-23 21:21:50,859 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-11-23 21:21:50,939 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-11-23 21:21:51,179 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-11-23 21:21:51,208 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp_save
+2025-11-23 21:21:51,295 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp
+2025-11-23 21:21:51,301 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp_save
+2025-11-23 21:21:51,356 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp
+2025-11-23 21:21:51,383 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-11-23 21:21:51,409 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.c_save
+2025-11-23 21:21:51,484 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.c
+2025-11-23 21:21:51,491 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.h_save
+2025-11-23 21:21:51,565 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.h
+2025-11-23 21:21:51,572 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.h_save
+2025-11-23 21:21:51,637 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.h
+2025-11-23 21:21:51,655 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.c_save
+2025-11-23 21:21:51,782 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.c
+2025-11-23 21:21:51,791 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.h_save
+2025-11-23 21:21:51,851 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.h
+2025-11-23 21:21:51,868 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.c_save
+2025-11-23 21:21:51,968 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.c
+2025-11-23 21:21:51,993 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c_save
+2025-11-23 21:21:52,076 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c
+2025-11-23 21:21:52,084 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h_save
+2025-11-23 21:21:52,146 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h
+2025-11-23 21:21:52,179 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c_save
+2025-11-23 21:21:52,330 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c
+2025-11-23 21:21:52,348 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp_save
+2025-11-23 21:21:52,412 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp
+2025-11-23 21:21:52,440 [INFO] CodeEngine:319 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-11-23 21:21:52,540 [INFO] CodeEngine:343 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h
+2025-11-23 21:21:52,566 [WARN] IPConfigManager:3790 - IP not found : TIM
+2025-11-23 21:21:52,566 [WARN] CodeGenerator:4198 - IP not found : null
+2025-11-23 21:21:52,587 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h_save
+2025-11-23 21:21:52,658 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h
+2025-11-23 21:21:52,675 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c_save
+2025-11-23 21:21:52,826 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c
+2025-11-23 21:21:53,232 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 241mS.
+2025-11-23 21:21:53,239 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0.1-B1
+2025-11-23 21:21:53,335 [INFO] ConfigFileManager:1590 - The Die is : DIE431
+2025-11-23 21:21:54,342 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1102mS.
+2025-11-23 21:21:54,343 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-11-23 21:21:54,351 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-11-23 21:30:45,884 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-11-23 21:30:45,929 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 21:30:51,965 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-11-23 21:30:59,940 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-11-23 21:31:01,429 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 706853344 Bytes (1073741824)
+2025-11-23 21:31:02,369 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 732019168 Bytes (1073741824)
+2025-11-23 21:31:04,502 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 811710944 Bytes (1073741824)
+2025-11-23 21:31:04,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-11-23 21:31:04,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-11-23 21:31:04,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-11-23 21:31:04,913 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:31:04,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:31:04,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2025-11-23 21:31:04,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-11-23 21:31:04,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-11-23 21:31:04,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-11-23 21:31:04,915 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-11-23 21:31:04,916 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ADC
+2025-11-23 21:31:04,916 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-11-23 21:31:04,917 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.1.202504091515\\db\
+2025-11-23 21:31:04,924 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-11-23 21:31:04,924 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:31:04,924 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream0
+2025-11-23 21:31:04,924 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream0
+2025-11-23 21:31:04,924 [INFO] Argument:325 - Argument : Initvalue: null
+2025-11-23 21:31:04,925 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:31:04,925 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-11-23 21:31:04,925 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : Statevalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : Statevalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:31:04,926 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:31:04,927 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:31:04,927 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:31:04,927 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-11-23 21:31:04,927 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-11-23 21:31:04,928 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-11-23 21:31:04,928 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:31:04,928 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-11-23 21:31:04,928 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-11-23 21:31:04,928 [INFO] Argument:325 - Argument : Initvalue: null
+2025-11-23 21:31:04,928 [INFO] Argument:327 - 	 sub Args: 
+2025-11-23 21:31:04,928 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:31:04,928 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-11-23 21:31:04,928 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-11-23 21:31:04,928 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-11-23 21:31:04,928 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:31:04,928 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:31:04,929 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2025-11-23 21:31:04,929 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : Statevalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : Statevalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-11-23 21:31:04,930 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-11-23 21:31:04,942 [WARN] IP:2250 - DEVICE_SERIAL0_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:31:04,942 [WARN] IP:2250 - DEVICE_SERIAL1_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:31:04,942 [WARN] IP:2250 - DEVICE_SERIAL2_HID_FS not found: check if there is a RefParameter without a condition.
+2025-11-23 21:31:05,008 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp_save
+2025-11-23 21:31:05,314 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp
+2025-11-23 21:31:05,359 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp_save
+2025-11-23 21:31:05,539 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp
+2025-11-23 21:31:05,610 [WARN] IPConfigManager:3217 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-11-23 21:31:05,620 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-11-23 21:31:05,771 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-11-23 21:31:05,776 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-11-23 21:31:05,856 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-11-23 21:31:05,862 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-11-23 21:31:05,968 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-11-23 21:31:05,975 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-11-23 21:31:06,095 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-11-23 21:31:06,443 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-11-23 21:31:06,490 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp_save
+2025-11-23 21:31:06,612 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp
+2025-11-23 21:31:06,619 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp_save
+2025-11-23 21:31:06,701 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp
+2025-11-23 21:31:06,734 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-11-23 21:31:06,762 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.c_save
+2025-11-23 21:31:06,860 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.c
+2025-11-23 21:31:06,864 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.h_save
+2025-11-23 21:31:06,988 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usb_device.h
+2025-11-23 21:31:06,999 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.h_save
+2025-11-23 21:31:07,082 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.h
+2025-11-23 21:31:07,097 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.c_save
+2025-11-23 21:31:07,250 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\Target\usbd_conf.c
+2025-11-23 21:31:07,258 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.h_save
+2025-11-23 21:31:07,345 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.h
+2025-11-23 21:31:07,364 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.c_save
+2025-11-23 21:31:07,504 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\USB_DEVICE\App\usbd_desc.c
+2025-11-23 21:31:07,542 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c_save
+2025-11-23 21:31:07,711 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c
+2025-11-23 21:31:07,724 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h_save
+2025-11-23 21:31:07,792 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h
+2025-11-23 21:31:07,824 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c_save
+2025-11-23 21:31:08,012 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c
+2025-11-23 21:31:08,028 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp_save
+2025-11-23 21:31:08,104 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp
+2025-11-23 21:31:08,130 [INFO] CodeEngine:319 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-11-23 21:31:08,243 [INFO] CodeEngine:343 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h
+2025-11-23 21:31:08,283 [WARN] IPConfigManager:3790 - IP not found : TIM
+2025-11-23 21:31:08,285 [WARN] CodeGenerator:4198 - IP not found : null
+2025-11-23 21:31:08,315 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h_save
+2025-11-23 21:31:08,400 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h
+2025-11-23 21:31:08,418 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c_save
+2025-11-23 21:31:08,620 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c
+2025-11-23 21:31:09,134 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 285mS.
+2025-11-23 21:31:09,146 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0.1-B1
+2025-11-23 21:31:09,239 [INFO] ConfigFileManager:1590 - The Die is : DIE431
+2025-11-23 21:31:10,715 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1568mS.
+2025-11-23 21:31:10,716 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-11-23 21:31:10,724 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-11-23 22:26:07,040 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:07,041 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:07,042 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:07,231 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:07,231 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:07,231 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:07,296 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:07,296 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:07,297 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:08,706 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:08,706 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:08,707 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:08,828 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:08,829 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:08,830 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:08,878 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:08,878 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:08,879 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:20,276 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:20,277 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:20,277 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:20,390 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:20,390 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:20,390 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:20,431 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:20,432 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:20,432 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:21,952 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:21,953 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:21,953 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:22,063 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:22,063 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:22,063 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:22,105 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:22,106 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:22,106 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:23,260 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:23,261 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:23,261 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:23,366 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:23,366 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:23,368 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:23,409 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:23,409 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:23,409 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:26:24,719 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:24,720 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:24,720 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:24,812 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:24,812 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:24,812 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:26:24,852 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:26:24,852 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:26:24,852 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:27:16,151 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:27:16,151 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:27:16,152 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:27:16,256 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:27:16,256 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:27:16,257 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:27:16,297 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:27:16,297 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:27:16,297 [INFO] I2sManager:553 - AudioClock : 33133Divider : 7Odd : 0
+2025-11-23 22:27:18,160 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:27:18,161 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:27:18,161 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:27:18,250 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:27:18,250 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:27:18,250 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0
+2025-11-23 22:27:18,287 [INFO] I2sManager:658 - 1.1875E8
+2025-11-23 22:27:18,287 [INFO] I2sManager:195 - I2S Clock Value : 1.1875E8
+2025-11-23 22:27:18,287 [INFO] I2sManager:553 - AudioClock : 31990Divider : 58Odd : 0

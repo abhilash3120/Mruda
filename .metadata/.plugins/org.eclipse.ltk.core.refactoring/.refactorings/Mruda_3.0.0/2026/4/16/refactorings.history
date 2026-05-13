@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Mruda_3.0.0/Mruda_f411.ioc&apos; to &apos;Mruda_3.0.0.ioc&apos;" description="Rename resource &apos;Mruda_f411.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Mruda_f411.ioc" name="Mruda_3.0.0.ioc" stamp="1775996809256" updateReferences="true"/>
+</session>

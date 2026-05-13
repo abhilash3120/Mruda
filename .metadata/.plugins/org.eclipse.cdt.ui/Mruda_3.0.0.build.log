@@ -1,0 +1,19 @@
+01:16:55 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/f_set.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/f_set.d" -MT"Core/Src/function/f_set.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/f_set.o"
+arm-none-eabi-gcc "../Core/Src/function/func_sel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/func_sel.d" -MT"Core/Src/function/func_sel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/func_sel.o"
+arm-none-eabi-gcc "../Core/Src/function/general_func.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/general_func.d" -MT"Core/Src/function/general_func.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/general_func.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  40900	    676	  27156	  68732	  10c7c	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+
+01:16:56 Build Finished. 0 errors, 0 warnings. (took 1s.427ms)
+

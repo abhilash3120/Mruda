@@ -1,0 +1,436 @@
+2026-01-07 11:06:57,634 [INFO] WebApp:194 - Connection lost
+2026-01-07 11:07:06,775 [INFO] WebApp:191 - Connection restablished
+2026-01-07 11:07:48,429 [INFO] WebApp:194 - Connection lost
+2026-01-07 11:07:48,670 [INFO] WebApp:191 - Connection restablished
+2026-01-07 12:16:35,583 [INFO] WebApp:194 - Connection lost
+2026-01-07 12:16:35,861 [INFO] WebApp:191 - Connection restablished
+2026-01-07 14:38:53,462 [INFO] WebApp:194 - Connection lost
+2026-01-07 14:39:20,173 [INFO] WebApp:191 - Connection restablished
+2026-01-07 14:39:33,990 [INFO] WebApp:194 - Connection lost
+2026-01-07 14:39:34,249 [INFO] WebApp:191 - Connection restablished
+2026-01-07 14:40:33,966 [INFO] WebApp:194 - Connection lost
+2026-01-07 14:40:34,229 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:29:09,985 [INFO] WebApp:194 - Connection lost
+2026-01-07 18:29:19,830 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:29:22,892 [INFO] WebApp:194 - Connection lost
+2026-01-07 18:29:23,127 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:29:53,884 [INFO] WebApp:194 - Connection lost
+2026-01-07 18:29:54,100 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:32:55,421 [INFO] WebApp:194 - Connection lost
+2026-01-07 18:32:55,668 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:33:17,690 [INFO] WebApp:194 - Connection lost
+2026-01-07 18:33:17,936 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:33:20,911 [INFO] WebApp:194 - Connection lost
+2026-01-07 18:33:21,140 [INFO] WebApp:191 - Connection restablished
+2026-01-07 18:54:14,531 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-01-07 18:54:18,859 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-01-07 18:54:21,823 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 893121648 Bytes (1073741824)
+2026-01-07 18:54:22,792 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 911439808 Bytes (1073741824)
+2026-01-07 18:54:24,363 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 766655952 Bytes (1073741824)
+2026-01-07 18:54:24,828 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ADC
+2026-01-07 18:54:24,829 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-01-07 18:54:24,831 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.1.202504091515\\db\
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-07 18:54:24,843 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream0
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream0
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-07 18:54:24,843 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-01-07 18:54:24,843 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-01-07 18:54:24,843 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-07 18:54:24,844 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-07 18:54:24,846 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-07 18:54:24,846 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 18:54:24,846 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2026-01-07 18:54:24,846 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2026-01-07 18:54:24,846 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-07 18:54:24,846 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 18:54:24,846 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 18:54:24,846 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 18:54:24,846 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-07 18:54:24,846 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-07 18:54:24,846 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 18:54:24,846 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-07 18:54:24,847 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-07 18:54:25,025 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp_save
+2026-01-07 18:54:25,274 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp
+2026-01-07 18:54:25,354 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp_save
+2026-01-07 18:54:25,493 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp
+2026-01-07 18:54:26,017 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp_save
+2026-01-07 18:54:26,134 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp
+2026-01-07 18:54:26,150 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp_save
+2026-01-07 18:54:26,240 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp
+2026-01-07 18:54:26,297 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c_save
+2026-01-07 18:54:26,706 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c
+2026-01-07 18:54:26,882 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h_save
+2026-01-07 18:54:27,250 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h
+2026-01-07 18:54:27,312 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c_save
+2026-01-07 18:54:27,652 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c
+2026-01-07 18:54:27,689 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp_save
+2026-01-07 18:54:27,795 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp
+2026-01-07 18:54:27,850 [INFO] CodeEngine:319 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h_save
+2026-01-07 18:54:28,022 [INFO] CodeEngine:343 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h
+2026-01-07 18:54:28,065 [WARN] IPConfigManager:3790 - IP not found : TIM
+2026-01-07 18:54:28,071 [WARN] CodeGenerator:4198 - IP not found : null
+2026-01-07 18:54:28,112 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h_save
+2026-01-07 18:54:28,309 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h
+2026-01-07 18:54:28,346 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c_save
+2026-01-07 18:54:28,650 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c
+2026-01-07 18:54:29,277 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 363mS.
+2026-01-07 18:54:29,284 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0.1-B1
+2026-01-07 18:54:29,424 [INFO] ConfigFileManager:1590 - The Die is : DIE431
+2026-01-07 18:54:32,145 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 2861mS.
+2026-01-07 18:54:32,147 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2026-01-07 18:54:32,152 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2026-01-07 19:05:15,007 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-01-07 19:05:15,568 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 797024776 Bytes (1073741824)
+2026-01-07 19:05:17,083 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 815285704 Bytes (1073741824)
+2026-01-07 19:05:18,382 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 895873592 Bytes (1073741824)
+2026-01-07 19:05:18,789 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-01-07 19:05:18,789 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-01-07 19:05:18,789 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 19:05:18,789 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 19:05:18,791 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 19:05:18,791 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2026-01-07 19:05:18,792 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-01-07 19:05:18,793 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-01-07 19:05:18,793 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ADC
+2026-01-07 19:05:18,793 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-01-07 19:05:18,795 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.1.202504091515\\db\
+2026-01-07 19:05:18,805 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-07 19:05:18,806 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream0
+2026-01-07 19:05:18,806 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream0
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-07 19:05:18,806 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:05:18,806 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2026-01-07 19:05:18,806 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:05:18,806 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:05:18,806 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:05:18,806 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:05:18,806 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:05:18,807 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:05:18,807 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:05:18,807 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:05:18,807 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:05:18,807 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-01-07 19:05:18,807 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-01-07 19:05:18,807 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:05:18,807 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:05:18,807 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:05:18,807 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:05:18,807 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:05:18,808 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:05:18,809 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:05:18,809 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:05:18,809 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:05:18,809 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:05:18,809 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-07 19:05:18,809 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-07 19:05:18,813 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-07 19:05:18,813 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:05:18,813 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2026-01-07 19:05:18,813 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2026-01-07 19:05:18,813 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-07 19:05:18,813 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:05:18,813 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:05:18,813 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:05:18,813 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:05:18,814 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:05:18,814 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-07 19:05:18,815 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-07 19:05:18,816 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-07 19:05:18,930 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp_save
+2026-01-07 19:05:19,189 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp
+2026-01-07 19:05:19,232 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp_save
+2026-01-07 19:05:19,415 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp
+2026-01-07 19:05:19,801 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp_save
+2026-01-07 19:05:19,941 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp
+2026-01-07 19:05:19,947 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp_save
+2026-01-07 19:05:20,051 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp
+2026-01-07 19:05:20,082 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c_save
+2026-01-07 19:05:20,359 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c
+2026-01-07 19:05:20,380 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h_save
+2026-01-07 19:05:20,482 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h
+2026-01-07 19:05:20,524 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c_save
+2026-01-07 19:05:20,763 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c
+2026-01-07 19:05:20,782 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp_save
+2026-01-07 19:05:20,864 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp
+2026-01-07 19:05:20,895 [INFO] CodeEngine:319 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h_save
+2026-01-07 19:05:21,013 [INFO] CodeEngine:343 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h
+2026-01-07 19:05:21,048 [WARN] IPConfigManager:3790 - IP not found : TIM
+2026-01-07 19:05:21,050 [WARN] CodeGenerator:4198 - IP not found : null
+2026-01-07 19:05:21,078 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h_save
+2026-01-07 19:05:21,193 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h
+2026-01-07 19:05:21,215 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c_save
+2026-01-07 19:05:21,508 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c
+2026-01-07 19:05:22,198 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 402mS.
+2026-01-07 19:05:22,204 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0.1-B1
+2026-01-07 19:05:22,316 [INFO] ConfigFileManager:1590 - The Die is : DIE431
+2026-01-07 19:05:23,456 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1251mS.
+2026-01-07 19:05:23,457 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2026-01-07 19:05:23,464 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2026-01-07 19:20:20,447 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-01-07 19:20:22,517 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 761717344 Bytes (1073741824)
+2026-01-07 19:20:23,577 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 779844016 Bytes (1073741824)
+2026-01-07 19:20:25,259 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 823795088 Bytes (1073741824)
+2026-01-07 19:20:25,679 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-01-07 19:20:25,679 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-01-07 19:20:25,679 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 19:20:25,679 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 19:20:25,679 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-01-07 19:20:25,680 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2026-01-07 19:20:25,680 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-01-07 19:20:25,680 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-01-07 19:20:25,680 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: ADC
+2026-01-07 19:20:25,680 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-01-07 19:20:25,682 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.1.202504091515\\db\
+2026-01-07 19:20:25,691 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-07 19:20:25,692 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream0
+2026-01-07 19:20:25,692 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream0
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-07 19:20:25,692 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:20:25,692 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2026-01-07 19:20:25,692 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:20:25,692 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:20:25,692 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:20:25,692 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:20:25,694 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:20:25,694 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:20:25,694 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:20:25,694 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:20:25,695 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:20:25,695 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-01-07 19:20:25,695 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-01-07 19:20:25,695 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:20:25,695 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:20:25,695 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:20:25,695 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:20:25,695 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-01-07 19:20:25,695 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:20:25,696 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:20:25,697 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:20:25,697 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:20:25,697 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:20:25,698 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-07 19:20:25,698 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-07 19:20:25,701 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-07 19:20:25,701 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:20:25,701 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-07 19:20:25,702 [INFO] Argument:327 - 	 sub Args: 
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-01-07 19:20:25,702 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:20:25,702 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-01-07 19:20:25,703 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:20:25,704 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-07 19:20:25,704 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-07 19:20:25,704 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-07 19:20:25,816 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp_save
+2026-01-07 19:20:26,092 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\license.tmp
+2026-01-07 19:20:26,135 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp_save
+2026-01-07 19:20:26,280 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\gpio.tmp
+2026-01-07 19:20:26,647 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp_save
+2026-01-07 19:20:26,762 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma.tmp
+2026-01-07 19:20:26,768 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp_save
+2026-01-07 19:20:26,870 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\dma_GV.tmp
+2026-01-07 19:20:26,903 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c_save
+2026-01-07 19:20:27,194 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_it.c
+2026-01-07 19:20:27,204 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h_save
+2026-01-07 19:20:27,296 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_it.h
+2026-01-07 19:20:27,328 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c_save
+2026-01-07 19:20:27,568 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\stm32f4xx_hal_msp.c
+2026-01-07 19:20:27,587 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp_save
+2026-01-07 19:20:27,673 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\MXTmpFiles\system.tmp
+2026-01-07 19:20:27,705 [INFO] CodeEngine:319 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h_save
+2026-01-07 19:20:27,837 [INFO] CodeEngine:343 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\stm32f4xx_hal_conf.h
+2026-01-07 19:20:27,885 [WARN] IPConfigManager:3790 - IP not found : TIM
+2026-01-07 19:20:27,886 [WARN] CodeGenerator:4198 - IP not found : null
+2026-01-07 19:20:27,913 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h_save
+2026-01-07 19:20:28,040 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Inc\main.h
+2026-01-07 19:20:28,062 [INFO] CodeEngine:263 - oldGeneratedFile, D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c_save
+2026-01-07 19:20:28,324 [INFO] CodeEngine:287 - Generated code: D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_f411\Core\Src\main.c
+2026-01-07 19:20:28,844 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 290mS.
+2026-01-07 19:20:28,851 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0.1-B1
+2026-01-07 19:20:28,958 [INFO] ConfigFileManager:1590 - The Die is : DIE431
+2026-01-07 19:20:29,905 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1055mS.
+2026-01-07 19:20:29,906 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2026-01-07 19:20:29,910 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
