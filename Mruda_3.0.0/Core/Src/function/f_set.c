@@ -16,7 +16,7 @@
 #include "function/measure.h"
 #include "function/general_func.h"
 #include "function/func_sel.h"
-
+#include "function/midi.h"
 
 parameter_t set_para;
 
@@ -30,11 +30,13 @@ float octave_mix_val[10]={0,15,30,45,60,75,90,105,120,135};
 float drone_vol_lookup[11] = {0.0000, 0.01, 0.033, 0.062, 0.1, 0.14, 0.181, 0.23,  0.28, 0.33, 0.6 };
 
 
-float preset[4][20] = {
-    {0.15f, 0.15f, 0.1f, 0.1f, 0.07f, 0.03f, 0.015f, 0.02f, 0.005f, 0.01f, 0, 0.005f, 0, 0.005f, 0, 0.005f, 0, 0, 0, 0}, // Index 0
-	{0.25f, 0.00f, 0.1f, 0.0f, 0.04f, 0.00f, 0.010f, 0.00f, 0.002f, 0.00f, 0, 0.002f, 0, 0.002f, 0, 0.000f, 0, 0, 0, 0},  // Index 1
-    {0.50f, 0.00f, 0.0f, 0.0f, 0.00f, 0.00f, 0.000f, 0.00f, 0.000f, 0.00f, 0, 0.000f, 0, 0.000f, 0, 0.000f, 0, 0, 0, 0},  // Index 1
-	{1.0f, 1.00f, 1.0f, 1.0f, 1.00f, 1.00f, 1.000f, 1.00f, 1.000f, 1.00f, 1, 1.000f, 1, 0.000f, 0, 0.000f, 0, 0, 0, 0}  // Index 1
+float preset[6][16] = {
+    {0.15f, 0.15f, 0.1f, 0.1f, 0.07f, 0.03f, 0.015f, 0.02f, 0.005f, 0.01f, 0, 0.005f, 0, 0.005f, 0, 0.005f}, // Index 0
+	{0.25f, 0.00f, 0.1f, 0.0f, 0.04f, 0.00f, 0.010f, 0.00f, 0.002f, 0.00f, 0, 0.002f, 0, 0.002f, 0, 0.000f},  // Index 1
+    {0.50f, 0.00f, 0.0f, 0.0f, 0.00f, 0.00f, 0.000f, 0.00f, 0.000f, 0.00f, 0, 0.000f, 0, 0.000f, 0, 0.000f},  // Index 1
+	{1.0f, 1.00f, 1.0f, 1.0f, 1.00f, 1.00f, 1.000f, 1.00f, 1.000f, 1.00f, 1, 1.000f, 1, 0.000f, 0, 0.000f},  // Index 1
+	{1.0f, 1.00f, 1.0f, 1.0f, 1.00f, 1.00f, 1.000f, 1.00f, 1.000f, 1.00f, 1, 1.000f, 1, 0.000f, 0, 0.000f},  // Index 1
+    {0.15f, 0.15f, 0.1f, 0.1f, 0.07f, 0.03f, 0.015f, 0.02f, 0.005f, 0.01f, 0, 0.005f, 0, 0.005f, 0, 0.005f} // Index 0
 };
 
 
@@ -53,7 +55,7 @@ void set_defaults(){
 	set_para.octave = 0;
 
 	//sound related defautls
-	set_para.reverb = reverb_val[4];
+	set_para.reverb = reverb_val[3];
 
 	//tanpura defaults
 	func_val[41]= 3;
@@ -70,7 +72,7 @@ void set_defaults(){
 
 
 frequency_Info key;
-
+static int midi_note = 0;
 
 void set_freq() {
 	float play;
@@ -84,6 +86,8 @@ void set_freq() {
 			if (peak.flag_old[i] == 0) {
 				key.smooth[i] = 0;
 				key.error[i] = 0;
+				midi_note=key.abs[i];
+				midi_note_on(midi_note , 64);
 			}
 
 			// Error is distance from RAW finger to NEAREST note
@@ -102,5 +106,7 @@ void set_freq() {
             key.phase[i] = PHASE_FACT * key.freq[i];
 
         }
+        if(peak.flag[i] == 0 && peak.flag_old[i] == 1)
+        	{midi_note_off(midi_note, 64);}
     }
 }

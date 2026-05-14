@@ -83,37 +83,37 @@ float sine_t (float angle)
 float amp[20];
 
 void amp_setup(int preset_sel){
-
+	uint8_t len = 16;
 	float total_amp=0;
 
-	for(int k=0;k<20;k++){
+	for(int k=0;k<len;k++){
 		amp[k+1]=preset[preset_sel][k];
 
 	}
 
 	//expo evelope
-	for(int i=0;i<20;i++){
+	for(int i=0;i<len;i++){
 		amp[i+1]=amp[i+1]*powf(i+1,set_para.p1);
 	}
 
 	//OE_dist=1.1;
-	for(int i=1;i<11;i++){
+	for(int i=1;i<9;i++){
 	    amp[2*i] = amp[2*i] * set_para.p2;     // Even harmonic gets boosted
 	    amp[2*i-1]  = amp[2*i-1] / set_para.p2;     // Odd harmonic gets reduced
 	}
 
 	//octave_mix=50;
-	for(int i=0;i<19;i++){
+	for(int i=0;i<len-1;i++){
 		amp[i+1]=amp[i+1]+(set_para.p3/100)*amp[i+2];
 		amp[i+1]=amp[i+1]*(1.0f + cosf( 3.141592f* (i+1) / 20));
 	}
 
 	// normalising amplitudes
-	for(int i=0;i<20;i++){
+	for(int i=0;i<len;i++){
 		total_amp=total_amp+amp[i+1];
 	}
 
-	for(int i=0;i<20;i++){
+	for(int i=0;i<len;i++){
 	    		amp[i+1]=amp[i+1]/total_amp;
 	    	}
 }
@@ -128,7 +128,7 @@ void Creat_sine_table(float* sin_table, uint8_t preset_type){
     	float step= 6.28318530718f/(float)(SINE_TABLE_LEN);
 
     	temp1=0;
-		for(int j=0;j<15;j++){
+		for(int j=0;j<16;j++){
 			temp1 +=  amp[j]*sinf((float)j*(float)i*step);
 		}
 		sin_table[i]=(temp1 * 32000.0f);
@@ -193,3 +193,6 @@ uint32_t micros(void) {
     uint32_t cycles = DWT->CYCCNT;
     return (uint32_t)((uint64_t)cycles * 1000000ULL / SystemCoreClock);
 }
+
+
+

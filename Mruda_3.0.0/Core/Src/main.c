@@ -2,10 +2,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+
+#include "usbd_hid.h"
 #include "function/general_func.h"
 #include "function/measure.h"
 #include "tm1637.h"
@@ -13,17 +16,18 @@
 #include "function/func_sel.h"
 #include "function/f_set.h"
 #include "function/debugs.h"
+#include "function/midi.h"
 
 uint16_t adc_dma_buffer[ADC_DMA_LEN];
 float adc_val[ADC_DMA_LEN];
 long main_time, main_time_COUNTER;
-
+operation_mode mode;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
-
+extern USBD_HandleTypeDef hUsbDeviceFS;
 
 /* USER CODE END PTD */
 
@@ -47,6 +51,8 @@ TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 /* USER CODE BEGIN PV */
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,7 +106,7 @@ int main(void)
   /* USER CODE BEGIN Init */
   	set_defaults();
 	Creat_sine_table(sine_data,0);
-	Creat_sine_table(sine_data_tanpura,0);
+	Creat_sine_table(sine_data_tanpura,4);
 
   /* USER CODE END Init */
 
@@ -118,6 +124,7 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
   //these is to set the timer to set tjhe dac and excitation signal
@@ -145,6 +152,14 @@ int main(void)
 
   HAL_I2S_Transmit_DMA(&hi2s2, (uint16_t*)Buffer, BUFFER_SIZE);
   DWT_Delay_Init();
+
+  mode = Onboard;
+  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == 0) {
+	  mode = Edit;
+	  enter_edit_mode();
+  }
+
+
 
   /* USER CODE END 2 */
 

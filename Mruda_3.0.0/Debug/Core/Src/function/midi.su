@@ -1,0 +1,5 @@
+../Core/Src/function/midi.c:15:6:send_usb_midi_packet	32	static
+../Core/Src/function/midi.c:25:6:midi_note_on	16	static
+../Core/Src/function/midi.c:30:6:midi_note_off	16	static
+../Core/Src/function/midi.c:34:6:midi_pitch_bend	24	static
+../Core/Src/function/midi.c:49:6:midi_pressure	16	static

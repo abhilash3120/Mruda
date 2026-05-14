@@ -57,6 +57,10 @@ int func_val[45];
 
 
 
+volatile uint8_t new_setting_flag = 0;
+volatile uint8_t setting_array[17] = {0};
+
+
 void display_menu(const char* label, int val) {
     char buffer[8];
     snprintf(buffer, sizeof(buffer), "%s%d", label, val);
@@ -187,7 +191,7 @@ void P3_Up(){
 
 void PreSet(){
 	func_val[p_set] ++;
-	if(func_val[p_set]>4){func_val[p_set] = 0;}
+	if(func_val[p_set]>3){func_val[p_set] = 0;}
 	set_para.preset = func_val[p_set];
 	Creat_sine_table(sine_data,set_para.preset);
 	display_menu("Pr", func_val[p_set]);
@@ -281,6 +285,28 @@ void dispach(){
 
 
 
+void do_pc_command(){
+	if(mode != Edit || new_setting_flag == 0 || setting_array[0]>5) return;
+
+
+	for(int i=0; i<16; i++){
+		preset[func_val[p_set]][i] = (float)setting_array[i+1];
+	}
+
+	new_setting_flag = 0;
+	if(setting_array[0]<4) {
+		Creat_sine_table(sine_data, set_para.preset);
+		func_val[p_set] = setting_array[0];
+		set_para.preset = (int) setting_array[0];
+	}
+
+
+	if(setting_array[0]==4) Creat_sine_table(sine_data_tanpura, 4);
+
+
+}
+
+
 
 void function_process(){
 	static int counter = 0;
@@ -288,6 +314,12 @@ void function_process(){
 	counter ++;
 	if(counter <4) return;  // minimse gpio reads
 	counter =0;
+
+
+	do_pc_command();
+
+
+	if(mode != Onboard) return;
 
 
 	static int function_t;
@@ -331,7 +363,6 @@ void function_process(){
 	    }
 
 }
-
 
 
 

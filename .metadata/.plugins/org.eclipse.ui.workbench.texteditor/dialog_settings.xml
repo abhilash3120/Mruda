@@ -3,6 +3,11 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="Other Co"/>
+		<item value="FS Co"/>
+		<item value="HS Co"/>
+		<item value="hs C"/>
+		<item value="peak.flag"/>
 		<item value="HAL_I2S"/>
 		<item value="p_expo"/>
 		<item value="p_expo_val"/>
@@ -13,10 +18,5 @@
 		<item value="reverb_val["/>
 		<item value="22"/>
 		<item value="Sine_table_size"/>
-		<item value="peak_pos"/>
-		<item value="key_snap"/>
-		<item value="touch_flag_old"/>
-		<item value="touch_flag"/>
-		<item value="amp_setup"/>
 	</list>
 </section>

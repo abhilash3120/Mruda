@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>949</width>
+    <height>641</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>210</y>
+      <width>201</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="1">
+      <widget class="QPushButton" name="update">
+       <property name="text">
+        <string>Update</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QPushButton" name="def_but">
+       <property name="text">
+        <string>Set Defaults</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QComboBox" name="slot_list"/>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QPushButton" name="send">
+       <property name="text">
+        <string>Send to Mruda</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QPushButton" name="flash">
+       <property name="text">
+        <string>Burn Settings</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>30</y>
+      <width>331</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2" columnstretch="10,2">
+     <item row="5" column="1">
+      <widget class="QSpinBox" name="v5">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QSpinBox" name="v7">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QSlider" name="s9">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QSlider" name="s6">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QSpinBox" name="v15">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QSlider" name="s16">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0">
+      <widget class="QSlider" name="s15">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QSlider" name="s5">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QSlider" name="s3">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QSlider" name="s7">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="v1">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QSlider" name="s12">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QSpinBox" name="v10">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QSpinBox" name="v9">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QSpinBox" name="v3">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QSpinBox" name="v13">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSlider" name="s1">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QSlider" name="s4">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QSpinBox" name="v6">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QSlider" name="s14">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <widget class="QSpinBox" name="v16">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QSpinBox" name="v4">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QSpinBox" name="v12">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QSpinBox" name="v11">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QSlider" name="s13">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QSpinBox" name="v8">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QSlider" name="s10">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="v2">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QSlider" name="s2">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QSlider" name="s8">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QSpinBox" name="v14">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QSlider" name="s11">
+       <property name="maximum">
+        <number>127</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>30</y>
+      <width>201</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1" colspan="2">
+      <widget class="QPushButton" name="connection">
+       <property name="text">
+        <string>Connect</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="Refresh">
+       <property name="text">
+        <string>Refresh</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="3">
+      <widget class="QComboBox" name="device"/>
+     </item>
+     <item row="2" column="0" colspan="3">
+      <widget class="QLineEdit" name="status"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>949</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,1 @@
+pyside6-uic GUI_design.ui -o gui_fe.py

@@ -94,6 +94,14 @@ typedef enum sweep{
 }sweep_type;
 
 
+typedef enum operation{
+	Onboard,
+	Midi,
+	Edit
+}operation_mode;
+
+extern uint8_t mode;
+
 typedef struct {
     float touch_exp;
     float auro_corr;
