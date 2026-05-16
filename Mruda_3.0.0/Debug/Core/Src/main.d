@@ -46,7 +46,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/function/general_func.h ../Core/Inc/function/measure.h \
  ../Core/Inc/tm1637.h ../Core/Inc/function/synth.h \
  ../Core/Inc/function/func_sel.h ../Core/Inc/function/f_set.h \
- ../Core/Inc/function/debugs.h ../Core/Inc/function/midi.h
+ ../Core/Inc/function/debugs.h ../Core/Inc/function/midi.h \
+ ../Core/Inc/function/usb.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -100,3 +101,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/function/f_set.h:
 ../Core/Inc/function/debugs.h:
 ../Core/Inc/function/midi.h:
+../Core/Inc/function/usb.h:

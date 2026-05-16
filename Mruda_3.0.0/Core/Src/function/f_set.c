@@ -72,7 +72,8 @@ void set_defaults(){
 
 
 frequency_Info key;
-static int midi_note = 0;
+midi_info midi;
+
 
 void set_freq() {
 	float play;
@@ -86,8 +87,6 @@ void set_freq() {
 			if (peak.flag_old[i] == 0) {
 				key.smooth[i] = 0;
 				key.error[i] = 0;
-				midi_note=key.abs[i];
-				midi_note_on(midi_note , 64);
 			}
 
 			// Error is distance from RAW finger to NEAREST note
@@ -106,7 +105,48 @@ void set_freq() {
             key.phase[i] = PHASE_FACT * key.freq[i];
 
         }
-        if(peak.flag[i] == 0 && peak.flag_old[i] == 1)
-        	{midi_note_off(midi_note, 64);}
     }
+
+    //All midi relalted functions
+
+    midi.pressure = (uint8_t) 127*key.vol_smooth[0];
+
+    if(peak.flag[0] == 0 && peak.flag_old[0] == 1){
+    	midi_note_off(midi.note , 64);
+    	midi_pitch_bend(8192);
+    	midi.last_bend = 8192;
+    }
+
+    if(peak.flag[0] == 1){
+    	if(peak.flag_old[0] == 0){
+    		midi.note = key.abs[0];
+    		midi_note_on(midi.note , 100);
+    	}
+
+
+    	else if(peak.flag_old[0] == 1) {
+
+    	    float pitch_diff = key.play[0] - (float)midi.note;
+    	    #define BEND_RANGE 24.0f
+    	    int bend_int = 8192 + (int)((pitch_diff / BEND_RANGE) * 8191.0f);
+
+    	    // Clamp to prevent overflow
+    	    midi.bend = (uint16_t)bend_int;
+    	    if(midi.bend > 16383) midi.bend = 16383;
+    	    if(midi.bend < 0) midi.bend = 0;
+
+    	    if(midi.bend != midi.last_bend) {
+    	        midi_pitch_bend((uint16_t)midi.bend);
+    	        midi.last_bend = midi.bend;
+    	    }
+
+    	    midi_pressure(midi.note, midi.pressure);
+    	}
+
+
+
+	}
+
+
+
 }

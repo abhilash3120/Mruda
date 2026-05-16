@@ -17,6 +17,9 @@
 #include "function/measure.h"
 #include "function/func_sel.h"
 #include "function/general_func.h"
+#include "function/usb.h"
+
+
 
 typedef enum {
 	none = 0,
@@ -54,7 +57,6 @@ typedef struct{
 function_info func_butn;
 
 int func_val[45];
-
 
 
 volatile uint8_t new_setting_flag = 0;
@@ -191,7 +193,7 @@ void P3_Up(){
 
 void PreSet(){
 	func_val[p_set] ++;
-	if(func_val[p_set]>3){func_val[p_set] = 0;}
+	if(func_val[p_set]>4){func_val[p_set] = 0;}
 	set_para.preset = func_val[p_set];
 	Creat_sine_table(sine_data,set_para.preset);
 	display_menu("Pr", func_val[p_set]);
@@ -285,25 +287,48 @@ void dispach(){
 
 
 
-void do_pc_command(){
-	if(mode != Edit || new_setting_flag == 0 || setting_array[0]>5) return;
+void do_pc_command() {
+    if (mode != Edit || new_setting_flag == 0) return;
 
+    uint8_t cmd = setting_array[0];
 
-	for(int i=0; i<16; i++){
-		preset[func_val[p_set]][i] = (float)setting_array[i+1];
-	}
+    // ==========================================
+    // COMMAND 0-5: LOAD & EDIT PRESET
+    // ==========================================
+    if (cmd <= 5) {
+        // 1. Update state variables FIRST
+        func_val[p_set] = cmd;
+        set_para.preset = (int)cmd;
 
-	new_setting_flag = 0;
-	if(setting_array[0]<4) {
-		Creat_sine_table(sine_data, set_para.preset);
-		func_val[p_set] = setting_array[0];
-		set_para.preset = (int) setting_array[0];
-	}
+        // 2. Load incoming data into the correct preset slot
+        for (int i = 0; i < 16; i++) {
+            preset[cmd][i] = (float)setting_array[i + 1];
+        }
 
+        // 3. Generate the correct sine table
+        if (cmd < 5) {
+            Creat_sine_table(sine_data, cmd);
+        } else {
+            Creat_sine_table(sine_data_tanpura, 5);
+        }
+    }
 
-	if(setting_array[0]==4) Creat_sine_table(sine_data_tanpura, 4);
+    // ==========================================
+    // COMMAND 10-19: SAVE TO FLASH
+    // ==========================================
+    else if (cmd >= 10 && cmd < 20) {
+        uint8_t slot_index = cmd - 10;
+        uint8_t start_index = 16 * slot_index;
 
+        // Write directly from the float array to the flash_data byte array
+        for (int i = 0; i < 16; i++) {
+            flash_data[start_index + i] = (uint8_t)preset[func_val[p_set]][i];
+        }
 
+        Flash_SaveData(flash_data);
+    }
+
+    new_setting_flag = 0;
 }
 
 

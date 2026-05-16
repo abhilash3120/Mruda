@@ -1,0 +1,159 @@
+/*
+ * usb.c
+ *
+ *  Created on: May 14, 2026
+ *      Author: abhil
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>    // For itoa
+#include <stdint.h>
+
+#include "stm32f4xx.h"
+#include "main.h"
+#include "math.h"
+#include "function/midi.h"
+#include "function/usb.h"
+#include "tm1637.h"
+#include "function/func_sel.h"
+
+
+#define VALID_MAGIC            0xDEADBEEF
+#define FLASH_USER_START_ADDR  0x08060000
+#define FLASH_SECTOR_TO_USE    FLASH_SECTOR_7
+#define NUM_SLOTS              6
+#define TOTAL_DATA_BYTES       (NUM_SLOTS * VALUES_PER_SLOT) // 96
+#define VALUES_PER_SLOT 16
+uint8_t flash_data[NUM_SLOTS][VALUES_PER_SLOT];
+
+
+void Flash_SaveAllSlots(uint8_t data[NUM_SLOTS][VALUES_PER_SLOT]) {
+    FLASH_EraseInitTypeDef EraseInit;
+    uint32_t SectorError;
+
+    HAL_FLASH_Unlock();
+
+    EraseInit.TypeErase    = FLASH_TYPEERASE_SECTORS;
+    EraseInit.Sector       = FLASH_SECTOR_TO_USE;
+    EraseInit.NbSectors    = 1;
+    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+
+    // Erase Sector
+    if (HAL_FLASHEx_Erase(&EraseInit, &SectorError) != HAL_OK) {
+        HAL_FLASH_Lock();
+        return;
+    }
+
+    uint32_t address = FLASH_USER_START_ADDR;
+
+    // Treat the 2D array as a flat 1D array for the 4-byte chunking
+    uint8_t *flat_data = (uint8_t*)data;
+
+    // Program Data
+    for (int i = 0; i < TOTAL_DATA_BYTES; i += 4) {
+        uint32_t word;
+        memcpy(&word, &flat_data[i], 4);
+
+        if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, word) != HAL_OK) {
+            HAL_FLASH_Lock();
+            return;
+        }
+        address += 4;
+    }
+
+    // Program Magic Number
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, VALID_MAGIC);
+    HAL_FLASH_Lock();
+}
+
+int Flash_LoadAllSlots(uint8_t data[NUM_SLOTS][VALUES_PER_SLOT]) {
+    uint32_t *flashPtr = (uint32_t*)FLASH_USER_START_ADDR;
+    uint32_t magicIndex = TOTAL_DATA_BYTES / 4; // Index 24
+
+    if (flashPtr[magicIndex] != VALID_MAGIC) {
+        // Flash is empty or corrupted. Zero out the RAM buffer.
+        memset(data, 0, TOTAL_DATA_BYTES);
+        return 0;
+    }
+
+    // Load all 96 bytes directly into the 2D array
+    memcpy(data, (uint8_t*)FLASH_USER_START_ADDR, TOTAL_DATA_BYTES);
+    return 1;
+}
+
+
+
+// Save a single 16-byte slot to Flash (Read-Modify-Write)
+void Flash_SaveSingleSlot(uint8_t slot_index, uint8_t slot_data[VALUES_PER_SLOT]) {
+    if (slot_index >= NUM_SLOTS) return; // Prevent out-of-bounds
+
+    // 1. Create a temporary buffer and load everything from Flash
+    uint8_t temp_buffer[NUM_SLOTS][VALUES_PER_SLOT];
+    Flash_LoadAllSlots(temp_buffer);
+
+    // 2. Overwrite only the requested slot in the temporary buffer
+    memcpy(temp_buffer[slot_index], slot_data, VALUES_PER_SLOT);
+
+    // 3. Save the entire mixed buffer back to Flash
+    Flash_SaveAllSlots(temp_buffer);
+}
+
+// Read a single 16-byte slot from Flash
+int Flash_ReadSingleSlot(uint8_t slot_index, uint8_t slot_data[VALUES_PER_SLOT]) {
+    if (slot_index >= NUM_SLOTS) return 0;
+
+    uint32_t *flashPtr = (uint32_t*)FLASH_USER_START_ADDR;
+    uint32_t magicIndex = TOTAL_DATA_BYTES / 4;
+
+    if (flashPtr[magicIndex] != VALID_MAGIC) {
+        memset(slot_data, 0, VALUES_PER_SLOT);
+        return 0; // Invalid flash
+    }
+
+    // Calculate the memory offset for the specific slot
+    uint32_t slot_address = FLASH_USER_START_ADDR + (slot_index * VALUES_PER_SLOT);
+
+    // Copy just those 16 bytes
+    memcpy(slot_data, (uint8_t*)slot_address, VALUES_PER_SLOT);
+    return 1;
+}
+
+
+void update_all_presets(){
+	{
+	    for (int slot = 0; slot < NUM_SLOTS; slot++) {
+	        for (int val = 0; val < VALUES_PER_SLOT; val++) {
+	            // Cast the 8-bit integer (0-127) to a float (0.0f - 127.0f)
+	            preset[slot][val] = (float)flash_data[slot][val];
+	        }
+	    }
+	}
+}
+
+
+
+
+
+void enter_edit_mode(){
+	TM1637_SetColon(0);
+	TM1637_DisplayString("EdIt");
+
+	while(new_setting_flag == 0){
+		HAL_Delay(600);
+		TM1637_DisplayString("EdIt");
+		HAL_Delay(400);
+		TM1637_DisplayString("    ");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

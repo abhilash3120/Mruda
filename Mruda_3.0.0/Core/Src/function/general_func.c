@@ -113,6 +113,7 @@ void amp_setup(int preset_sel){
 		total_amp=total_amp+amp[i+1];
 	}
 
+	if (total_amp == 0) return;
 	for(int i=0;i<len;i++){
 	    		amp[i+1]=amp[i+1]/total_amp;
 	    	}
@@ -123,13 +124,15 @@ void Creat_sine_table(float* sin_table, uint8_t preset_type){
 	//generate a base waveform that is combination of its harmonics
 	amp_setup(preset_type);
 
+	float phase[16] = {0,-3,3,-2,  -5,4,7,6,   7,9,12,5, -10,-9,-13,8 };
+
     for(int i=0;i<SINE_TABLE_LEN;i++){
     	float temp1;
     	float step= 6.28318530718f/(float)(SINE_TABLE_LEN);
 
     	temp1=0;
 		for(int j=0;j<16;j++){
-			temp1 +=  amp[j]*sinf((float)j*(float)i*step);
+			temp1 +=  amp[j]*sinf((float)j*(float)i*step + phase[j]);
 		}
 		sin_table[i]=(temp1 * 32000.0f);
       }

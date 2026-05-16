@@ -16,14 +16,16 @@
 #include "function/midi.h"
 #include "function/usb.h"
 #include "tm1637.h"
+#include "function/func_sel.h"
+#include "function/f_set.h"
 
 
-#define VALID_MAGIC   0xDEADBEEF
+#define VALID_MAGIC            0xDEADBEEF
 #define FLASH_USER_START_ADDR  0x08060000
 #define FLASH_SECTOR_TO_USE    FLASH_SECTOR_7
+#define TOTAL_DATA_BYTES       96  // Must be a multiple of 4
 
-uint8_t flash_data [64];
-
+uint8_t flash_data[96];
 
 void Flash_SaveData(uint8_t *data)
 {
@@ -36,28 +38,19 @@ void Flash_SaveData(uint8_t *data)
     EraseInit.NbSectors    = 1;
     EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
 
-    // Erase flash sector
     HAL_FLASHEx_Erase(&EraseInit, &SectorError);
-
     uint32_t address = FLASH_USER_START_ADDR;
 
-    for(int i = 0; i < 64; i += 4)
+    for(int i = 0; i < TOTAL_DATA_BYTES; i += 4)
     {
         uint32_t word;
-
         memcpy(&word, &data[i], 4);
 
-        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,
-                          address,
-                          word);
-
+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, word);
         address += 4;
     }
 
-    HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,
-                      address,
-                      VALID_MAGIC);
-
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, VALID_MAGIC);
     HAL_FLASH_Lock();
 }
 
@@ -66,28 +59,41 @@ int Flash_LoadData(uint8_t *data)
 {
     uint32_t *flashPtr = (uint32_t*)FLASH_USER_START_ADDR;
 
-    if(flashPtr[16] != VALID_MAGIC)
-        return 0;
+    uint32_t magicIndex = TOTAL_DATA_BYTES / 4;
+    if(flashPtr[magicIndex] != VALID_MAGIC)
+        return 0; // Magic number mismatch, flash is likely empty/uninitialized
 
-    memcpy(data,
-           (uint8_t*)FLASH_USER_START_ADDR,
-           64);
-
+    memcpy(data, (uint8_t*)FLASH_USER_START_ADDR, TOTAL_DATA_BYTES);
     return 1;
 }
 
 
-void send_flash_to_pc(){
-	Flash_LoadData(flash_data);
-    //USBD_HID_SendReport(&hUsbDeviceFS, flash_data,64);
-}
 
+
+void update_all_presets(){
+	Flash_LoadData(flash_data);
+	int j =0;
+	for(int slot= 0; slot<6; slot++){
+		for(int val =0 ; val<16; val++){
+			preset[slot][val] = (float)flash_data[j];
+			j++;
+		}
+	}
+	HAL_Delay(50);
+}
 
 
 void enter_edit_mode(){
 	TM1637_SetColon(0);
 	TM1637_DisplayString("EdIt");
-	send_flash_to_pc();
+
+	while(new_setting_flag == 0){
+		HAL_Delay(600);
+		TM1637_DisplayString("EdIt");
+		HAL_Delay(400);
+		TM1637_DisplayString("    ");
+	}
+	TM1637_DisplayString("EdIt");
 }
 
 

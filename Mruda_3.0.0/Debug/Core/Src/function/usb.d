@@ -35,7 +35,8 @@ Core/Src/function/usb.o: ../Core/Src/function/usb.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
  ../Core/Inc/main.h ../Core/Inc/function/midi.h \
- ../Core/Inc/function/usb.h ../Core/Inc/tm1637.h
+ ../Core/Inc/function/usb.h ../Core/Inc/tm1637.h \
+ ../Core/Inc/function/func_sel.h ../Core/Inc/function/f_set.h
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h:
 ../Drivers/CMSIS/Include/core_cm4.h:
@@ -75,3 +76,5 @@ Core/Src/function/usb.o: ../Core/Src/function/usb.c \
 ../Core/Inc/function/midi.h:
 ../Core/Inc/function/usb.h:
 ../Core/Inc/tm1637.h:
+../Core/Inc/function/func_sel.h:
+../Core/Inc/function/f_set.h:

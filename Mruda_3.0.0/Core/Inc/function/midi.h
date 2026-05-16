@@ -12,5 +12,6 @@ void midi_note_on(uint8_t note, uint8_t velocity);
 void midi_note_off(uint8_t note, uint8_t velocity);
 void midi_pitch_bend(float semitones);
 void midi_pressure(uint8_t note, uint8_t pressure);
+void send_usb_midi_packet(uint8_t cin, uint8_t status, uint8_t data1, uint8_t data2);
 
 #endif /* INC_FUNCTION_MIDI_H_ */

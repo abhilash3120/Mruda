@@ -17,10 +17,13 @@
 #include "function/f_set.h"
 #include "function/debugs.h"
 #include "function/midi.h"
+#include "function/usb.h"
 
 uint16_t adc_dma_buffer[ADC_DMA_LEN];
 float adc_val[ADC_DMA_LEN];
 long main_time, main_time_COUNTER;
+
+
 operation_mode mode;
 /* USER CODE END Includes */
 
@@ -105,8 +108,9 @@ int main(void)
 
   /* USER CODE BEGIN Init */
   	set_defaults();
+  	update_all_presets();
 	Creat_sine_table(sine_data,0);
-	Creat_sine_table(sine_data_tanpura,4);
+	Creat_sine_table(sine_data_tanpura,5);
 
   /* USER CODE END Init */
 
@@ -129,7 +133,7 @@ int main(void)
 
   //these is to set the timer to set tjhe dac and excitation signal
 
-  HAL_Delay(50);
+
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);

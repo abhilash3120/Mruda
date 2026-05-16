@@ -4,15 +4,16 @@ import time
 import mido
 import threading
 
-slot_1 = [0.15, 0.15, 0.1, 0.1, 0.07, 0.03, 0.015, 0.02, 0.005, 0.01, 0, 0.005, 0, 0.005, 0, 0.005]
+slot_1 = [127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4]
 slot_2 = [1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
 slot_3 = [1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
 slot_4 =  [1.0, 1.00, 1.0, 1.0, 1.00, 1.00, 1.000, 1.00, 1.000, 1.00, 1, 1.000, 1, 0.000, 0, 0.000]
-tanpura = [0.15, 0.15, 0.1, 0.1, 0.07, 0.03, 0.015, 0.02, 0.005, 0.01, 0, 0.005, 0, 0.005, 0, 0.005]
+slot_5 =  [64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64]
+tanpura = [127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4]
 
 
-default_values = [slot_1, slot_2, slot_3, slot_4, tanpura]
-Current_values = [slot_1, slot_2, slot_3, slot_4, tanpura]
+default_values = [slot_1, slot_2, slot_3, slot_4, slot_5, tanpura]
+Current_values = [slot_1, slot_2, slot_3, slot_4, slot_5, tanpura]
 
 class setup():
     def __init__(self, ui):
@@ -42,7 +43,8 @@ class setup():
             slider.valueChanged.connect(value.setValue)
             value.valueChanged.connect(slider.setValue)
 
-        ui.slot_list.addItems(["Slot 1", "Slot 2", "Slot 3", "Slot 4", "Tanpura"])
+        ui.slot_list.addItems(["Preset 1", "Preset 2", "Preset 3", "Preset 4", "Custom Slot", "Tanpura"])
+        ui.slot_list.setCurrentIndex(4)
         ui.update.clicked.connect(self.update_slot)
         ui.send.clicked.connect(self.send_values)
         ui.connection.clicked.connect(self.connect_usb)
@@ -61,14 +63,13 @@ class setup():
 
 
 
-
     def set_default(self):
         
         slot = self.ui.slot_list.currentIndex()
         Current_values[slot] = default_values[slot]
 
 
-        data = [x * 7*255 for x in Current_values[slot]]
+        data = [x * 1 for x in Current_values[slot]]
         for data, slider in zip(data, self.slider_list):
             slider.setValue(int(data))
 
@@ -86,16 +87,18 @@ class setup():
                 break
 
 
+
     def update_slot(self):
         slot = self.ui.slot_list.currentIndex()
 
 
-        data = [x * 128 for x in Current_values[slot]]
+        data =  Current_values[slot]
 
         for data, slider in zip(data, self.slider_list):
             slider.setValue(int(data))
 
     
+
     def send_values(self):
 
         command = self.ui.slot_list.currentIndex()
@@ -107,6 +110,7 @@ class setup():
         # Create and send the message
         msg = mido.Message('sysex', data=sysex_payload)
         self.outport.send(msg)
+
 
 
     def find_ports(self):
@@ -127,6 +131,7 @@ class setup():
 
 
 
+
     def connect_usb(self):
 
         in_name, out_name = self.find_ports()
@@ -144,6 +149,12 @@ class setup():
 
         self.ui.status.setText("Connected")
         self.start_listener()
+        
+        values = [99,10,  0,0,0,0,0,  0,0,0,0,0,  0,0,0,0,0]
+        sysex_payload = [0x7D, 0x01] + values
+        # Create and send the message
+        msg = mido.Message('sysex', data=sysex_payload)
+        self.outport.send(msg)
 
 
 
@@ -162,11 +173,36 @@ class setup():
 
 
     def save_to_flash(self):
+        from PySide6.QtWidgets import QMessageBox
+        import mido
 
-        values = [10,10,  0,0,0,0,0,  0,0,0,0,0,  0,0,0,0,0]
+        preset = self.ui.slot_list.currentText()
+
+        # Use the explicit StandardButton enum
+        reply = QMessageBox.question(
+            None,
+            "Confirm",
+            f"Overwrite {preset} with current value?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+
+        # Compare against the explicit enum member
+        if reply == QMessageBox.StandardButton.No:
+            print("cancelled")
+            return
+        
+        # If it reaches here, the user clicked 'Yes'
+        print("Saving...")
+
+
+        # here first index - 10 is the channel that needs to be stored on the flash
+
+        command = 10 + self.ui.slot_list.currentIndex()
+        values = [command] + [slider.value() for slider in self.slider_list]
+        print(values)
 
         sysex_payload = [0x7D, 0x01] + values
 
-        # Create and send the message
         msg = mido.Message('sysex', data=sysex_payload)
         self.outport.send(msg)

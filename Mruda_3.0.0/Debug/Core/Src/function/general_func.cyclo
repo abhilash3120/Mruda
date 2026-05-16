@@ -3,10 +3,10 @@
 ../Core/Src/function/general_func.c:35:7:sine_1	1
 ../Core/Src/function/general_func.c:44:7:sine	2
 ../Core/Src/function/general_func.c:65:7:sine_t	2
-../Core/Src/function/general_func.c:85:6:amp_setup	7
-../Core/Src/function/general_func.c:122:6:Creat_sine_table	3
-../Core/Src/function/general_func.c:141:6:Tanpura	16
-../Core/Src/function/general_func.c:171:7:get_max3	3
-../Core/Src/function/general_func.c:179:7:clampf	3
-../Core/Src/function/general_func.c:186:6:DWT_Delay_Init	1
-../Core/Src/function/general_func.c:192:10:micros	1
+../Core/Src/function/general_func.c:85:6:amp_setup	8
+../Core/Src/function/general_func.c:123:6:Creat_sine_table	3
+../Core/Src/function/general_func.c:144:6:Tanpura	16
+../Core/Src/function/general_func.c:174:7:get_max3	3
+../Core/Src/function/general_func.c:182:7:clampf	3
+../Core/Src/function/general_func.c:189:6:DWT_Delay_Init	1
+../Core/Src/function/general_func.c:195:10:micros	1

@@ -9,6 +9,7 @@
 #define INC_FUNCTION_FUNC_SEL_H_
 
 extern int func_val[45];
+extern volatile uint8_t new_setting_flag;
 
 void function_process();
 

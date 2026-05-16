@@ -1,5 +1,5 @@
 import mido
-import time
+
 
 def send_test_setting():
     outport_name = None
