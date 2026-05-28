@@ -206,3 +206,9 @@ class setup():
 
         msg = mido.Message('sysex', data=sysex_payload)
         self.outport.send(msg)
+
+
+    def send_data(self, values):
+        sysex_payload = [0x7D, 0x01] + values
+        msg = mido.Message('sysex', data=sysex_payload)
+        self.outport.send(msg)

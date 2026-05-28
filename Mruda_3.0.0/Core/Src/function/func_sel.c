@@ -71,6 +71,21 @@ void display_menu(const char* label, int val) {
 }
 
 
+
+void Midi_status(){
+	if (mode == Midi){
+		mode = Onboard;
+		TM1637_SetColon(1);
+		TM1637_DisplayString("MIOF");
+	}
+	else if (mode == Onboard){
+		mode = Midi;
+		TM1637_SetColon(1);
+		TM1637_DisplayString("MIOn");
+	}
+}
+
+
 void Scale_Down(){
 
 	func_val[scale_down] = func_val[scale_down]-1;
@@ -258,6 +273,7 @@ void T_Vol_Up(){
 void dispach(){
 
 	            switch (func_butn.ID) {
+	            	case MiDi: 			Midi_status(); break;
 	                case scale_down:	Scale_Down();	break;
 	                case scale_up:		Scale_Up();  	break;
 	                case oct_down:		Oct_Down(); 	break;
@@ -288,7 +304,7 @@ void dispach(){
 
 
 void do_pc_command() {
-    if (mode != Edit || new_setting_flag == 0) return;
+    if (new_setting_flag == 0) return;
 
     uint8_t cmd = setting_array[0];
 
@@ -328,6 +344,8 @@ void do_pc_command() {
         Flash_SaveData(flash_data);
     }
 
+
+
     new_setting_flag = 0;
 }
 
@@ -344,8 +362,7 @@ void function_process(){
 	do_pc_command();
 
 
-	if(mode != Onboard) return;
-
+	if(mode == Edit) return;
 
 	static int function_t;
 	  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == 0) { // Button pressed

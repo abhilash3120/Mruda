@@ -13,11 +13,11 @@
 #include "math.h"
 
 float sine_data[SINE_TABLE_LEN+1];
+float sine_data_comp[SINE_TABLE_LEN+1];
 float sine_data_tanpura[SINE_TABLE_LEN+1];
 
 void set_mux(uint8_t ch) {
     if (ch > 15) return;
-
     HAL_GPIO_WritePin(S0_port, S0_pin, (ch >> 0) & 0x01);
     HAL_GPIO_WritePin(S1_port, S1_pin, (ch >> 1) & 0x01);
     HAL_GPIO_WritePin(S2_port, S2_pin, (ch >> 2) & 0x01);

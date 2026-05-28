@@ -19,12 +19,17 @@
 #include "function/midi.h"
 #include "function/usb.h"
 
+
 uint16_t adc_dma_buffer[ADC_DMA_LEN];
 float adc_val[ADC_DMA_LEN];
 long main_time, main_time_COUNTER;
 
 
 operation_mode mode;
+
+
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,14 +104,17 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	SCB->VTOR = 0x08010000;
+	__enable_irq();
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
   /* USER CODE BEGIN Init */
+
   	set_defaults();
   	update_all_presets();
 	Creat_sine_table(sine_data,0);
@@ -148,7 +156,6 @@ int main(void)
   TM1637_Init();
   HAL_Delay(50);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_dma_buffer, ADC_DMA_LEN);
-
   HAL_Delay(50);
   key_cal();
 

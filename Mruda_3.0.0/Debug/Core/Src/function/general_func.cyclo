@@ -1,4 +1,4 @@
-../Core/Src/function/general_func.c:18:6:set_mux	2
+../Core/Src/function/general_func.c:19:6:set_mux	2
 ../Core/Src/function/general_func.c:29:7:sine_slow	1
 ../Core/Src/function/general_func.c:35:7:sine_1	1
 ../Core/Src/function/general_func.c:44:7:sine	2

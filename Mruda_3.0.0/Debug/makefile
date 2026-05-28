@@ -59,7 +59,8 @@ Mruda_3.0.0.list \
 
 
 # All Target
-all: main-build
+all:
+	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
 
 # Main-build Target
 main-build: Mruda_3.0.0.elf secondary-outputs
@@ -85,6 +86,10 @@ clean:
 	-$(RM) Mruda_3.0.0.elf Mruda_3.0.0.list Mruda_3.0.0.map default.size.stdout
 	-@echo ' '
 
+post-build:
+	arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+	-@echo ' '
+
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
@@ -94,6 +99,6 @@ fail-specified-linker-script-missing:
 warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
-.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
+.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified post-build
 
 -include ../makefile.targets

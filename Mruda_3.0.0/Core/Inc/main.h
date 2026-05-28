@@ -100,7 +100,7 @@ typedef enum operation{
 	Edit
 }operation_mode;
 
-extern uint8_t mode;
+extern operation_mode mode;
 
 typedef struct {
     float touch_exp;
@@ -169,6 +169,7 @@ typedef struct frequency_info{
 
 } frequency_Info;
 
+extern volatile uint32_t dfu_flag;
 
 /* USER CODE END Private defines */
 

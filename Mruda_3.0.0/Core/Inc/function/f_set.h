@@ -19,6 +19,7 @@ extern float drone_vol_lookup[11];
 extern parameter_t set_para;
 extern float preset[6][16];
 extern frequency_Info key;
+extern float default_preset[6][16];
 
 void set_defaults();
 void set_freq();

@@ -25,6 +25,9 @@
 #define FLASH_SECTOR_TO_USE    FLASH_SECTOR_7
 #define TOTAL_DATA_BYTES       96  // Must be a multiple of 4
 
+#include "stdint.h"
+#define DFU_MAGIC 0xDEADBEEF
+
 uint8_t flash_data[96];
 
 void Flash_SaveData(uint8_t *data)
@@ -68,10 +71,43 @@ int Flash_LoadData(uint8_t *data)
 }
 
 
+uint8_t temp[96];
+void init_preset_flash(){
+
+	int k =0;
+	for (int i = 0; i<6 ;i++){
+		for(int j = 0; j<16;j++){
+			temp[k++] = default_preset[i][j];
+		}
+	}
+	HAL_Delay(1000);
+	Flash_SaveData(temp);
+}
+
 
 
 void update_all_presets(){
+	HAL_Delay(50);
 	Flash_LoadData(flash_data);
+
+
+	/*
+	 * this part run only once after uploading the program
+	 * as there is no data on the flash to be loaded for preset
+	 * doing this eases the production by avoiding flash through appliction
+	 */
+
+	int sum= 0;
+	for (int i =0 ;i <96; i++){
+		sum =+flash_data[i]; // all entries are zero at while running at the first time
+	}
+
+	if (sum < 5){
+		init_preset_flash();
+	}
+
+	//----------initilisation ends ----------
+
 	int j =0;
 	for(int slot= 0; slot<6; slot++){
 		for(int val =0 ; val<16; val++){
@@ -95,14 +131,6 @@ void enter_edit_mode(){
 	}
 	TM1637_DisplayString("EdIt");
 }
-
-
-
-
-
-
-
-
 
 
 
