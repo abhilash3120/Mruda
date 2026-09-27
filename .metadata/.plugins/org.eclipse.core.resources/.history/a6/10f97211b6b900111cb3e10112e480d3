@@ -1,0 +1,85 @@
+/*
+ * auto_corr.c
+ *
+ *  Created on: Sep 26, 2026
+ *      Author: abhil
+ */
+
+
+// 1. THE 13-NOTE DEFINITIONS (Natural Scale / Just Intonation)
+// ==========================================
+// Calculated using standard Indian classical harmonic ratios (12 * log2(Ratio))
+
+#define SA    0.0000f   // Shadja         (Ratio 1/1)
+#define re    1.1173f   // Komal Rishabh  (Ratio 16/15)
+#define RE    2.0391f   // Shuddha Rishabh(Ratio 9/8)
+#define ga    3.1564f   // Komal Gandhar  (Ratio 6/5)
+#define GA    3.8631f   // Shuddha Gandhar(Ratio 5/4)
+#define ma    4.9804f   // Shuddha Madhyam(Ratio 4/3)
+#define MA    5.9022f   // Tivra Madhyam  (Ratio 45/32)
+#define PA    7.0196f   // Pancham        (Ratio 3/2)
+#define dha   8.1369f   // Komal Dhaivat  (Ratio 8/5)
+#define DHA   8.8436f   // Shuddha Dhaivat(Ratio 5/3)
+#define ni    10.1760f  // Komal Nishad   (Ratio 9/5)
+#define NI    10.8827f  // Shuddha Nishad (Ratio 15/8)
+#define SA_HI 12.0000f  // Taar Shadja    (Ratio 2/1)
+
+
+typedef struct {
+    const char* name;          // OLED Display Name
+    const float* notes;        // Pointer to the scale array
+    int length;            // Number of notes in the scale
+    float drone_note;          // Smart Tanpura note (Pa, Ma, or Ni)
+} ScaleDef;
+
+static const float NA_Natural[] = {SA, re, RE, ga, GA, ma, MA, PA, dha, DHA,  ni, NI};
+static const float NA_Chromatic[] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+static const float Thaat_Bilawal[] = {SA, RE, GA, ma, PA, DHA, NI};
+static const float Thaat_Kalyan[] = {SA, RE, GA, MA, PA, DHA, NI};
+static const float Thaat_Khamaj[] = {SA, RE, GA, ma, PA, DHA, ni};
+static const float Thaat_Kafi[] = {SA, RE, ga, ma, PA, DHA, ni};
+static const float Thaat_Asavari[] = {SA, RE, ga, ma, PA, dha, ni};
+static const float Thaat_Bhairavi[] = {SA, re, ga, ma, PA, dha, ni};
+static const float Thaat_Bhairav[] = {SA, re, GA, ma, PA, dha, NI};
+static const float Thaat_Marva[] = {SA, re, GA, MA, PA, DHA, NI};
+static const float Thaat_Purvi[] = {SA, re, GA, MA, PA, dha, NI};
+static const float Thaat_Todi[] = {SA, re, ga, MA, PA, dha, NI};
+static const float Raag_Abhogi[] = {SA, RE, ga, ma, DHA};
+static const float Raag_Ahir_bhairav[] = {SA, re, GA, ma, PA, DHA, ni};
+static const float Raag_Bageshri[] = {SA, RE, ga, ma, DHA, ni};
+static const float Raag_Bhairav[] = {SA, re, GA, ma, PA, dha, NI};
+static const float Raag_Bhairavi[] = {SA, re, ga, ma, PA, dha, ni};
+static const float Raag_Bhimpalasi[] = {SA, RE, ga, ma, PA, DHA, ni};
+static const float Raag_Bhupali[] = {SA, RE, GA, PA, DHA};
+static const float Raag_Bihag[] = {SA, RE, GA, ma, PA, DHA,  NI};
+static const float Raag_Charukeshi[] = {SA, RE, GA, ma, PA, dha, ni};
+static const float Raag_Darbari_kanada[] = {SA, RE, ga, ma, PA, dha, ni};
+static const float Raag_Desh[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Durga[] = {SA, RE, ma, PA, DHA};
+static const float Raag_Hamsadhwani[] = {SA, RE, GA, PA, NI};
+static const float Raag_Jog[] = {SA, ga, GA, ma, PA, ni};
+static const float Raag_Jonpuri[] = {SA, RE, ga, ma, PA, dha, ni};
+static const float Raag_Kalavati[] = {SA, GA, PA, DHA, ni};
+static const float Raag_Kedar[] = {SA, RE, ma, MA, PA, DHA, NI};
+static const float Raag_Khamaj[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Kirvani[] = {SA, RE, ga, ma, PA, dha, NI};
+static const float Raag_Lalit[] = {SA, re, GA, ma, MA, dha, NI};
+static const float Raag_Malkauns[] = {SA, ga, ma, dha, ni};
+static const float Raag_Marwa[] = {SA, re, GA, MA, DHA, NI};
+static const float Raag_Megh_Malhar[] = {SA, RE, ma, PA, ni};
+static const float Raag_Miya_ki_malhar[] = {SA, RE, ga, ma, PA, DHA, ni, NI};
+static const float Raag_Nand[] = {SA, RE, GA, ma, MA, PA, DHA, NI};
+static const float Raag_Pahadi[] = {SA, RE, GA, ma, PA, DHA, ni};
+static const float Raag_Pilu[] = {SA, RE, ga, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Puriya_Dhanashree[] = {SA, re, GA, MA, PA, dha, NI};
+static const float Raag_Raagshree[] = {SA, RE, GA, ma, DHA, ni};
+static const float Raag_Sarang[] = {SA, RE, ma, PA, ni, NI};
+static const float Raag_Shivranjini[] = {SA, RE, ga, PA, DHA};
+static const float Raag_Shree[] = {SA, re, GA, MA, PA, dha, NI};
+static const float Raag_Tilak_Kamod[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Tilang[] = {SA, GA, ma, PA, ni, NI};
+static const float Raag_Yaman[] = {SA, RE, GA, MA, PA, DHA, NI};
+static const float Scale_Custom_1[] = {SA, RE, GA, ma, PA, DHA, NI};
+static const float Scale_Custom_2[] = {SA, RE, GA, ma, PA, DHA, NI};
+static const float Scale_Custom_3[] = {SA, RE, GA, ma, PA, DHA, NI};
+

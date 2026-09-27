@@ -18,7 +18,7 @@
 #include "function/debugs.h"
 #include "function/midi.h"
 #include "function/usb.h"
-
+#include "function/auto_corr.h"
 
 uint16_t adc_dma_buffer[ADC_DMA_LEN];
 float adc_val[ADC_DMA_LEN];
@@ -113,6 +113,7 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
   /* USER CODE BEGIN Init */
 
   	set_defaults();
@@ -151,6 +152,7 @@ int main(void)
 
 
   __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, 15); // phase shift for reference
+
 
 
   TM1637_Init();
@@ -334,7 +336,7 @@ static void MX_I2S2_Init(void)
   hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-  hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_16K;
+  hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_32K;
   hi2s2.Init.CPOL = I2S_CPOL_LOW;
   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
   hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;

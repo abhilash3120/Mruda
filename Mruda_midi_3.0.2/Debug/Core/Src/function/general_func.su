@@ -1,0 +1,13 @@
+../Core/Src/function/general_func.c:16:6:set_mux	16	static
+../Core/Src/function/general_func.c:26:7:sine_slow	16	static
+../Core/Src/function/general_func.c:32:7:sine_1	24	static
+../Core/Src/function/general_func.c:41:7:sine	40	static
+../Core/Src/function/general_func.c:62:7:sine_t	40	static
+../Core/Src/function/general_func.c:82:6:amp_setup	56	static
+../Core/Src/function/general_func.c:120:6:Creat_sine_table	112	static
+../Core/Src/function/general_func.c:141:6:Tanpura	4	static
+../Core/Src/function/general_func.c:171:7:get_max3	32	static
+../Core/Src/function/general_func.c:179:7:clampf	24	static
+../Core/Src/function/general_func.c:186:6:DWT_Delay_Init	4	static
+../Core/Src/function/general_func.c:192:10:micros	64	static
+../Core/Src/function/general_func.c:198:7:abs_calc	16	static

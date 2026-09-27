@@ -1,3 +1,4 @@
+"./Core/Src/function/auto_corr.o"
 "./Core/Src/function/debugs.o"
 "./Core/Src/function/f_set.o"
 "./Core/Src/function/func_sel.o"

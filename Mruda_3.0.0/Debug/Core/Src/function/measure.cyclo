@@ -2,6 +2,6 @@
 ../Core/Src/function/measure.c:60:7:parabolic_fit	1
 ../Core/Src/function/measure.c:74:7:linear_fit	2
 ../Core/Src/function/measure.c:94:6:touch_mono	7
-../Core/Src/function/measure.c:142:6:touch_estimate	27
-../Core/Src/function/measure.c:241:6:get_touch_position	3
-../Core/Src/function/measure.c:288:6:pos_measure_f_cal	3
+../Core/Src/function/measure.c:149:6:touch_estimate	27
+../Core/Src/function/measure.c:250:6:get_touch_position	3
+../Core/Src/function/measure.c:298:6:pos_measure_f_cal	3

@@ -217,10 +217,57 @@ void PreSet(){
 void T_On(){
 	func_val[t_on] = !func_val[t_on];
 	tanpura.status = func_val[t_on];
-	display_menu("dr", func_val[t_on]);
+//	display_menu("dr", func_val[t_on]);
+	TM1637_SetColon(1);
+	if(func_val[t_on] == 1) TM1637_DisplayString("tnON");
+	if(func_val[t_on] == 0) TM1637_DisplayString("tnOF");
 }
 
 
+void t_disp_update(){
+	TM1637_SetColon(1);
+
+	int temp = 0- func_val[t_scale_down];
+
+		switch(temp){
+
+			case -8:
+				TM1637_DisplayString("SCE "); break;
+			case -7:
+				TM1637_DisplayString("SCF "); break;
+			case -6:
+				TM1637_DisplayString("SCF-"); break;
+			case -5:
+				TM1637_DisplayString("SCg "); break;
+			case -4:
+				TM1637_DisplayString("SCg-"); break;
+			case -3:
+				TM1637_DisplayString("SCA "); break;
+			case -2:
+				TM1637_DisplayString("SCA-"); break;
+			case -1:
+				TM1637_DisplayString("SCb "); break;
+			case 0:
+				TM1637_DisplayString("SCC "); break;
+			case 1:
+				TM1637_DisplayString("SCC-"); break;
+			case 2:
+				TM1637_DisplayString("SCd "); break;
+			case 3:
+				TM1637_DisplayString("SCd-"); break;
+			case 4:
+				TM1637_DisplayString("SCE "); break;
+			case 5:
+				TM1637_DisplayString("SCF "); break;
+			case 6:
+				TM1637_DisplayString("SCF-"); break;
+			case 7:
+				TM1637_DisplayString("SCg "); break;
+			case 8:
+				TM1637_DisplayString("SCg-"); break;
+
+	}
+}
 
 void T_scale_Down(){
 	func_val[t_scale_down]++;
@@ -229,13 +276,12 @@ void T_scale_Down(){
 	key.play[3] = 22-func_val[t_scale_down];
 	key.play[4] = 27-func_val[t_scale_down];
 
-
 	key.freq[3]=440.0f * powf(1.0594630f, (key.play[3] - 48));
 	key.freq[4]=440.0f * powf(1.0594630f, (key.play[4] - 48));
 
 	key.phase[3] =PHASE_FACT * key.freq[3];
 	key.phase[4] =PHASE_FACT * key.freq[4];
-	display_menu("Sc", -func_val[t_scale_down]);
+	t_disp_update();
 }
 
 void T_scale_Up(){
@@ -251,7 +297,9 @@ void T_scale_Up(){
 
 	key.phase[3] =PHASE_FACT * key.freq[3];
 	key.phase[4] =PHASE_FACT * key.freq[4];
-	display_menu("Sc", -func_val[t_scale_down]);
+	t_disp_update();
+
+
 }
 
 void T_Vol_Down(){
@@ -259,7 +307,6 @@ void T_Vol_Down(){
 	func_val[t_vol_down] = clampf(func_val[t_vol_down], 0, 10);
 	tanpura.vol = drone_vol_lookup[func_val[t_vol_down]];
 	display_menu("VO", func_val[t_vol_down]);
-
 }
 
 void T_Vol_Up(){
@@ -381,7 +428,6 @@ void function_process(){
 			  TM1637_DisplayString("PLAY");}
 		  func_butn.flag = 0;
 		  trigger_latched = 0;
-	      // Do NOT reset function_flag here if you want it to stay ON
 	  }
 
 	  if(func_butn.flag){

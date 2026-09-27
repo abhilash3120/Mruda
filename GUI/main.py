@@ -60,8 +60,7 @@ class setup():
         dev_list = mido.get_input_names()
         ui.device.addItems(dev_list)
         
-
-
+        
 
     def set_default(self):
         

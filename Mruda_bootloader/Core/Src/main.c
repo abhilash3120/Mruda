@@ -173,7 +173,7 @@ int main(void)
   TM1637_Init();
   HAL_Delay(50);
   TM1637_SetColon(0);
-  TM1637_DisplayString("COnn");
+  TM1637_DisplayString("Init");
   button = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9);
   if(button == 1){
 	  JumpToApplication();
@@ -183,6 +183,7 @@ int main(void)
 	  while(1){
 		  TM1637_SetColon(0); TM1637_DisplayString("COnn"); HAL_Delay(500);
 		  TM1637_SetColon(0); TM1637_DisplayString(""); HAL_Delay(500);
+		  button = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9);
 		  if(rx_flag == 1 && command == 5){
 			  rx_flag = 0;
 			  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, RESET);
@@ -306,7 +307,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : PB9 */
   GPIO_InitStruct.Pin = GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */

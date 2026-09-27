@@ -1,0 +1,13 @@
+/*
+ * auto_corr.h
+ *
+ *  Created on: Sep 26, 2026
+ *      Author: abhil
+ */
+
+#ifndef INC_FUNCTION_AUTO_CORR_H_
+#define INC_FUNCTION_AUTO_CORR_H_
+
+float auto_correct(int scale_index, float input);
+
+#endif /* INC_FUNCTION_AUTO_CORR_H_ */

@@ -95,6 +95,7 @@ void touch_mono(){
 	//get max
     float best_amp = 0;
     static float best_pos = -10.0f;
+    static float old_pos = 0;
 
     // --- Peak detection (pick strongest only) ---
     peak.flag_old[0] = peak.flag[0];
@@ -107,11 +108,17 @@ void touch_mono(){
                                 touch_filtered[i-1] +
                                 touch_filtered[i+1];
 
-            float threshold = 120;
+            float threshold = 200;
 
             if(current_sum > threshold && current_sum > best_amp){
                 best_amp = current_sum;
+
+                old_pos = best_pos;
                 best_pos = parabolic_fit(i);
+
+                float raw_vel = fabs(old_pos - best_pos);
+
+                peak.vel[0] = 0.005f*peak.vel[0] + 0.995f*raw_vel;
                 peak.flag[0] = 1;
             }
         }
@@ -120,7 +127,7 @@ void touch_mono(){
 
 
     //assign to the main note
-    peak.pos_out[0] = 0.5*best_pos;
+    peak.pos_out[0] = 0.5*best_pos - 6.5+12;
     peak.pos_out[1] = 0;
     peak.pos_out[2] = 0;
 
@@ -210,6 +217,9 @@ void touch_estimate(){
 	for (uint8_t i = 0; i < 3; i++) {
 		peak.pos[i] = peak.pos_track[i];
 		peak.amp[i] = peak.amp_track[i];
+
+		peak.vel[i] = peak.pos_old[i]- peak.pos[i];
+
 		peak.pos_old[i] = peak.pos[i];
 
 		peak.flag_old[i]=peak.flag[i];
@@ -219,7 +229,6 @@ void touch_estimate(){
 
 
 	for(int i=0;i<3;i++){
-
 		peak.pos_out[i]=0.5f*peak.pos[i];
 
 		peak.amp[i]=0.9*peak.amp[i]+0.1*peak.amp_old[i];
@@ -256,9 +265,10 @@ void get_touch_position(){
 //	  touch_p1[mux_sel+32] = touch_p0[mux_sel+32];
 
 		//make 4 measurement and take average
-	  touch_raw[mux_sel] =  0.25f*(adc_val[2]+adc_val[6]+adc_val[10]+adc_val[14]);
-	  touch_raw[mux_sel+16]=0.25f*(adc_val[1]+adc_val[5]+adc_val[9]+adc_val[13]);
-	  touch_raw[mux_sel+32]=0.25f*(adc_val[0]+adc_val[4]+adc_val[8]+adc_val[12]);
+	  touch_raw[mux_sel] =  0.2f*(adc_val[2]+adc_val[6]+adc_val[10]+adc_val[14]+adc_val[18]);
+	  touch_raw[mux_sel+16]=0.2f*(adc_val[1]+adc_val[5]+adc_val[9] +adc_val[13]+adc_val[17]);
+	  touch_raw[mux_sel+32]=0.2f*(adc_val[0]+adc_val[4]+adc_val[8] +adc_val[12]+adc_val[16]);
+
 
 	  //removiong the offsets
 	  touch_p0[mux_sel]    = touch_raw[mux_sel] - touch_cal[mux_sel];
@@ -289,6 +299,7 @@ void pos_measure_f_cal(){
 	if(mux_sel==15 || mux_sel==0){
 		//system volume
 	    float vol_knob=(float)adc_val[3];
+
 	    peak.sys_vol=vol_knob*0.00025*0.0002;
 	    //touch position measurement
 		touch_mono();

@@ -3,20 +3,20 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="index_track"/>
+		<item value="distance_mat"/>
+		<item value="touch_poly_robust"/>
+		<item value="peak.flag"/>
+		<item value="touch_cal"/>
+		<item value="sys_vol"/>
+		<item value="FILTER_SAMPLES"/>
+		<item value="midi"/>
+		<item value="midi_pitch_bend"/>
 		<item value="operation_mode mode;"/>
 		<item value="TM1637_DisplayString(&quot;PLAY&quot;)"/>
 		<item value="PLAY"/>
 		<item value="new_setting_flag"/>
 		<item value="clean"/>
 		<item value="USBD_HID_Init"/>
-		<item value="fsd"/>
-		<item value="CUSTOM_HID_ReportDesc_FS"/>
-		<item value="HAL_PCD_DataOutCallback"/>
-		<item value="user"/>
-		<item value="rx"/>
-		<item value="rec"/>
-		<item value="USBD_VID"/>
-		<item value="USBD_VID "/>
-		<item value="vid"/>
 	</list>
 </section>

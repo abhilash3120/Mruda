@@ -1,0 +1,6 @@
+../Core/Src/function/synth.c:20:6:filter_vol	24	static
+../Core/Src/function/synth.c:48:6:buffer_gen	16	static
+../Core/Src/function/synth.c:81:6:buffer_gen_mono	16	static
+../Core/Src/function/synth.c:113:7:reverb_gen	48	static
+../Core/Src/function/synth.c:165:6:buf_diag_update	24	static
+../Core/Src/function/synth.c:194:6:fill_buffer	24	static

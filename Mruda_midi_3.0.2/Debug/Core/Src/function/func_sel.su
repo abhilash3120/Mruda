@@ -1,0 +1,15 @@
+../Core/Src/function/func_sel.c:66:6:display_menu	32	static
+../Core/Src/function/func_sel.c:76:6:Scale_Down	8	static
+../Core/Src/function/func_sel.c:85:6:Scale_Up	8	static
+../Core/Src/function/func_sel.c:92:6:Oct_Down	8	static
+../Core/Src/function/func_sel.c:99:6:Oct_Up	8	static
+../Core/Src/function/func_sel.c:107:6:Auto_Corr	8	static
+../Core/Src/function/func_sel.c:115:6:TS_Down	8	static
+../Core/Src/function/func_sel.c:122:6:TS_Up	8	static
+../Core/Src/function/func_sel.c:132:6:CH_Down	8	static
+../Core/Src/function/func_sel.c:140:6:CH_Up	8	static
+../Core/Src/function/func_sel.c:148:6:PB_Down	8	static
+../Core/Src/function/func_sel.c:155:6:PB_Up	8	static
+../Core/Src/function/func_sel.c:164:6:dispach	8	static
+../Core/Src/function/func_sel.c:182:6:do_pc_command	32	static
+../Core/Src/function/func_sel.c:230:6:function_process	16	static

@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/function/auto_corr.c \
 ../Core/Src/function/debugs.c \
 ../Core/Src/function/f_set.c \
 ../Core/Src/function/func_sel.c \
@@ -15,6 +16,7 @@ C_SRCS += \
 ../Core/Src/function/usb.c 
 
 OBJS += \
+./Core/Src/function/auto_corr.o \
 ./Core/Src/function/debugs.o \
 ./Core/Src/function/f_set.o \
 ./Core/Src/function/func_sel.o \
@@ -25,6 +27,7 @@ OBJS += \
 ./Core/Src/function/usb.o 
 
 C_DEPS += \
+./Core/Src/function/auto_corr.d \
 ./Core/Src/function/debugs.d \
 ./Core/Src/function/f_set.d \
 ./Core/Src/function/func_sel.d \
@@ -42,7 +45,7 @@ Core/Src/function/%.o Core/Src/function/%.su Core/Src/function/%.cyclo: ../Core/
 clean: clean-Core-2f-Src-2f-function
 
 clean-Core-2f-Src-2f-function:
-	-$(RM) ./Core/Src/function/debugs.cyclo ./Core/Src/function/debugs.d ./Core/Src/function/debugs.o ./Core/Src/function/debugs.su ./Core/Src/function/f_set.cyclo ./Core/Src/function/f_set.d ./Core/Src/function/f_set.o ./Core/Src/function/f_set.su ./Core/Src/function/func_sel.cyclo ./Core/Src/function/func_sel.d ./Core/Src/function/func_sel.o ./Core/Src/function/func_sel.su ./Core/Src/function/general_func.cyclo ./Core/Src/function/general_func.d ./Core/Src/function/general_func.o ./Core/Src/function/general_func.su ./Core/Src/function/measure.cyclo ./Core/Src/function/measure.d ./Core/Src/function/measure.o ./Core/Src/function/measure.su ./Core/Src/function/midi.cyclo ./Core/Src/function/midi.d ./Core/Src/function/midi.o ./Core/Src/function/midi.su ./Core/Src/function/synth.cyclo ./Core/Src/function/synth.d ./Core/Src/function/synth.o ./Core/Src/function/synth.su ./Core/Src/function/usb.cyclo ./Core/Src/function/usb.d ./Core/Src/function/usb.o ./Core/Src/function/usb.su
+	-$(RM) ./Core/Src/function/auto_corr.cyclo ./Core/Src/function/auto_corr.d ./Core/Src/function/auto_corr.o ./Core/Src/function/auto_corr.su ./Core/Src/function/debugs.cyclo ./Core/Src/function/debugs.d ./Core/Src/function/debugs.o ./Core/Src/function/debugs.su ./Core/Src/function/f_set.cyclo ./Core/Src/function/f_set.d ./Core/Src/function/f_set.o ./Core/Src/function/f_set.su ./Core/Src/function/func_sel.cyclo ./Core/Src/function/func_sel.d ./Core/Src/function/func_sel.o ./Core/Src/function/func_sel.su ./Core/Src/function/general_func.cyclo ./Core/Src/function/general_func.d ./Core/Src/function/general_func.o ./Core/Src/function/general_func.su ./Core/Src/function/measure.cyclo ./Core/Src/function/measure.d ./Core/Src/function/measure.o ./Core/Src/function/measure.su ./Core/Src/function/midi.cyclo ./Core/Src/function/midi.d ./Core/Src/function/midi.o ./Core/Src/function/midi.su ./Core/Src/function/synth.cyclo ./Core/Src/function/synth.d ./Core/Src/function/synth.o ./Core/Src/function/synth.su ./Core/Src/function/usb.cyclo ./Core/Src/function/usb.d ./Core/Src/function/usb.o ./Core/Src/function/usb.su
 
 .PHONY: clean-Core-2f-Src-2f-function
 

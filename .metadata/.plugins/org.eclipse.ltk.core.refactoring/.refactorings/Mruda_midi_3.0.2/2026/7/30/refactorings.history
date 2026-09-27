@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Mruda_midi_3.0.2/Mruda_3.0.0.ioc&apos; to &apos;Mruda_midi_3.0.2.ioc&apos;" description="Rename resource &apos;Mruda_3.0.0.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Mruda_3.0.0.ioc" name="Mruda_midi_3.0.2.ioc" stamp="1784540747298" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Mruda_midi_3.0.2/Debug/Mruda_3.0.0.elf&apos; to &apos;Mruda_midi_3.0.2.elf&apos;" description="Rename resource &apos;Mruda_3.0.0.elf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Debug/Mruda_3.0.0.elf" name="Mruda_midi_3.0.2.elf" stamp="1784540754601" updateReferences="true"/>
+</session>

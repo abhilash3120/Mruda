@@ -1,4 +1,5 @@
-
+#this is related to firmware update of the system
+#it sends the bin file in when bootlaoder in flash mode
 
 from PySide6.QtWidgets import QFileDialog
 from PySide6.QtWidgets import QMessageBox, QApplication
@@ -25,7 +26,6 @@ class firmware_update():
     def __init__(self, ui):
         self.ui = ui
         self.firmware_path = None
-        self.midi = setup(ui)
 
 
         self.ui.text_log.setReadOnly(True)
@@ -43,8 +43,6 @@ class firmware_update():
 
 
         
-
-
         
 
     def log_message(self, message: str):

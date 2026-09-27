@@ -17,6 +17,7 @@
 #include "function/general_func.h"
 #include "function/func_sel.h"
 #include "function/midi.h"
+#include "function/auto_corr.h"
 
 parameter_t set_para;
 
@@ -53,7 +54,7 @@ float default_preset[6][16] = {
 
 void set_defaults(){
 	set_para.touch_exp = touch_expo[2]; //sensivity default
-	set_para.auro_corr = auto_corr_val[0]; //autocorrect default
+	set_para.auro_corr = auto_corr_val[3]; //autocorrect default
 
 	set_para.p1 = ST_expo_val[0];
 	set_para.p2 = OE_dist_val[5];
@@ -95,19 +96,15 @@ static uint8_t last_sent_pressure = 0;
 static uint8_t midi_rate_counter = 0;
 
 void set_freq() {
-    // 1. Timing calculation
     rt2 = rt1;
     rt1 = micros();
     rdt = rt1 - rt2;
 
-    // ==========================================
-    // 2. HARDWARE MATH (Runs at full speed - 5ms)
-    // ==========================================
     float play;
     for (uint8_t i = 0; i < 3; i++) {
         if (peak.flag[i] == 1) {
 
-            key.abs[i] = peak.pos_out[i] + 21.0f - 0.5f;
+            key.abs[i] = peak.pos_out[i];
             key.snap[i] = (int)roundf(key.abs[i]);
 
             if (peak.flag_old[i] == 0) {
@@ -115,8 +112,9 @@ void set_freq() {
                 key.error[i] = 0;
             }
 
-            // Error is distance from RAW finger to NEAREST note
-            key.error[i] = (key.abs[i] + key.smooth[i]) - roundf(key.abs[i]);
+            key.snap_scale[i] = auto_correct(2, key.abs[i]);
+
+            key.error[i] = (key.abs[i] + key.smooth[i]) - key.snap_scale[i];
 
             // Adjust the smoothing offset to reduce that error
             key.smooth[i] -= set_para.auro_corr * key.error[i];
@@ -124,7 +122,7 @@ void set_freq() {
             // Final pitch is raw + the smoothing offset
             play = key.abs[i] + key.smooth[i];
 
-            key.play[i] = play + set_para.octave + set_para.transpose + set_para.tune;
+            key.play[i] = play + set_para.octave + set_para.transpose + set_para.tune + 15;
             key.freq[i] = 440.0f * powf(1.0594630f, (key.play[i] - 48));
             key.phase[i] = PHASE_FACT * key.freq[i];
         }
@@ -180,12 +178,12 @@ void set_freq() {
 
         midi_rate_counter++;
 
-        if (midi_rate_counter >= 4) {
+        if (midi_rate_counter >= 1) {
             midi_rate_counter = 0; // Reset counter
 
             // Pitch Bend Math (+/- 24 Semitones)
-            float pitch_diff = key.play[0] - (float)active_midi_note;
-            #define BEND_RANGE 24.0f
+            float pitch_diff = key.play[0] - (float)active_midi_note +21;
+            #define BEND_RANGE 12.0f
             int bend_int = 8192 + (int)((pitch_diff / BEND_RANGE) * 8191.0f);
 
             // CLAMP FIRST (Signed), THEN CAST (Unsigned) to prevent overflow bugs

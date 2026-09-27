@@ -403,29 +403,34 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setColumnStretch(0, 10)
         self.gridLayoutWidget = QWidget(self.tab)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(80, 60, 161, 121))
+        self.gridLayoutWidget.setGeometry(QRect(80, 60, 191, 121))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.connection = QPushButton(self.gridLayoutWidget)
-        self.connection.setObjectName(u"connection")
+        self.device = QComboBox(self.gridLayoutWidget)
+        self.device.setObjectName(u"device")
 
-        self.gridLayout.addWidget(self.connection, 1, 1, 1, 2)
+        self.gridLayout.addWidget(self.device, 1, 0, 1, 1)
+
+        self.midi_ac = QPushButton(self.gridLayoutWidget)
+        self.midi_ac.setObjectName(u"midi_ac")
+
+        self.gridLayout.addWidget(self.midi_ac, 2, 0, 1, 1)
 
         self.Refresh = QPushButton(self.gridLayoutWidget)
         self.Refresh.setObjectName(u"Refresh")
 
-        self.gridLayout.addWidget(self.Refresh, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.Refresh, 2, 1, 1, 1)
 
-        self.device = QComboBox(self.gridLayoutWidget)
-        self.device.setObjectName(u"device")
+        self.connection = QPushButton(self.gridLayoutWidget)
+        self.connection.setObjectName(u"connection")
 
-        self.gridLayout.addWidget(self.device, 0, 0, 1, 3)
+        self.gridLayout.addWidget(self.connection, 1, 1, 1, 1)
 
         self.status = QLineEdit(self.gridLayoutWidget)
         self.status.setObjectName(u"status")
 
-        self.gridLayout.addWidget(self.status, 2, 0, 1, 3)
+        self.gridLayout.addWidget(self.status, 4, 0, 1, 2)
 
         self.gridLayoutWidget_5 = QWidget(self.tab)
         self.gridLayoutWidget_5.setObjectName(u"gridLayoutWidget_5")
@@ -480,10 +485,14 @@ class Ui_MainWindow(object):
         self.path = QLineEdit(self.Update)
         self.path.setObjectName(u"path")
         self.path.setGeometry(QRect(300, 220, 231, 22))
+        font2 = QFont()
+        font2.setPointSize(8)
+        self.path.setFont(font2)
         self.path.setReadOnly(True)
         self.update_find = QPushButton(self.Update)
         self.update_find.setObjectName(u"update_find")
         self.update_find.setGeometry(QRect(170, 180, 351, 24))
+        self.update_find.setFont(font1)
         self.com_list = QComboBox(self.Update)
         self.com_list.setObjectName(u"com_list")
         self.com_list.setGeometry(QRect(170, 140, 181, 22))
@@ -505,7 +514,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -522,8 +531,9 @@ class Ui_MainWindow(object):
         self.lineEdit_8.setText(QCoreApplication.translate("MainWindow", u"Expo", None))
         self.lineEdit_3.setText(QCoreApplication.translate("MainWindow", u"Harm. Mix", None))
         self.lineEdit_2.setText(QCoreApplication.translate("MainWindow", u"Odd-even", None))
-        self.connection.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
+        self.midi_ac.setText(QCoreApplication.translate("MainWindow", u"AutoConnect", None))
         self.Refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.connection.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
         self.update.setText(QCoreApplication.translate("MainWindow", u"Update", None))
         self.def_but.setText(QCoreApplication.translate("MainWindow", u"Set Defaults", None))
         self.flash.setText(QCoreApplication.translate("MainWindow", u"Burn Settings", None))
@@ -531,7 +541,7 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Voice Edit", None))
         self.sel_file.setText(QCoreApplication.translate("MainWindow", u"Select file...", None))
         self.flash_mrida.setText(QCoreApplication.translate("MainWindow", u"Update", None))
-        self.update_find.setText(QCoreApplication.translate("MainWindow", u"Find and Connect", None))
+        self.update_find.setText(QCoreApplication.translate("MainWindow", u"Auto Connect", None))
         self.flash_connect.setText(QCoreApplication.translate("MainWindow", u"Connecct", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Update), QCoreApplication.translate("MainWindow", u"Update", None))
     # retranslateUi

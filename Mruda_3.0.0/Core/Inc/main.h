@@ -63,7 +63,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 
 
-#define SAMPLE_RATE 16000.0f  // Sample rate (Hz)
+#define SAMPLE_RATE 32000.0f  // Sample rate (Hz)
 #define TWOPI       360.0f
 #define BUFFER_SIZE 128
 
@@ -134,6 +134,8 @@ typedef struct peak_info{
 	int flag[poly_phony];
 	float pos[poly_phony];
 	float pos_old[poly_phony];
+	float vel[poly_phony];
+	float vel_old[poly_phony];
 	float pos_out[poly_phony];
 	float amp[poly_phony];
 	float amp_old[poly_phony];
@@ -159,6 +161,7 @@ typedef struct midi_data{
 typedef struct frequency_info{
 	float abs[poly_phony];
 	float play[poly_phony+2];
+	float snap_scale[poly_phony+2];
 	int snap[poly_phony+2];
 	float freq[poly_phony+2];
 	float phase[poly_phony+2];
@@ -170,6 +173,10 @@ typedef struct frequency_info{
 } frequency_Info;
 
 extern volatile uint32_t dfu_flag;
+
+
+
+
 
 /* USER CODE END Private defines */
 

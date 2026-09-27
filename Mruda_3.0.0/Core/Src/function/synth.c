@@ -29,14 +29,14 @@ void filter_vol(int ch){
 		if(key.vol_smooth[j] < 0.0001f)	key.vol_smooth[j] = 0.0f;
 	}
 
-	key.vol[3]=0.005f*key.vol[3]+0.995f*vol_old[3];
+	key.vol[3]=0.003f*key.vol[3]+0.997f*vol_old[3];
 	vol_old[3]=key.vol[3];
-	key.vol_smooth[3]=0.0002f*key.vol[3]+0.9998f*vol_smooth_old[3];
+	key.vol_smooth[3]=0.0001f*key.vol[3]+0.9999f*vol_smooth_old[3];
 	vol_smooth_old[3]=key.vol_smooth[3];
 
-	key.vol[4]=0.005f*key.vol[4]+0.995f*vol_old[4];
+	key.vol[4]=0.003f*key.vol[4]+0.997f*vol_old[4];
 	vol_old[4]=key.vol[4];
-	key.vol_smooth[4]=0.0002f*key.vol[4]+0.9998f*vol_smooth_old[4];
+	key.vol_smooth[4]=0.0001f*key.vol[4]+0.9999f*vol_smooth_old[4];
 	vol_smooth_old[4]=key.vol_smooth[4];
 }
 
