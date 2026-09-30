@@ -1,0 +1,224 @@
+/*
+ * f_set.c
+ *
+ *  Created on: Mar 7, 2026
+ *      Author: abhil
+ */
+
+
+
+#include "stm32f4xx.h"
+#include "main.h"
+#include "math.h"
+#include <stdlib.h>
+#include "tm1637.h"
+#include "function/f_set.h"
+#include "function/measure.h"
+#include "function/general_func.h"
+#include "function/func_sel.h"
+#include "function/midi.h"
+#include "function/auto_corr.h"
+
+parameter_t set_para;
+
+
+float touch_expo[5]={1.1,1.25,1.34,1.55,1.7};
+float auto_corr_val[6]={0,0.01,0.02,0.05,0.15, 0.25};
+float reverb_val[10]={0,0.03,0.1,0.171,0.273,0.39,0.523,0.669,0.83,0.98};
+float ST_expo_val[10]={0,-0.2,-0.6,-0.8,-1,-1.2,-1.4,-1.6,-1.8,-2};
+float OE_dist_val[10]={4,3,2.5,2,1.5,1,0.66,0.5,0.2,0.33};
+float octave_mix_val[10]={0,15,30,45,60,75,90,105,120,135};
+float drone_vol_lookup[11] = {0.0000, 0.01, 0.033, 0.062, 0.1, 0.14, 0.181, 0.23,  0.28, 0.33, 0.6 };
+
+
+float preset[6][16] = {
+    {0.15f, 0.15f, 0.1f, 0.1f, 0.07f, 0.03f, 0.015f, 0.02f, 0.005f, 0.01f, 0, 0.005f, 0, 0.005f, 0, 0.005f}, // Index 0
+	{0.25f, 0.00f, 0.1f, 0.0f, 0.04f, 0.00f, 0.010f, 0.00f, 0.002f, 0.00f, 0, 0.002f, 0, 0.002f, 0, 0.000f},  // Index 1
+    {0.50f, 0.00f, 0.0f, 0.0f, 0.00f, 0.00f, 0.000f, 0.00f, 0.000f, 0.00f, 0, 0.000f, 0, 0.000f, 0, 0.000f},  // Index 1
+	{1.0f, 1.00f, 1.0f, 1.0f, 1.00f, 1.00f, 1.000f, 1.00f, 1.000f, 1.00f, 1, 1.000f, 1, 0.000f, 0, 0.000f},  // Index 1
+	{1.0f, 1.00f, 1.0f, 1.0f, 1.00f, 1.00f, 1.000f, 1.00f, 1.000f, 1.00f, 1, 1.000f, 1, 0.000f, 0, 0.000f},  // Index 1
+    {0.15f, 0.15f, 0.1f, 0.1f, 0.07f, 0.03f, 0.015f, 0.02f, 0.005f, 0.01f, 0, 0.005f, 0, 0.005f, 0, 0.005f} // Index 0
+};
+
+
+float default_preset[6][16] = {
+		{127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4},
+		{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64},
+		{64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64},
+		{127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4}
+};
+
+
+
+void set_defaults(){
+
+	tanpura.sec_note = t_PA;
+	set_para.touch_exp = touch_expo[2]; //sensivity default
+	set_para.auro_corr = auto_corr_val[3]; //autocorrect default
+
+	set_para.p1 = ST_expo_val[0];
+	set_para.p2 = OE_dist_val[5];
+	set_para.p3 = octave_mix_val[0];
+
+	//transpose and shifts default
+	set_para.tune = 0;
+	set_para.transpose = 0;
+	set_para.octave = 0;
+
+	//sound related defautls
+	set_para.reverb = reverb_val[3];
+
+	//tanpura defaults
+	func_val[41]= 3;
+	tanpura.vol = drone_vol_lookup[func_val[41]];
+	key.play[3] = 22;
+	key.play[4] = 27;
+	key.freq[3] = 440.0f * powf(1.0594630f, (key.play[3] - 48));
+	key.freq[4] = 440.0f * powf(1.0594630f, (key.play[4] - 48));
+	key.phase[3] = PHASE_FACT * key.freq[3];
+	key.phase[4] = PHASE_FACT * key.freq[4];
+
+	set_para.preset = 0;
+}
+
+
+frequency_Info key;
+midi_info midi;
+long rt1,rt2,rdt;
+// Add these static variables near the top of your file or right before the function.
+// They must retain their values between loop iterations.
+#define FILTER_SAMPLES 4
+static float pressure_buffer[FILTER_SAMPLES] = {0};
+static uint8_t buffer_index = 0;
+
+static uint8_t active_midi_note = 0;
+static uint8_t last_sent_pressure = 0;
+static uint8_t midi_rate_counter = 0;
+
+void set_freq() {
+    rt2 = rt1;
+    rt1 = micros();
+    rdt = rt1 - rt2;
+
+    float play;
+    for (uint8_t i = 0; i < 3; i++) {
+        if (peak.flag[i] == 1) {
+
+            key.abs[i] = peak.pos_out[i];
+            key.snap[i] = (int)roundf(key.abs[i]) - 6;
+
+            if (peak.flag_old[i] == 0) {
+                key.smooth[i] = 0;
+                key.error[i] = 0;
+            }
+
+
+            float rest_factor;
+            float rf_min = 0.1;
+            float rf_max = 1;
+
+            if (peak.vel[0] <= rf_min) {
+                rest_factor = rf_max; // 100% autocorrect below 0.05
+            } else if (peak.vel[0] >= rf_max) {
+                rest_factor = 0.0f; // 0% autocorrect above 1.0
+            } else {
+                rest_factor = rf_max - ((peak.vel[0] - rf_min) / (rf_max - rf_min));
+            }
+
+            peak.dy_corr[i] = rest_factor * set_para.auro_corr;
+
+            key.snap_scale[i] = auto_correct(set_para.AC_scale, key.abs[i]);
+
+            key.error[i] = (key.abs[i] + key.smooth[i]) - key.snap_scale[i];
+
+            // Adjust the smoothing offset to reduce that error
+            key.smooth[i] -= peak.dy_corr[i] * key.error[i];
+
+            // Final pitch is raw + the smoothing offset
+            play = key.abs[i] + key.smooth[i];
+
+            key.play[i] = play + set_para.octave + set_para.transpose + set_para.tune + 15;
+            key.freq[i] = 440.0f * powf(1.0594630f, (key.play[i] - 48));
+            key.phase[i] = PHASE_FACT * key.freq[i];
+        }
+    }
+
+    // ==========================================
+    // 3. MIDI LOGIC (For peak 0)
+    // ==========================================
+
+    // Calculate Robust Pressure (Moving Average over last 4 loops)
+    pressure_buffer[buffer_index] = key.vol_smooth[0];
+    buffer_index = (buffer_index + 1) % FILTER_SAMPLES;
+
+    float robust_pressure_float = 0;
+    for(int i = 0; i < FILTER_SAMPLES; i++) {
+        robust_pressure_float += pressure_buffer[i];
+    }
+    robust_pressure_float /= FILTER_SAMPLES;
+
+    midi.pressure = (uint8_t)(127.0f * robust_pressure_float);
+
+
+    // --- INSTANT ACTIONS (Evaluated every loop) ---
+
+    // NOTE OFF
+    if(peak.flag[0] == 0 && peak.flag_old[0] == 1){
+        midi_note_off(active_midi_note, 64);
+
+        midi_pitch_bend(8192); // Snap pitch back to center
+        midi.last_bend = 8192;
+        last_sent_pressure = 0; // Reset pressure state
+    }
+
+    // NOTE ON
+    if(peak.flag[0] == 1 && peak.flag_old[0] == 0){
+        uint8_t internal_note = (uint8_t)roundf(key.play[0]);
+        // 2. Add 21 to translate it to standard MIDI (e.g., 69)
+        active_midi_note = internal_note + 21;
+
+        midi.note = active_midi_note;
+        midi_note_on(active_midi_note, 100);
+
+        // Force an immediate pressure update to wake up synth envelopes
+        midi_pressure(active_midi_note, midi.pressure);
+        last_sent_pressure = midi.pressure;
+    }
+
+
+    // --- SLOW ACTIONS (Rate-limited to every 4th loop ~ 20ms) ---
+
+    // CONTINUOUS SLIDING
+    else if(peak.flag[0] == 1 && peak.flag_old[0] == 1) {
+
+        midi_rate_counter++;
+
+        if (midi_rate_counter >= 1) {
+            midi_rate_counter = 0; // Reset counter
+
+            // Pitch Bend Math (+/- 24 Semitones)
+            float pitch_diff = key.play[0] - (float)active_midi_note +21;
+            #define BEND_RANGE 12.0f
+            int bend_int = 8192 + (int)((pitch_diff / BEND_RANGE) * 8191.0f);
+
+            // CLAMP FIRST (Signed), THEN CAST (Unsigned) to prevent overflow bugs
+            if(bend_int > 16383) bend_int = 16383;
+            if(bend_int < 0) bend_int = 0;
+            midi.bend = (uint16_t)bend_int;
+
+            // Send Bend ONLY if changed
+            if(midi.bend != midi.last_bend) {
+                midi_pitch_bend(midi.bend);
+                midi.last_bend = midi.bend;
+            }
+
+            // Send Pressure ONLY if changed
+            if(midi.pressure != last_sent_pressure) {
+                midi_pressure(active_midi_note, midi.pressure);
+                last_sent_pressure = midi.pressure;
+            }
+        }
+    }
+}

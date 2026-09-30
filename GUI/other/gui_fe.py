@@ -17,20 +17,55 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QGridLayout,
     QLineEdit, QMainWindow, QMenuBar, QProgressBar,
-    QPushButton, QSizePolicy, QSlider, QSpinBox,
-    QStatusBar, QTabWidget, QTextEdit, QWidget)
+    QPushButton, QRadioButton, QSizePolicy, QSlider,
+    QSpacerItem, QSpinBox, QStatusBar, QTabWidget,
+    QTextEdit, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1032, 624)
+        MainWindow.resize(1032, 623)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.formLayout = QFormLayout(self.centralwidget)
         self.formLayout.setObjectName(u"formLayout")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.gridLayoutWidget = QWidget(self.tab_3)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(380, 70, 191, 121))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.device = QComboBox(self.gridLayoutWidget)
+        self.device.setObjectName(u"device")
+
+        self.gridLayout.addWidget(self.device, 1, 0, 1, 1)
+
+        self.midi_ac = QPushButton(self.gridLayoutWidget)
+        self.midi_ac.setObjectName(u"midi_ac")
+
+        self.gridLayout.addWidget(self.midi_ac, 2, 0, 1, 1)
+
+        self.Refresh = QPushButton(self.gridLayoutWidget)
+        self.Refresh.setObjectName(u"Refresh")
+
+        self.gridLayout.addWidget(self.Refresh, 2, 1, 1, 1)
+
+        self.connection = QPushButton(self.gridLayoutWidget)
+        self.connection.setObjectName(u"connection")
+
+        self.gridLayout.addWidget(self.connection, 1, 1, 1, 1)
+
+        self.status = QLineEdit(self.gridLayoutWidget)
+        self.status.setObjectName(u"status")
+
+        self.gridLayout.addWidget(self.status, 4, 0, 1, 2)
+
+        self.tabWidget.addTab(self.tab_3, "")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.gridLayoutWidget_3 = QWidget(self.tab)
@@ -55,6 +90,7 @@ class Ui_MainWindow(object):
 
         self.lineEdit = QLineEdit(self.gridLayoutWidget_3)
         self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setMaxLength(32778)
         self.lineEdit.setReadOnly(True)
 
         self.gridLayout_3.addWidget(self.lineEdit, 1, 0, 1, 1)
@@ -401,40 +437,9 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.v9, 9, 1, 1, 1)
 
         self.gridLayout_2.setColumnStretch(0, 10)
-        self.gridLayoutWidget = QWidget(self.tab)
-        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(80, 60, 191, 121))
-        self.gridLayout = QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.device = QComboBox(self.gridLayoutWidget)
-        self.device.setObjectName(u"device")
-
-        self.gridLayout.addWidget(self.device, 1, 0, 1, 1)
-
-        self.midi_ac = QPushButton(self.gridLayoutWidget)
-        self.midi_ac.setObjectName(u"midi_ac")
-
-        self.gridLayout.addWidget(self.midi_ac, 2, 0, 1, 1)
-
-        self.Refresh = QPushButton(self.gridLayoutWidget)
-        self.Refresh.setObjectName(u"Refresh")
-
-        self.gridLayout.addWidget(self.Refresh, 2, 1, 1, 1)
-
-        self.connection = QPushButton(self.gridLayoutWidget)
-        self.connection.setObjectName(u"connection")
-
-        self.gridLayout.addWidget(self.connection, 1, 1, 1, 1)
-
-        self.status = QLineEdit(self.gridLayoutWidget)
-        self.status.setObjectName(u"status")
-
-        self.gridLayout.addWidget(self.status, 4, 0, 1, 2)
-
         self.gridLayoutWidget_5 = QWidget(self.tab)
         self.gridLayoutWidget_5.setObjectName(u"gridLayoutWidget_5")
-        self.gridLayoutWidget_5.setGeometry(QRect(290, 60, 201, 121))
+        self.gridLayoutWidget_5.setGeometry(QRect(90, 40, 201, 121))
         self.gridLayout_5 = QGridLayout(self.gridLayoutWidget_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -467,6 +472,687 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.send, 4, 0, 1, 2)
 
         self.tabWidget.addTab(self.tab, "")
+        self.scale = QWidget()
+        self.scale.setObjectName(u"scale")
+        self.gridLayoutWidget_4 = QWidget(self.scale)
+        self.gridLayoutWidget_4.setObjectName(u"gridLayoutWidget_4")
+        self.gridLayoutWidget_4.setGeometry(QRect(60, 10, 541, 491))
+        self.gridLayout_4 = QGridLayout(self.gridLayoutWidget_4)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.scale_sb8 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb8.setObjectName(u"scale_sb8")
+        self.scale_sb8.setMinimum(-50)
+        self.scale_sb8.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb8, 9, 3, 1, 1)
+
+        self.scale_sb1 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb1.setObjectName(u"scale_sb1")
+        self.scale_sb1.setMinimum(-50)
+        self.scale_sb1.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb1, 16, 3, 1, 1)
+
+        self.scale_r7 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r7.setObjectName(u"scale_r7")
+
+        self.gridLayout_4.addWidget(self.scale_r7, 10, 2, 1, 1)
+
+        self.scale_r5 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r5.setObjectName(u"scale_r5")
+
+        self.gridLayout_4.addWidget(self.scale_r5, 12, 2, 1, 1)
+
+        self.scale_sb6 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb6.setObjectName(u"scale_sb6")
+        self.scale_sb6.setMinimum(-50)
+        self.scale_sb6.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb6, 11, 3, 1, 1)
+
+        self.scale_r3 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r3.setObjectName(u"scale_r3")
+
+        self.gridLayout_4.addWidget(self.scale_r3, 14, 2, 1, 1)
+
+        self.scale_s1 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s1.setObjectName(u"scale_s1")
+        self.scale_s1.setMinimum(-50)
+        self.scale_s1.setMaximum(50)
+        self.scale_s1.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s1, 16, 4, 1, 2)
+
+        self.scale_r11 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r11.setObjectName(u"scale_r11")
+
+        self.gridLayout_4.addWidget(self.scale_r11, 6, 2, 1, 1)
+
+        self.scale_sb7 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb7.setObjectName(u"scale_sb7")
+        self.scale_sb7.setMinimum(-50)
+        self.scale_sb7.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb7, 10, 3, 1, 1)
+
+        self.scale_sb11 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb11.setObjectName(u"scale_sb11")
+        self.scale_sb11.setMinimum(-50)
+        self.scale_sb11.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb11, 6, 3, 1, 1)
+
+        self.scale_s11 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s11.setObjectName(u"scale_s11")
+        self.scale_s11.setMinimum(-50)
+        self.scale_s11.setMaximum(50)
+        self.scale_s11.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s11, 6, 4, 1, 2)
+
+        self.scale_sb12 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb12.setObjectName(u"scale_sb12")
+        self.scale_sb12.setMinimum(-50)
+        self.scale_sb12.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb12, 5, 3, 1, 1)
+
+        self.scale_b7 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b7.setObjectName(u"scale_b7")
+
+        self.gridLayout_4.addWidget(self.scale_b7, 10, 0, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_4.addItem(self.verticalSpacer_2, 17, 0, 1, 1)
+
+        self.scale_r9 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r9.setObjectName(u"scale_r9")
+
+        self.gridLayout_4.addWidget(self.scale_r9, 8, 2, 1, 1)
+
+        self.scale_sb4 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb4.setObjectName(u"scale_sb4")
+        self.scale_sb4.setMinimum(-50)
+        self.scale_sb4.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb4, 13, 3, 1, 1)
+
+        self.scale_sb2 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb2.setObjectName(u"scale_sb2")
+        self.scale_sb2.setMinimum(-50)
+        self.scale_sb2.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb2, 15, 3, 1, 1)
+
+        self.scale_r4 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r4.setObjectName(u"scale_r4")
+
+        self.gridLayout_4.addWidget(self.scale_r4, 13, 2, 1, 1)
+
+        self.scale_s8 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s8.setObjectName(u"scale_s8")
+        self.scale_s8.setMinimum(-50)
+        self.scale_s8.setMaximum(50)
+        self.scale_s8.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s8, 9, 4, 1, 2)
+
+        self.scale_r6 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r6.setObjectName(u"scale_r6")
+
+        self.gridLayout_4.addWidget(self.scale_r6, 11, 2, 1, 1)
+
+        self.scale_r2 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r2.setObjectName(u"scale_r2")
+
+        self.gridLayout_4.addWidget(self.scale_r2, 15, 2, 1, 1)
+
+        self.scale_sb5 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb5.setObjectName(u"scale_sb5")
+        self.scale_sb5.setMinimum(-50)
+        self.scale_sb5.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb5, 12, 3, 1, 1)
+
+        self.scale_sb3 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb3.setObjectName(u"scale_sb3")
+        self.scale_sb3.setMinimum(-50)
+        self.scale_sb3.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb3, 14, 3, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_4.addItem(self.verticalSpacer_5, 4, 0, 1, 1)
+
+        self.scale_s3 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s3.setObjectName(u"scale_s3")
+        self.scale_s3.setMinimum(-50)
+        self.scale_s3.setMaximum(50)
+        self.scale_s3.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s3, 14, 4, 1, 2)
+
+        self.scale_s10 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s10.setObjectName(u"scale_s10")
+        self.scale_s10.setMinimum(-50)
+        self.scale_s10.setMaximum(50)
+        self.scale_s10.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s10, 7, 4, 1, 2)
+
+        self.scale_slot = QComboBox(self.gridLayoutWidget_4)
+        self.scale_slot.setObjectName(u"scale_slot")
+
+        self.gridLayout_4.addWidget(self.scale_slot, 1, 5, 1, 1)
+
+        self.scale_s6 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s6.setObjectName(u"scale_s6")
+        self.scale_s6.setMinimum(-50)
+        self.scale_s6.setMaximum(50)
+        self.scale_s6.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s6, 11, 4, 1, 2)
+
+        self.scale_s9 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s9.setObjectName(u"scale_s9")
+        self.scale_s9.setMinimum(-50)
+        self.scale_s9.setMaximum(50)
+        self.scale_s9.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s9, 8, 4, 1, 2)
+
+        self.scale_sb10 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb10.setObjectName(u"scale_sb10")
+        self.scale_sb10.setMinimum(-50)
+        self.scale_sb10.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb10, 7, 3, 1, 1)
+
+        self.scale_s7 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s7.setObjectName(u"scale_s7")
+        self.scale_s7.setMinimum(-50)
+        self.scale_s7.setMaximum(50)
+        self.scale_s7.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s7, 10, 4, 1, 2)
+
+        self.scale_title_slot = QLineEdit(self.gridLayoutWidget_4)
+        self.scale_title_slot.setObjectName(u"scale_title_slot")
+        font2 = QFont()
+        font2.setPointSize(9)
+        font2.setBold(True)
+        self.scale_title_slot.setFont(font2)
+        self.scale_title_slot.setAlignment(Qt.AlignCenter)
+        self.scale_title_slot.setReadOnly(True)
+
+        self.gridLayout_4.addWidget(self.scale_title_slot, 0, 5, 1, 1)
+
+        self.scale_s2 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s2.setObjectName(u"scale_s2")
+        self.scale_s2.setMinimum(-50)
+        self.scale_s2.setMaximum(50)
+        self.scale_s2.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s2, 15, 4, 1, 2)
+
+        self.scale_b9 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b9.setObjectName(u"scale_b9")
+
+        self.gridLayout_4.addWidget(self.scale_b9, 8, 0, 1, 1)
+
+        self.scale_b4 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b4.setObjectName(u"scale_b4")
+
+        self.gridLayout_4.addWidget(self.scale_b4, 13, 0, 1, 1)
+
+        self.scale_s12 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s12.setObjectName(u"scale_s12")
+        self.scale_s12.setMinimum(-50)
+        self.scale_s12.setMaximum(50)
+        self.scale_s12.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s12, 5, 4, 1, 2)
+
+        self.scale_s5 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s5.setObjectName(u"scale_s5")
+        self.scale_s5.setMinimum(-50)
+        self.scale_s5.setMaximum(50)
+        self.scale_s5.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s5, 12, 4, 1, 2)
+
+        self.scale_r8 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r8.setObjectName(u"scale_r8")
+
+        self.gridLayout_4.addWidget(self.scale_r8, 9, 2, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_4.addItem(self.verticalSpacer, 2, 2, 1, 1)
+
+        self.lineEdit_11 = QLineEdit(self.gridLayoutWidget_4)
+        self.lineEdit_11.setObjectName(u"lineEdit_11")
+        self.lineEdit_11.setFont(font1)
+        self.lineEdit_11.setAlignment(Qt.AlignCenter)
+        self.lineEdit_11.setReadOnly(True)
+
+        self.gridLayout_4.addWidget(self.lineEdit_11, 3, 3, 1, 3)
+
+        self.scale_r1 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r1.setObjectName(u"scale_r1")
+
+        self.gridLayout_4.addWidget(self.scale_r1, 16, 2, 1, 1)
+
+        self.scale_b2 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b2.setObjectName(u"scale_b2")
+
+        self.gridLayout_4.addWidget(self.scale_b2, 15, 0, 1, 1)
+
+        self.scale_b11 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b11.setObjectName(u"scale_b11")
+
+        self.gridLayout_4.addWidget(self.scale_b11, 6, 0, 1, 1)
+
+        self.scale_to_mruda = QPushButton(self.gridLayoutWidget_4)
+        self.scale_to_mruda.setObjectName(u"scale_to_mruda")
+        self.scale_to_mruda.setFont(font1)
+
+        self.gridLayout_4.addWidget(self.scale_to_mruda, 18, 0, 1, 3)
+
+        self.scale_r12 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r12.setObjectName(u"scale_r12")
+        self.scale_r12.setMaximumSize(QSize(50, 16777215))
+
+        self.gridLayout_4.addWidget(self.scale_r12, 5, 2, 1, 1)
+
+        self.scale_nat_ch = QComboBox(self.gridLayoutWidget_4)
+        self.scale_nat_ch.setObjectName(u"scale_nat_ch")
+
+        self.gridLayout_4.addWidget(self.scale_nat_ch, 1, 3, 1, 1)
+
+        self.scale_r10 = QRadioButton(self.gridLayoutWidget_4)
+        self.scale_r10.setObjectName(u"scale_r10")
+
+        self.gridLayout_4.addWidget(self.scale_r10, 7, 2, 1, 1)
+
+        self.scale_burn_mruda = QPushButton(self.gridLayoutWidget_4)
+        self.scale_burn_mruda.setObjectName(u"scale_burn_mruda")
+        self.scale_burn_mruda.setFont(font1)
+
+        self.gridLayout_4.addWidget(self.scale_burn_mruda, 18, 4, 1, 2)
+
+        self.scale_title_s_type = QLineEdit(self.gridLayoutWidget_4)
+        self.scale_title_s_type.setObjectName(u"scale_title_s_type")
+        self.scale_title_s_type.setFont(font2)
+        self.scale_title_s_type.setAlignment(Qt.AlignCenter)
+        self.scale_title_s_type.setReadOnly(True)
+
+        self.gridLayout_4.addWidget(self.scale_title_s_type, 0, 3, 1, 1)
+
+        self.scale_sb9 = QSpinBox(self.gridLayoutWidget_4)
+        self.scale_sb9.setObjectName(u"scale_sb9")
+        self.scale_sb9.setMinimum(-50)
+        self.scale_sb9.setMaximum(50)
+
+        self.gridLayout_4.addWidget(self.scale_sb9, 8, 3, 1, 1)
+
+        self.scale_s4 = QSlider(self.gridLayoutWidget_4)
+        self.scale_s4.setObjectName(u"scale_s4")
+        self.scale_s4.setMinimum(-50)
+        self.scale_s4.setMaximum(50)
+        self.scale_s4.setOrientation(Qt.Horizontal)
+
+        self.gridLayout_4.addWidget(self.scale_s4, 13, 4, 1, 2)
+
+        self.lineEdit_10 = QLineEdit(self.gridLayoutWidget_4)
+        self.lineEdit_10.setObjectName(u"lineEdit_10")
+        self.lineEdit_10.setFont(font1)
+        self.lineEdit_10.setAlignment(Qt.AlignCenter)
+        self.lineEdit_10.setReadOnly(True)
+
+        self.gridLayout_4.addWidget(self.lineEdit_10, 3, 2, 1, 1)
+
+        self.pushButton_4 = QPushButton(self.gridLayoutWidget_4)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setFont(font1)
+
+        self.gridLayout_4.addWidget(self.pushButton_4, 18, 3, 1, 1)
+
+        self.scale_b1 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b1.setObjectName(u"scale_b1")
+
+        self.gridLayout_4.addWidget(self.scale_b1, 16, 0, 1, 2)
+
+        self.scale_b3 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b3.setObjectName(u"scale_b3")
+
+        self.gridLayout_4.addWidget(self.scale_b3, 14, 0, 1, 2)
+
+        self.scale_b5 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b5.setObjectName(u"scale_b5")
+
+        self.gridLayout_4.addWidget(self.scale_b5, 12, 0, 1, 2)
+
+        self.scale_b6 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b6.setObjectName(u"scale_b6")
+
+        self.gridLayout_4.addWidget(self.scale_b6, 11, 0, 1, 2)
+
+        self.scale_b8 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b8.setObjectName(u"scale_b8")
+
+        self.gridLayout_4.addWidget(self.scale_b8, 9, 0, 1, 2)
+
+        self.scale_b10 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b10.setObjectName(u"scale_b10")
+
+        self.gridLayout_4.addWidget(self.scale_b10, 7, 0, 1, 2)
+
+        self.scale_b12 = QPushButton(self.gridLayoutWidget_4)
+        self.scale_b12.setObjectName(u"scale_b12")
+
+        self.gridLayout_4.addWidget(self.scale_b12, 5, 0, 1, 2)
+
+        self.lineEdit_9 = QLineEdit(self.gridLayoutWidget_4)
+        self.lineEdit_9.setObjectName(u"lineEdit_9")
+        self.lineEdit_9.setFont(font1)
+        self.lineEdit_9.setAlignment(Qt.AlignCenter)
+        self.lineEdit_9.setReadOnly(True)
+
+        self.gridLayout_4.addWidget(self.lineEdit_9, 3, 0, 1, 2)
+
+        self.type_w_i = QComboBox(self.gridLayoutWidget_4)
+        self.type_w_i.setObjectName(u"type_w_i")
+
+        self.gridLayout_4.addWidget(self.type_w_i, 1, 0, 1, 2)
+
+        self.scale_title_type = QLineEdit(self.gridLayoutWidget_4)
+        self.scale_title_type.setObjectName(u"scale_title_type")
+        self.scale_title_type.setFont(font1)
+        self.scale_title_type.setAlignment(Qt.AlignCenter)
+        self.scale_title_type.setReadOnly(True)
+
+        self.gridLayout_4.addWidget(self.scale_title_type, 0, 0, 1, 2)
+
+        self.gridLayout_4.setColumnStretch(0, 5)
+        self.gridLayout_4.setColumnStretch(1, 1)
+        self.gridLayout_4.setColumnStretch(2, 2)
+        self.gridLayout_4.setColumnStretch(3, 3)
+        self.gridLayout_4.setColumnStretch(4, 3)
+        self.gridLayout_4.setColumnStretch(5, 3)
+        self.textEdit = QTextEdit(self.scale)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setGeometry(QRect(630, 10, 331, 171))
+        self.tabWidget.addTab(self.scale, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.gridLayoutWidget_6 = QWidget(self.tab_2)
+        self.gridLayoutWidget_6.setObjectName(u"gridLayoutWidget_6")
+        self.gridLayoutWidget_6.setGeometry(QRect(50, 20, 541, 401))
+        self.gridLayout_6 = QGridLayout(self.gridLayoutWidget_6)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_6.addItem(self.verticalSpacer_3, 1, 0, 1, 1)
+
+        self.lineEdit_20 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_20.setObjectName(u"lineEdit_20")
+        self.lineEdit_20.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_20, 10, 0, 1, 1)
+
+        self.lineEdit_15 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_15.setObjectName(u"lineEdit_15")
+        self.lineEdit_15.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_15, 5, 0, 1, 1)
+
+        self.d_tune = QSpinBox(self.gridLayoutWidget_6)
+        self.d_tune.setObjectName(u"d_tune")
+        self.d_tune.setMinimum(-50)
+        self.d_tune.setMaximum(50)
+
+        self.gridLayout_6.addWidget(self.d_tune, 5, 1, 1, 1)
+
+        self.default_burn = QPushButton(self.gridLayoutWidget_6)
+        self.default_burn.setObjectName(u"default_burn")
+        self.default_burn.setFont(font1)
+
+        self.gridLayout_6.addWidget(self.default_burn, 14, 2, 1, 2)
+
+        self.d_voice_p1 = QComboBox(self.gridLayoutWidget_6)
+        self.d_voice_p1.setObjectName(u"d_voice_p1")
+
+        self.gridLayout_6.addWidget(self.d_voice_p1, 10, 1, 1, 1)
+
+        self.comboBox_19 = QComboBox(self.gridLayoutWidget_6)
+        self.comboBox_19.setObjectName(u"comboBox_19")
+
+        self.gridLayout_6.addWidget(self.comboBox_19, 10, 3, 1, 1)
+
+        self.d_voice_def = QComboBox(self.gridLayoutWidget_6)
+        self.d_voice_def.setObjectName(u"d_voice_def")
+
+        self.gridLayout_6.addWidget(self.d_voice_def, 9, 1, 1, 1)
+
+        self.d_transpose = QComboBox(self.gridLayoutWidget_6)
+        self.d_transpose.setObjectName(u"d_transpose")
+
+        self.gridLayout_6.addWidget(self.d_transpose, 3, 1, 1, 1)
+
+        self.d_sustain = QComboBox(self.gridLayoutWidget_6)
+        self.d_sustain.setObjectName(u"d_sustain")
+
+        self.gridLayout_6.addWidget(self.d_sustain, 8, 1, 1, 1)
+
+        self.lineEdit_26 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_26.setObjectName(u"lineEdit_26")
+        self.lineEdit_26.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_26, 6, 2, 1, 1)
+
+        self.lineEdit_21 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_21.setObjectName(u"lineEdit_21")
+        self.lineEdit_21.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_21, 11, 0, 1, 1)
+
+        self.lineEdit_19 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_19.setObjectName(u"lineEdit_19")
+        self.lineEdit_19.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_19, 9, 0, 1, 1)
+
+        self.lineEdit_13 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_13.setObjectName(u"lineEdit_13")
+        self.lineEdit_13.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_13, 3, 0, 1, 1)
+
+        self.lineEdit_23 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_23.setObjectName(u"lineEdit_23")
+        self.lineEdit_23.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_23, 3, 2, 1, 1)
+
+        self.d_tanpura_state = QComboBox(self.gridLayoutWidget_6)
+        self.d_tanpura_state.setObjectName(u"d_tanpura_state")
+
+        self.gridLayout_6.addWidget(self.d_tanpura_state, 6, 3, 1, 1)
+
+        self.lineEdit_14 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_14.setObjectName(u"lineEdit_14")
+        self.lineEdit_14.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_14, 4, 0, 1, 1)
+
+        self.lineEdit_25 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_25.setObjectName(u"lineEdit_25")
+        self.lineEdit_25.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_25, 5, 2, 1, 1)
+
+        self.d_tanpura_sec = QComboBox(self.gridLayoutWidget_6)
+        self.d_tanpura_sec.setObjectName(u"d_tanpura_sec")
+
+        self.gridLayout_6.addWidget(self.d_tanpura_sec, 9, 3, 1, 1)
+
+        self.lineEdit_12 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_12.setObjectName(u"lineEdit_12")
+        self.lineEdit_12.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_12, 2, 0, 1, 1)
+
+        self.d_reverb = QComboBox(self.gridLayoutWidget_6)
+        self.d_reverb.setObjectName(u"d_reverb")
+
+        self.gridLayout_6.addWidget(self.d_reverb, 7, 1, 1, 1)
+
+        self.lineEdit_17 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_17.setObjectName(u"lineEdit_17")
+        self.lineEdit_17.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_17, 7, 0, 1, 1)
+
+        self.lineEdit_31 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_31.setObjectName(u"lineEdit_31")
+
+        self.gridLayout_6.addWidget(self.lineEdit_31, 11, 2, 1, 1)
+
+        self.d_tanpura_scale = QComboBox(self.gridLayoutWidget_6)
+        self.d_tanpura_scale.setObjectName(u"d_tanpura_scale")
+
+        self.gridLayout_6.addWidget(self.d_tanpura_scale, 7, 3, 1, 1)
+
+        self.d_tanpura_vol = QComboBox(self.gridLayoutWidget_6)
+        self.d_tanpura_vol.setObjectName(u"d_tanpura_vol")
+
+        self.gridLayout_6.addWidget(self.d_tanpura_vol, 8, 3, 1, 1)
+
+        self.d_octave = QComboBox(self.gridLayoutWidget_6)
+        self.d_octave.setObjectName(u"d_octave")
+
+        self.gridLayout_6.addWidget(self.d_octave, 4, 1, 1, 1)
+
+        self.d_tsens = QComboBox(self.gridLayoutWidget_6)
+        self.d_tsens.setObjectName(u"d_tsens")
+
+        self.gridLayout_6.addWidget(self.d_tsens, 6, 1, 1, 1)
+
+        self.d_midi = QComboBox(self.gridLayoutWidget_6)
+        self.d_midi.setObjectName(u"d_midi")
+
+        self.gridLayout_6.addWidget(self.d_midi, 2, 1, 1, 1)
+
+        self.lineEdit_28 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_28.setObjectName(u"lineEdit_28")
+        self.lineEdit_28.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_28, 8, 2, 1, 1)
+
+        self.d_voice_p2 = QComboBox(self.gridLayoutWidget_6)
+        self.d_voice_p2.setObjectName(u"d_voice_p2")
+
+        self.gridLayout_6.addWidget(self.d_voice_p2, 11, 1, 1, 1)
+
+        self.d_auto_corr = QComboBox(self.gridLayoutWidget_6)
+        self.d_auto_corr.setObjectName(u"d_auto_corr")
+
+        self.gridLayout_6.addWidget(self.d_auto_corr, 2, 3, 1, 1)
+
+        self.comboBox_20 = QComboBox(self.gridLayoutWidget_6)
+        self.comboBox_20.setObjectName(u"comboBox_20")
+
+        self.gridLayout_6.addWidget(self.comboBox_20, 11, 3, 1, 1)
+
+        self.lineEdit_22 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_22.setObjectName(u"lineEdit_22")
+        self.lineEdit_22.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_22, 2, 2, 1, 1)
+
+        self.lineEdit_30 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_30.setObjectName(u"lineEdit_30")
+
+        self.gridLayout_6.addWidget(self.lineEdit_30, 10, 2, 1, 1)
+
+        self.default_send = QPushButton(self.gridLayoutWidget_6)
+        self.default_send.setObjectName(u"default_send")
+        self.default_send.setFont(font1)
+
+        self.gridLayout_6.addWidget(self.default_send, 14, 0, 1, 2)
+
+        self.lineEdit_32 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_32.setObjectName(u"lineEdit_32")
+        self.lineEdit_32.setFont(font)
+        self.lineEdit_32.setAlignment(Qt.AlignCenter)
+        self.lineEdit_32.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_32, 0, 0, 1, 4)
+
+        self.lineEdit_16 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_16.setObjectName(u"lineEdit_16")
+        self.lineEdit_16.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_16, 6, 0, 1, 1)
+
+        self.lineEdit_29 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_29.setObjectName(u"lineEdit_29")
+        self.lineEdit_29.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_29, 9, 2, 1, 1)
+
+        self.lineEdit_24 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_24.setObjectName(u"lineEdit_24")
+        self.lineEdit_24.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_24, 4, 2, 1, 1)
+
+        self.lineEdit_27 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_27.setObjectName(u"lineEdit_27")
+        self.lineEdit_27.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_27, 7, 2, 1, 1)
+
+        self.lineEdit_18 = QLineEdit(self.gridLayoutWidget_6)
+        self.lineEdit_18.setObjectName(u"lineEdit_18")
+        self.lineEdit_18.setReadOnly(True)
+
+        self.gridLayout_6.addWidget(self.lineEdit_18, 8, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_6.addItem(self.verticalSpacer_4, 12, 0, 1, 1)
+
+        self.set_default = QPushButton(self.gridLayoutWidget_6)
+        self.set_default.setObjectName(u"set_default")
+        self.set_default.setFont(font1)
+
+        self.gridLayout_6.addWidget(self.set_default, 13, 0, 1, 2)
+
+        self.d_ac_boot = QComboBox(self.gridLayoutWidget_6)
+        self.d_ac_boot.setObjectName(u"d_ac_boot")
+
+        self.gridLayout_6.addWidget(self.d_ac_boot, 3, 3, 1, 1)
+
+        self.d_ac_s1 = QComboBox(self.gridLayoutWidget_6)
+        self.d_ac_s1.setObjectName(u"d_ac_s1")
+
+        self.gridLayout_6.addWidget(self.d_ac_s1, 4, 3, 1, 1)
+
+        self.d_ac_s2 = QComboBox(self.gridLayoutWidget_6)
+        self.d_ac_s2.setObjectName(u"d_ac_s2")
+
+        self.gridLayout_6.addWidget(self.d_ac_s2, 5, 3, 1, 1)
+
+        self.textEdit_2 = QTextEdit(self.tab_2)
+        self.textEdit_2.setObjectName(u"textEdit_2")
+        self.textEdit_2.setGeometry(QRect(700, 80, 281, 181))
+        self.tabWidget.addTab(self.tab_2, "")
         self.Update = QWidget()
         self.Update.setObjectName(u"Update")
         self.sel_file = QPushButton(self.Update)
@@ -485,9 +1171,9 @@ class Ui_MainWindow(object):
         self.path = QLineEdit(self.Update)
         self.path.setObjectName(u"path")
         self.path.setGeometry(QRect(300, 220, 231, 22))
-        font2 = QFont()
-        font2.setPointSize(8)
-        self.path.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(8)
+        self.path.setFont(font3)
         self.path.setReadOnly(True)
         self.update_find = QPushButton(self.Update)
         self.update_find.setObjectName(u"update_find")
@@ -514,7 +1200,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -522,6 +1208,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Mruda Editor", None))
+        self.midi_ac.setText(QCoreApplication.translate("MainWindow", u"AutoConnect", None))
+        self.Refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.connection.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Connection", None))
         self.lineEdit.setText(QCoreApplication.translate("MainWindow", u"TIlt", None))
         self.lineEdit_7.setText(QCoreApplication.translate("MainWindow", u"Form Shape (w)", None))
         self.lineEdit_4.setText(QCoreApplication.translate("MainWindow", u"Randomness", None))
@@ -531,14 +1221,94 @@ class Ui_MainWindow(object):
         self.lineEdit_8.setText(QCoreApplication.translate("MainWindow", u"Expo", None))
         self.lineEdit_3.setText(QCoreApplication.translate("MainWindow", u"Harm. Mix", None))
         self.lineEdit_2.setText(QCoreApplication.translate("MainWindow", u"Odd-even", None))
-        self.midi_ac.setText(QCoreApplication.translate("MainWindow", u"AutoConnect", None))
-        self.Refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.connection.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
         self.update.setText(QCoreApplication.translate("MainWindow", u"Update", None))
         self.def_but.setText(QCoreApplication.translate("MainWindow", u"Set Defaults", None))
         self.flash.setText(QCoreApplication.translate("MainWindow", u"Burn Settings", None))
         self.send.setText(QCoreApplication.translate("MainWindow", u"Send to Mruda", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Voice Edit", None))
+        self.scale_r7.setText("")
+        self.scale_r5.setText("")
+        self.scale_r3.setText("")
+        self.scale_r11.setText("")
+        self.scale_b7.setText(QCoreApplication.translate("MainWindow", u"7", None))
+        self.scale_r9.setText("")
+        self.scale_r4.setText("")
+        self.scale_r6.setText("")
+        self.scale_r2.setText("")
+        self.scale_title_slot.setText(QCoreApplication.translate("MainWindow", u"Slot", None))
+        self.scale_b9.setText(QCoreApplication.translate("MainWindow", u"9", None))
+        self.scale_b4.setText(QCoreApplication.translate("MainWindow", u"4", None))
+        self.scale_r8.setText("")
+        self.lineEdit_11.setText(QCoreApplication.translate("MainWindow", u"Tune", None))
+        self.scale_r1.setText("")
+        self.scale_b2.setText(QCoreApplication.translate("MainWindow", u"2", None))
+        self.scale_b11.setText(QCoreApplication.translate("MainWindow", u"11", None))
+        self.scale_to_mruda.setText(QCoreApplication.translate("MainWindow", u"Send to Mruda", None))
+        self.scale_r12.setText("")
+        self.scale_r10.setText("")
+        self.scale_burn_mruda.setText(QCoreApplication.translate("MainWindow", u"Burn to Mruda", None))
+        self.scale_title_s_type.setText(QCoreApplication.translate("MainWindow", u"Scale Type", None))
+        self.lineEdit_10.setText(QCoreApplication.translate("MainWindow", u"Status", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Play Demo", None))
+        self.scale_b1.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.scale_b3.setText(QCoreApplication.translate("MainWindow", u"3", None))
+        self.scale_b5.setText(QCoreApplication.translate("MainWindow", u"5", None))
+        self.scale_b6.setText(QCoreApplication.translate("MainWindow", u"6", None))
+        self.scale_b8.setText(QCoreApplication.translate("MainWindow", u"8", None))
+        self.scale_b10.setText(QCoreApplication.translate("MainWindow", u"10", None))
+        self.scale_b12.setText(QCoreApplication.translate("MainWindow", u"12", None))
+        self.lineEdit_9.setText(QCoreApplication.translate("MainWindow", u"Keys", None))
+        self.scale_title_type.setText(QCoreApplication.translate("MainWindow", u"Type", None))
+        self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:700;\">Custom scale setup for auto-correct:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">A custom scale can be setup with required notes and microtonal adjustment. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent"
+                        ":0px;\">Three available slots can be used to save custom scales. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Use &quot;send to Mruda&quot; button to test the scale, later press &quot;Burn to Mruda&quot; to store setting in permenant memory.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">Important:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">This scale is only usable when auto-correct function is enabled. </span></p></body></html>", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.scale), QCoreApplication.translate("MainWindow", u"Scale Set.", None))
+        self.lineEdit_20.setText(QCoreApplication.translate("MainWindow", u"Voice (P1 key)", None))
+        self.lineEdit_15.setText(QCoreApplication.translate("MainWindow", u"Tune", None))
+        self.default_burn.setText(QCoreApplication.translate("MainWindow", u"Burn to Mruda", None))
+        self.lineEdit_26.setText(QCoreApplication.translate("MainWindow", u"Tanpura Status", None))
+        self.lineEdit_21.setText(QCoreApplication.translate("MainWindow", u"Voice (P2 key)", None))
+        self.lineEdit_19.setText(QCoreApplication.translate("MainWindow", u"Voice (at start)", None))
+        self.lineEdit_13.setText(QCoreApplication.translate("MainWindow", u"Transpose", None))
+        self.lineEdit_23.setText(QCoreApplication.translate("MainWindow", u"Auto Correct scale (at start)", None))
+        self.lineEdit_14.setText(QCoreApplication.translate("MainWindow", u"Octave", None))
+        self.lineEdit_25.setText(QCoreApplication.translate("MainWindow", u"Auto Correct scale (S2 key)", None))
+        self.lineEdit_12.setText(QCoreApplication.translate("MainWindow", u"Midi", None))
+        self.lineEdit_17.setText(QCoreApplication.translate("MainWindow", u"Reverb", None))
+        self.lineEdit_28.setText(QCoreApplication.translate("MainWindow", u"Tanpura Volume", None))
+        self.lineEdit_22.setText(QCoreApplication.translate("MainWindow", u"Auto Correct", None))
+        self.default_send.setText(QCoreApplication.translate("MainWindow", u"Send to Mruda", None))
+        self.lineEdit_32.setText(QCoreApplication.translate("MainWindow", u"Default Settings", None))
+        self.lineEdit_16.setText(QCoreApplication.translate("MainWindow", u"Touch Sensitivity", None))
+        self.lineEdit_29.setText(QCoreApplication.translate("MainWindow", u"Tanpura secondary", None))
+        self.lineEdit_24.setText(QCoreApplication.translate("MainWindow", u"Auto Correct scale (S1 key)", None))
+        self.lineEdit_27.setText(QCoreApplication.translate("MainWindow", u"Tanpura Scale", None))
+        self.lineEdit_18.setText(QCoreApplication.translate("MainWindow", u"Sustain", None))
+        self.set_default.setText(QCoreApplication.translate("MainWindow", u"Set defaults", None))
+        self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:700;\">Dustom configuration for System Default:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">These setting can be set as system default that are applied whenever device is started. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-inde"
+                        "nt:0; text-indent:0px;\">To set it up press &quot;Burn to Mruda&quot;</p></body></html>", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Default Setting", None))
         self.sel_file.setText(QCoreApplication.translate("MainWindow", u"Select file...", None))
         self.flash_mrida.setText(QCoreApplication.translate("MainWindow", u"Update", None))
         self.update_find.setText(QCoreApplication.translate("MainWindow", u"Auto Connect", None))

@@ -23,7 +23,7 @@ parameter_t set_para;
 
 
 float touch_expo[5]={1.1,1.25,1.34,1.55,1.7};
-float auto_corr_val[6]={0,0.005,0.01,0.02,0.05, 0.15};
+float auto_corr_val[6]={0,0.01,0.02,0.05,0.15, 0.25};
 float reverb_val[10]={0,0.03,0.1,0.171,0.273,0.39,0.523,0.669,0.83,0.98};
 float ST_expo_val[10]={0,-0.2,-0.6,-0.8,-1,-1.2,-1.4,-1.6,-1.8,-2};
 float OE_dist_val[10]={4,3,2.5,2,1.5,1,0.66,0.5,0.2,0.33};
@@ -41,7 +41,7 @@ float preset[6][16] = {
 };
 
 
-float default_preset[6][16] = {
+uint8_t default_preset[6][16] = {
 		{127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4},
 		{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -51,8 +51,48 @@ float default_preset[6][16] = {
 };
 
 
+uint8_t raw_scale[3][25]={
+
+};
+
+
+float custom_scales[3][12]={
+		{SA, re, RE, ga, GA, ma, MA, PA, dha, DHA,  ni, NI},
+		{SA, RE, GA, ma, PA, DHA, NI,  0,   0,  0,   0,   0},
+		{SA, re, ga, ma, PA, dha, ni,  0,   0,  0,   0,   0},
+};
+
+
+int8_t default_settings[18] = {
+
+        1,   // d_midi (Index 1 = "Off")
+        7,   // d_transpose (Index 7 = "0")
+        3,   // d_octave (Index 3 = "0")
+        0,   // d_tune (SpinBox value = 0)
+        1,   // d_tsens (Index 1 = "2")
+
+        1,   // d_reverb (Index 1 = "2")
+        1,   // d_sustain (Index 1 = "2")
+        0,   // d_voice_def (Index 0 = "0")
+        1,   // d_voice_p1 (Index 1 = "1")
+        2,   // d_voice_p2 (Index 2 = "2")
+
+        3,   // d_auto_corr (Index 3 = "3")
+		0,   // scale at boot
+        0,   // d_ac_s1
+        2,   // d_ac_s2
+        1,   // d_tanpura_state (Index 1 = "Off")
+
+        0,   // d_tanpura_scale (Index 0 = "C")
+        2,   // d_tanpura_vol (Index 2 = "3")
+        0    // d_tanpura_sec (Index 0 = "PA")
+};
+
+
 
 void set_defaults(){
+
+
 	set_para.touch_exp = touch_expo[2]; //sensivity default
 	set_para.auro_corr = auto_corr_val[3]; //autocorrect default
 
@@ -69,15 +109,9 @@ void set_defaults(){
 	set_para.reverb = reverb_val[3];
 
 	//tanpura defaults
-	func_val[41]= 3;
-	tanpura.vol = drone_vol_lookup[func_val[41]];
-	key.play[3] = 22;
-	key.play[4] = 27;
-	key.freq[3] = 440.0f * powf(1.0594630f, (key.play[3] - 48));
-	key.freq[4] = 440.0f * powf(1.0594630f, (key.play[4] - 48));
-	key.phase[3] = PHASE_FACT * key.freq[3];
-	key.phase[4] = PHASE_FACT * key.freq[4];
-
+	tanpura.sec_note = t_PA;
+	tanpura.vol = drone_vol_lookup[3];
+	func_val[20]= 3;
 	set_para.preset = 0;
 }
 
@@ -105,19 +139,34 @@ void set_freq() {
         if (peak.flag[i] == 1) {
 
             key.abs[i] = peak.pos_out[i];
-            key.snap[i] = (int)roundf(key.abs[i]);
+            key.snap[i] = (int)roundf(key.abs[i]) - 6;
 
             if (peak.flag_old[i] == 0) {
                 key.smooth[i] = 0;
                 key.error[i] = 0;
             }
 
-            key.snap_scale[i] = auto_correct(2, key.abs[i]);
+
+            float rest_factor;
+            float rf_min = 0.1;
+            float rf_max = 1;
+
+            if (peak.vel[0] <= rf_min) {
+                rest_factor = rf_max; // 100% autocorrect below 0.05
+            } else if (peak.vel[0] >= rf_max) {
+                rest_factor = 0.0f; // 0% autocorrect above 1.0
+            } else {
+                rest_factor = rf_max - ((peak.vel[0] - rf_min) / (rf_max - rf_min));
+            }
+
+            peak.dy_corr[i] = rest_factor * set_para.auro_corr;
+
+            key.snap_scale[i] = auto_correct(set_para.AC_scale, key.abs[i]);
 
             key.error[i] = (key.abs[i] + key.smooth[i]) - key.snap_scale[i];
 
             // Adjust the smoothing offset to reduce that error
-            key.smooth[i] -= set_para.auro_corr * key.error[i];
+            key.smooth[i] -= peak.dy_corr[i] * key.error[i];
 
             // Final pitch is raw + the smoothing offset
             play = key.abs[i] + key.smooth[i];

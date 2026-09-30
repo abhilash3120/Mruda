@@ -90,9 +90,7 @@ class setup():
     def update_slot(self):
         slot = self.ui.slot_list.currentIndex()
 
-
         data =  Current_values[slot]
-
         for data, slider in zip(data, self.slider_list):
             slider.setValue(int(data))
 
@@ -149,7 +147,7 @@ class setup():
         self.ui.status.setText("Connected")
         self.start_listener()
         
-        values = [99,10,  0,0,0,0,0,  0,0,0,0,0,  0,0,0,0,0]
+        values = [99,10,0,0,0,  0,0,0,0,0,  0,0,0,0,0,  0,0,0,0,0,  0,0,0,0,0,  0,0,0,0,0]
         sysex_payload = [0x7D, 0x01] + values
         # Create and send the message
         msg = mido.Message('sysex', data=sysex_payload)
@@ -199,6 +197,12 @@ class setup():
 
         command = 10 + self.ui.slot_list.currentIndex()
         values = [command] + [slider.value() for slider in self.slider_list]
+
+        padd = 30- len(values)
+
+        values.append([0]*padd)
+
+
         print(values)
 
         sysex_payload = [0x7D, 0x01] + values

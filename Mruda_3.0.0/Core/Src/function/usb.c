@@ -25,8 +25,11 @@
 #define FLASH_SECTOR_TO_USE    FLASH_SECTOR_7
 #define TOTAL_DATA_BYTES       96  // Must be a multiple of 4
 
-#include "stdint.h"
-#define DFU_MAGIC 0xDEADBEEF
+
+
+
+
+
 
 uint8_t flash_data[96];
 

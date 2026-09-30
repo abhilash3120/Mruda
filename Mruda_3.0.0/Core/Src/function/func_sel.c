@@ -18,35 +18,40 @@
 #include "function/func_sel.h"
 #include "function/general_func.h"
 #include "function/usb.h"
-
+#include "function/auto_corr.h"
 
 
 typedef enum {
-	none = 0,
-	test =1,
-	MiDi = 21,
-	scale_down = 22,
-	scale_up = 23,
-	oct_down = 24,
-	oct_up = 25,
-	tune_down = 26,
-	tune_up = 27,
-	auto_corr = 28,
-	touch_sen_down = 29,
-	touch_sen_up = 30,
-	reverb = 31,
-	p1_down = 32,
-	p1_up = 33,
-	p2_down = 34,
-	p2_up = 35,
-	p3_down = 36,
-	p3_up = 37,
-	p_set = 38,
-	t_scale_down = 39,
-	t_scale_up = 40,
-	t_vol_down = 41,
-	t_vol_up = 42,
-	t_on = 43,
+	none = -1,
+	MiDi = 0,
+	scale_down = 1,
+	scale_up = 2,
+	oct_down = 3,
+	oct_up = 4,
+	tune_down = 5,
+	tune_up = 6,
+
+	touch_sen = 7,
+	reverb = 8,
+	sustain = 9,
+
+	auto_corr = 10,
+	ac_set_down = 11,
+	ac_set_up = 12,
+	ac_s1 = 13,
+	ac_s2 = 14,
+
+
+	p1 = 15,
+	p2 = 16,
+	pre = 17,
+
+	t_scale_down = 18,
+	t_scale_up = 19,
+	t_vol_down = 20,
+	t_vol_up = 21,
+	t_on = 22,
+	t_type = 23,
 }functionID;
 
 typedef struct{
@@ -56,11 +61,15 @@ typedef struct{
 
 function_info func_butn;
 
+
+default_raw_settings raw_flash_data;
+
+
 int func_val[45];
 
 
 volatile uint8_t new_setting_flag = 0;
-volatile uint8_t setting_array[17] = {0};
+volatile uint8_t setting_array[30] = {0};
 
 
 void display_menu(const char* label, int val) {
@@ -69,6 +78,55 @@ void display_menu(const char* label, int val) {
     TM1637_SetColon(1);
     TM1637_DisplayString(buffer);
 }
+
+void T_setup(tanpura_drone type, float current_transpose) {
+
+    float sa_base = 27.0f;
+    float drone_note;
+
+    // Check if autocorrect is off / set to chromatic
+    if (func_val[ac_set_down] == 1) {
+
+        // ==========================================
+        // CHROMATIC MODE (Standard Equal Temperament)
+        // ==========================================
+        switch (type) {
+            case t_PA: drone_note = sa_base - 5.0000f; break; // G  (-5 semitones)
+            case t_ma: drone_note = sa_base - 7.0000f; break; // F  (-7 semitones)
+            case t_ni: drone_note = sa_base - 2.0000f; break; // Bb (-2 semitones)
+            case t_NI: drone_note = sa_base - 1.0000f; break; // B  (-1 semitones)
+            default: drone_note = sa_base - 5.0000f; break;
+        }
+
+    } else {
+        // ==========================================
+        // NATURAL SCALE MODE (Just Intonation/Shruti)
+        // ==========================================
+        // These are the exact microtonal math offsets for the lower octave
+        switch (type) {
+            case t_PA: drone_note = sa_base - 4.98045f; break; // Perfect Shruti Pa
+            case t_ma: drone_note = sa_base - 7.01955f; break; // Perfect Shruti Ma
+            case t_ni: drone_note = sa_base - 2.03910f; break; // Shruti Komal Ni
+            case t_NI: drone_note = sa_base - 1.11730f; break; // Shruti Shuddha Ni
+            default: drone_note = sa_base - 4.98045f; break;
+        }
+    }
+
+    // Apply the drone note and the transpose
+    key.play[3] = drone_note + current_transpose;
+    key.play[4] = sa_base + current_transpose;    // Primary Sa string
+
+    tanpura.sa_note = key.play[4];
+    tanpura.pa_note = key.play[3];
+
+    // Calculate frequencies using high-precision base!
+    key.freq[3] = 440.0f * powf(1.059463094f, (key.play[3] - 48.0f));
+    key.freq[4] = 440.0f * powf(1.059463094f, (key.play[4] - 48.0f));
+
+    key.phase[3] = PHASE_FACT * key.freq[3];
+    key.phase[4] = PHASE_FACT * key.freq[4];
+}
+
 
 
 
@@ -130,12 +188,14 @@ void Tune_Up(){
 	display_menu("tu", func_val[tune_down]);
 }
 
-void Auto_Corr(){
-	func_val[auto_corr] ++;
-	if(func_val[auto_corr]>5)func_val[auto_corr] = 0;
-	set_para.auro_corr = auto_corr_val[func_val[auto_corr]];
-	display_menu("AC", func_val[auto_corr]);
+
+void touch_sens(){
+	func_val[touch_sen] ++;
+	if(func_val[touch_sen]>4){func_val[touch_sen] = 0;}
+	set_para.touch_exp = touch_expo[func_val[touch_sen]];
+	display_menu("TS", func_val[touch_sen]);
 }
+
 
 void Reverb(){
 	func_val[reverb] ++;
@@ -144,84 +204,85 @@ void Reverb(){
 	display_menu("TS", func_val[reverb]);
 }
 
-void TS_Down(){
-	func_val[touch_sen_down] --;
-	func_val[touch_sen_down] = clampf(func_val[touch_sen_down], 0, 4);
-	set_para.auro_corr = auto_corr_val[func_val[touch_sen_down]];
-	display_menu("TS", func_val[touch_sen_down]);
+
+
+void Sustain(){
+
 }
 
-void TS_Up(){
-	func_val[touch_sen_down] ++;
-	func_val[touch_sen_down] = clampf(func_val[touch_sen_down], 0, 4);
-	set_para.auro_corr = auto_corr_val[func_val[touch_sen_down]];
-	display_menu("TS", func_val[touch_sen_down]);
+
+
+void Auto_Corr(){
+	func_val[auto_corr] ++;
+	if(func_val[auto_corr]>5)func_val[auto_corr] = 0;
+	set_para.auro_corr = auto_corr_val[func_val[auto_corr]];
+	display_menu("AC", func_val[auto_corr]);
 }
 
-void P1_Down(){
-	func_val[p1_down] --;
-	func_val[p1_down] = clampf(func_val[p1_down], 0, 9);
-	set_para.p1 = ST_expo_val[func_val[p1_down]];
+
+
+
+void AC_up(){
+	func_val[ac_set_down] ++;
+	if(func_val[ac_set_down]>49)func_val[ac_set_down] = 0;
+	set_para.AC_scale = func_val[ac_set_down];
+
+	display_menu("SC", func_val[ac_set_down]);
+
+
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+
+void AC_down(){
+	func_val[ac_set_down] --;
+	if(func_val[ac_set_down]<0)func_val[ac_set_down] = 49;
+	set_para.AC_scale = func_val[ac_set_down];
+	display_menu("SC", func_val[ac_set_down]);
+
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+
+void AC_s1(){
+	set_para.AC_scale = 0;
+	display_menu("SC", 0);
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+void AC_s2(){
+	set_para.AC_scale = 2;
+	display_menu("SC", 2);
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+
+void P1(){
+
+	Creat_sine_table(sine_data,1);
+	display_menu("P1", 1);
+}
+
+void P2(){
+	Creat_sine_table(sine_data,1);
+	display_menu("P2", 2);
+}
+
+void Preset(){
+	func_val[pre] ++;
+	if(func_val[pre] >5) {func_val[pre] = 0;}
+	set_para.preset = func_val[pre];
 	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("P1", func_val[p1_down]);
+	display_menu("P", func_val[pre]);
 }
 
-void P1_Up(){
-	func_val[p1_down]++;
-	func_val[p1_down] = clampf(func_val[p1_down], 0, 9);
-	set_para.p1 = ST_expo_val[func_val[p1_down]];
-	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("P1", func_val[p1_down]);
-}
 
-void P2_Down(){
-	func_val[p2_down] --;
-	func_val[p2_down] = clampf(func_val[p2_down], 0, 9);
-	set_para.p2 = OE_dist_val[func_val[p2_down]];
-	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("P2", func_val[p2_down]);
-}
 
-void P2_Up(){
-	func_val[p2_down] ++;
-	func_val[p2_down] = clampf(func_val[p2_down], 0, 9);
-	set_para.p2 = OE_dist_val[func_val[p2_down]];
-	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("P2", func_val[p2_down]);
-}
 
-void P3_Down(){
-	func_val[p3_down] --;
-	func_val[p3_down] = clampf(func_val[p3_down], 0, 9);
-	set_para.p3 = octave_mix_val[func_val[p3_down]];
-	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("P3", func_val[p3_down]);
-}
-
-void P3_Up(){
-	func_val[p3_down] ++;
-	func_val[p3_down] = clampf(func_val[p3_down], 0, 9);
-	set_para.p3 = octave_mix_val[func_val[p3_down]];
-	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("P3", func_val[p3_down]);
-}
-
-void PreSet(){
-	func_val[p_set] ++;
-	if(func_val[p_set]>4){func_val[p_set] = 0;}
-	set_para.preset = func_val[p_set];
-	Creat_sine_table(sine_data,set_para.preset);
-	display_menu("Pr", func_val[p_set]);
-}
-
-void T_On(){
-	func_val[t_on] = !func_val[t_on];
-	tanpura.status = func_val[t_on];
-//	display_menu("dr", func_val[t_on]);
-	TM1637_SetColon(1);
-	if(func_val[t_on] == 1) TM1637_DisplayString("tnON");
-	if(func_val[t_on] == 0) TM1637_DisplayString("tnOF");
-}
 
 
 void t_disp_update(){
@@ -269,18 +330,26 @@ void t_disp_update(){
 	}
 }
 
+
+
+
+
+void T_On(){
+	func_val[t_on] = !func_val[t_on];
+	tanpura.status = func_val[t_on];
+	tanpura.vol = drone_vol_lookup[func_val[t_vol_down]];
+	T_setup(tanpura.sec_note, tanpura.scale);
+	TM1637_SetColon(1);
+	if(func_val[t_on] == 1) TM1637_DisplayString("tnON");
+	if(func_val[t_on] == 0) TM1637_DisplayString("tnOF");
+}
+
+
+
 void T_scale_Down(){
 	func_val[t_scale_down]++;
 	func_val[t_scale_down] = clampf(func_val[t_scale_down], -8, 8);
-
-	key.play[3] = 22-func_val[t_scale_down];
-	key.play[4] = 27-func_val[t_scale_down];
-
-	key.freq[3]=440.0f * powf(1.0594630f, (key.play[3] - 48));
-	key.freq[4]=440.0f * powf(1.0594630f, (key.play[4] - 48));
-
-	key.phase[3] =PHASE_FACT * key.freq[3];
-	key.phase[4] =PHASE_FACT * key.freq[4];
+	T_setup(tanpura.sec_note, func_val[t_scale_down]);
 	t_disp_update();
 }
 
@@ -298,9 +367,8 @@ void T_scale_Up(){
 	key.phase[3] =PHASE_FACT * key.freq[3];
 	key.phase[4] =PHASE_FACT * key.freq[4];
 	t_disp_update();
-
-
 }
+
 
 void T_Vol_Down(){
 	func_val[t_vol_down] --;
@@ -317,6 +385,20 @@ void T_Vol_Up(){
 }
 
 
+void T_sec(){
+	func_val[t_type] ++;
+	TM1637_SetColon(1);
+	if(func_val[t_type]>3){func_val[t_type]=0;}
+	if(func_val[t_type] == 0){TM1637_DisplayString("tnPA");}
+	if(func_val[t_type] == 1){TM1637_DisplayString("tnnn");}
+	if(func_val[t_type] == 2){TM1637_DisplayString("tnn-");}
+	if(func_val[t_type] == 3){TM1637_DisplayString("tnn ");}
+
+	T_setup(func_val[t_type], func_val[t_scale_down]);
+	tanpura.sec_note = func_val[t_type];
+}
+
+
 void dispach(){
 
 	            switch (func_butn.ID) {
@@ -327,26 +409,29 @@ void dispach(){
 	                case oct_up:		Oct_Up(); 		break;
 	                case tune_down:		Tune_Down();	break;
 	                case tune_up:		Tune_Up(); 		break;
+
+	                case touch_sen:		touch_sens();	break;
+	                case reverb:		Reverb();		break;
+	                case sustain:		Sustain();      break;
 	                case auto_corr:		Auto_Corr();	break;
-	                case touch_sen_down:TS_Down();		break;
-	                case touch_sen_up:	TS_Up();		break;
-	                case reverb:		Reverb();       break;
-	                case p1_down:		P1_Down();		break;
-	                case p1_up:			P1_Up();		break;
-	                case p2_down:		P2_Down();		break;
-	                case p2_up:			P2_Up();		break;
-	                case p3_down:		P3_Down();		break;
-	                case p3_up:			P3_Up();		break;
-	                case p_set:			PreSet();		break;
+	                case ac_set_down:	AC_down();		break;
+	                case ac_set_up:		AC_up();		break;
+	                case ac_s1:			AC_s1();		break;
+	                case ac_s2:			AC_s2();		break;
+	                case p1:			P1();			break;
+	                case p2:			P2();			break;
+	                case pre:			Preset();		break;
 	                case t_scale_down:	T_scale_Down();	break;
 	                case t_scale_up:	T_scale_Up();	break;
 	                case t_vol_down:	T_Vol_Down();	break;
 	                case t_vol_up:		T_Vol_Up();		break;
 	                case t_on:			T_On();			break;
-
+	                case t_type:		T_sec();		break;
 	                default:	break;
 	            }
 	}
+
+
 
 
 
@@ -355,12 +440,9 @@ void do_pc_command() {
 
     uint8_t cmd = setting_array[0];
 
-    // ==========================================
-    // COMMAND 0-5: LOAD & EDIT PRESET
-    // ==========================================
     if (cmd <= 5) {
         // 1. Update state variables FIRST
-        func_val[p_set] = cmd;
+        //func_val[p_set] = cmd;
         set_para.preset = (int)cmd;
 
         // 2. Load incoming data into the correct preset slot
@@ -385,17 +467,55 @@ void do_pc_command() {
 
         // Write directly from the float array to the flash_data byte array
         for (int i = 0; i < 16; i++) {
-            flash_data[start_index + i] = (uint8_t)preset[func_val[p_set]][i];
+            //flash_data[start_index + i] = (uint8_t)preset[func_val[p_set]][i];
         }
 
         Flash_SaveData(flash_data);
     }
 
-
-
     new_setting_flag = 0;
 }
 
+
+
+void update_data(uint8_t type, uint8_t slot){
+	if(type == 0){
+		set_para.preset = (int)slot;
+		if (slot < 5) {Creat_sine_table(sine_data, slot);}
+		else {Creat_sine_table(sine_data_tanpura, 5);}
+	}
+
+	if(type == 1){
+
+	}
+
+	if(type == 2){
+
+	}
+}
+
+
+
+void update_flash_packat(){
+	if (new_setting_flag == 0) return;
+
+	uint8_t cmd = setting_array[0];
+
+	if(cmd < 7){
+		for (int i = 0; i < 16; i++){raw_flash_data.default_voice[cmd][i] = setting_array[i + 1];}
+		update_data(0, cmd);
+		}
+
+	if(cmd > 19 && cmd < 25){
+		for(int i = 0; i<26; i++){raw_flash_data.default_scale[cmd - 20] [i] = setting_array[i + 2] - 64;}
+		update_data(1, cmd-20);
+		}
+
+	if(cmd == 30){
+		for(int i = 0; i<18; i++)	{raw_flash_data.default_setup[i] = setting_array[i + 1] - 64;}
+		update_data(2, 0);
+		}
+}
 
 
 void function_process(){
@@ -406,7 +526,8 @@ void function_process(){
 	counter =0;
 
 
-	do_pc_command();
+	//do_pc_command();
+	update_flash_packat();
 
 
 	if(mode == Edit) return;

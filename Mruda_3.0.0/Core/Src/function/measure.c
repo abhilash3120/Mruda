@@ -118,7 +118,7 @@ void touch_mono(){
 
                 float raw_vel = fabs(old_pos - best_pos);
 
-                peak.vel[0] = 0.005f*peak.vel[0] + 0.995f*raw_vel;
+                peak.vel[0] = 0.001f*peak.vel[0] + 0.999f*raw_vel;
                 peak.flag[0] = 1;
             }
         }

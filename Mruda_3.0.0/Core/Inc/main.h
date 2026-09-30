@@ -108,6 +108,7 @@ typedef struct {
     int octave;
     int transpose;
     float tune;
+    uint8_t AC_scale;
     float p1;
     float p2;
     float p3;
@@ -116,13 +117,24 @@ typedef struct {
 } parameter_t;
 
 
+typedef enum drone{
+	t_PA,
+	t_ma,
+	t_ni,
+	t_NI
+}tanpura_drone;
+
+
 typedef struct {
     int status;
     int scale;
     float vol;
     float tune;
-    float sa;
-    float pa;
+    float sa_vol;
+    float pa_vol;
+    float sa_note;
+    float pa_note;
+    tanpura_drone sec_note;
 }tanpura_info;
 
 
@@ -143,6 +155,7 @@ typedef struct peak_info{
 	float sys_vol;
 	float pos_track[poly_phony];
 	float amp_track[poly_phony];
+	float dy_corr[poly_phony];
 } peak_Info;
 
 
@@ -174,7 +187,26 @@ typedef struct frequency_info{
 
 extern volatile uint32_t dfu_flag;
 
+#define SA    0.0000f   // Shadja         (Ratio 1/1)
+#define re    1.1173f   // Komal Rishabh  (Ratio 16/15)
+#define RE    2.0391f   // Shuddha Rishabh(Ratio 9/8)
+#define ga    3.1564f   // Komal Gandhar  (Ratio 6/5)
+#define GA    3.8631f   // Shuddha Gandhar(Ratio 5/4)
+#define ma    4.9804f   // Shuddha Madhyam(Ratio 4/3)
+#define MA    5.9022f   // Tivra Madhyam  (Ratio 45/32)
+#define PA    7.0196f   // Pancham        (Ratio 3/2)
+#define dha   8.1369f   // Komal Dhaivat  (Ratio 8/5)
+#define DHA   8.8436f   // Shuddha Dhaivat(Ratio 5/3)
+#define ni    10.1760f  // Komal Nishad   (Ratio 9/5)
+#define NI    10.8827f  // Shuddha Nishad (Ratio 15/8)
+#define SA_HI 12.0000f  // Taar Shadja    (Ratio 2/1)
 
+
+typedef struct{
+	uint8_t default_voice[6][16];
+	int8_t default_scale[3][25];
+	int8_t default_setup[18];
+}default_raw_settings;
 
 
 

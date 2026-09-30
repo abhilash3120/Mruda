@@ -1,0 +1,72 @@
+/*
+ * auto_corr.h
+ *
+ *  Created on: Sep 26, 2026
+ *      Author: abhil
+ */
+
+#ifndef INC_FUNCTION_AUTO_CORR_H_
+#define INC_FUNCTION_AUTO_CORR_H_
+
+static const float NA_Natural[] = {SA, re, RE, ga, GA, ma, MA, PA, dha, DHA,  ni, NI};
+static const float NA_Chromatic[] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+static const float Thaat_Bilawal[] = {SA, RE, GA, ma, PA, DHA, NI};
+static const float Thaat_Kalyan[] = {SA, RE, GA, MA, PA, DHA, NI};
+static const float Thaat_Khamaj[] = {SA, RE, GA, ma, PA, DHA, ni};
+static const float Thaat_Kafi[] = {SA, RE, ga, ma, PA, DHA, ni};
+static const float Thaat_Asavari[] = {SA, RE, ga, ma, PA, dha, ni};
+static const float Thaat_Bhairavi[] = {SA, re, ga, ma, PA, dha, ni};
+static const float Thaat_Bhairav[] = {SA, re, GA, ma, PA, dha, NI};
+static const float Thaat_Marva[] = {SA, re, GA, MA, PA, DHA, NI};
+static const float Thaat_Purvi[] = {SA, re, GA, MA, PA, dha, NI};
+static const float Thaat_Todi[] = {SA, re, ga, MA, PA, dha, NI};
+static const float Raag_Abhogi[] = {SA, RE, ga, ma, DHA};
+static const float Raag_Ahir_bhairav[] = {SA, re, GA, ma, PA, DHA, ni};
+static const float Raag_Bageshri[] = {SA, RE, ga, ma, DHA, ni};
+static const float Raag_Bhairav[] = {SA, re, GA, ma, PA, dha, NI};
+static const float Raag_Bhairavi[] = {SA, re, ga, ma, PA, dha, ni};
+static const float Raag_Bhimpalasi[] = {SA, RE, ga, ma, PA, DHA, ni};
+static const float Raag_Bhupali[] = {SA, RE, GA, PA, DHA};
+static const float Raag_Bihag[] = {SA, RE, GA, ma, PA, DHA,  NI};
+static const float Raag_Charukeshi[] = {SA, RE, GA, ma, PA, dha, ni};
+static const float Raag_Darbari_kanada[] = {SA, RE, ga, ma, PA, dha, ni};
+static const float Raag_Desh[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Durga[] = {SA, RE, ma, PA, DHA};
+static const float Raag_Hamsadhwani[] = {SA, RE, GA, PA, NI};
+static const float Raag_Jog[] = {SA, ga, GA, ma, PA, ni};
+static const float Raag_Jonpuri[] = {SA, RE, ga, ma, PA, dha, ni};
+static const float Raag_Kalavati[] = {SA, GA, PA, DHA, ni};
+static const float Raag_Kedar[] = {SA, RE, ma, MA, PA, DHA, NI};
+static const float Raag_Khamaj[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Kirvani[] = {SA, RE, ga, ma, PA, dha, NI};
+static const float Raag_Lalit[] = {SA, re, GA, ma, MA, dha, NI};
+static const float Raag_Malkauns[] = {SA, ga, ma, dha, ni};
+static const float Raag_Marwa[] = {SA, re, GA, MA, DHA, NI};
+static const float Raag_Megh_Malhar[] = {SA, RE, ma, PA, ni};
+static const float Raag_Miya_ki_malhar[] = {SA, RE, ga, ma, PA, DHA, ni, NI};
+static const float Raag_Nand[] = {SA, RE, GA, ma, MA, PA, DHA, NI};
+static const float Raag_Pahadi[] = {SA, RE, GA, ma, PA, DHA, ni};
+static const float Raag_Pilu[] = {SA, RE, ga, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Puriya_Dhanashree[] = {SA, re, GA, MA, PA, dha, NI};
+static const float Raag_Raagshree[] = {SA, RE, GA, ma, DHA, ni};
+static const float Raag_Sarang[] = {SA, RE, ma, PA, ni, NI};
+static const float Raag_Shivranjini[] = {SA, RE, ga, PA, DHA};
+static const float Raag_Shree[] = {SA, re, GA, MA, PA, dha, NI};
+static const float Raag_Tilak_Kamod[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+static const float Raag_Tilang[] = {SA, GA, ma, PA, ni, NI};
+static const float Raag_Yaman[] = {SA, RE, GA, MA, PA, DHA, NI};
+static const float Scale_Custom_1[] = {SA, RE, GA, ma, PA, DHA, NI};
+static const float Scale_Custom_2[] = {SA, RE, GA, ma, PA, DHA, NI};
+static const float Scale_Custom_3[] = {SA, RE, GA, ma, PA, DHA, NI};
+
+typedef struct {
+    const char* name;          // OLED Display Name
+    const float* notes;        // Pointer to the scale array
+    int length;            // Number of notes in the scale
+    tanpura_drone drone_note;          // Smart Tanpura note (Pa, Ma, or Ni)
+} ScaleDef;
+
+
+float auto_correct(int scale_index, float input);
+extern ScaleDef scale_library[];
+#endif /* INC_FUNCTION_AUTO_CORR_H_ */

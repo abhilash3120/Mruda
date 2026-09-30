@@ -10,6 +10,8 @@
 
 extern int func_val[45];
 extern volatile uint8_t new_setting_flag;
+extern default_raw_settings raw_flash_data;
+
 
 void function_process();
 

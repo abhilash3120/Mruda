@@ -8,6 +8,15 @@
 #ifndef INC_FUNCTION_AUTO_CORR_H_
 #define INC_FUNCTION_AUTO_CORR_H_
 
-float auto_correct(int scale_index, float input);
 
+typedef struct {
+    const char* name;          // OLED Display Name
+    const float* notes;        // Pointer to the scale array
+    int length;            // Number of notes in the scale
+    tanpura_drone drone_note;          // Smart Tanpura note (Pa, Ma, or Ni)
+} ScaleDef;
+
+
+float auto_correct(int scale_index, float input);
+extern const ScaleDef scale_library[];
 #endif /* INC_FUNCTION_AUTO_CORR_H_ */
