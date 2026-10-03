@@ -20,6 +20,7 @@ from update import firmware_update
 from ac_scale import autocorr_set
 from set_default import set_Default
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
@@ -31,5 +32,3 @@ if __name__ == "__main__":
 
     
     sys.exit(app.exec())
-
-

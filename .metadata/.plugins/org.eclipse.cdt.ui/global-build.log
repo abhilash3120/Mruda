@@ -1,17 +1,701 @@
-11:21:47 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+19:01:06 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/function/func_sel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/func_sel.d" -MT"Core/Src/function/func_sel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/func_sel.o"
-../Core/Src/function/func_sel.c: In function 'do_pc_command':
-../Core/Src/function/func_sel.c:466:17: warning: unused variable 'start_index' [-Wunused-variable]
-  466 |         uint8_t start_index = 16 * slot_index;
-      |                 ^~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/function/f_set.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/f_set.d" -MT"Core/Src/function/f_set.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/f_set.o"
 arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Mruda_3.0.0.elf
  
 arm-none-eabi-size  Mruda_3.0.0.elf 
 arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
    text	   data	    bss	    dec	    hex	filename
-  68792	   1176	  30312	 100280	  187b8	Mruda_3.0.0.elf
+  75272	   1136	  72736	 149144	  24698	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:00:17 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/f_set.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/f_set.d" -MT"Core/Src/function/f_set.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/f_set.o"
+arm-none-eabi-gcc "../Core/Src/function/func_sel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/func_sel.d" -MT"Core/Src/function/func_sel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/func_sel.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75304	   1136	  72736	 149176	  246b8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:01:49 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75304	   1136	  72736	 149176	  246b8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:35:06 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/auto_corr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/auto_corr.d" -MT"Core/Src/function/auto_corr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/auto_corr.o"
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75304	   1136	  72736	 149176	  246b8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:36:18 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75304	   1136	  72736	 149176	  246b8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:37:13 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75304	   1136	  72736	 149176	  246b8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:38:35 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75296	   1136	  72736	 149168	  246b0	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:39:27 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75296	   1136	  72736	 149168	  246b0	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:53:29 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75480	   1136	  72736	 149352	  24768	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:54:00 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75480	   1136	  72736	 149352	  24768	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+21:57:40 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+../Core/Src/function/measure.c:301:8: error: unknown type name 'bool'
+  301 | static bool is_finger_down = false;
+      |        ^~~~
+../Core/Src/function/measure.c:301:30: error: 'false' undeclared here (not in a function)
+  301 | static bool is_finger_down = false;
+      |                              ^~~~~
+../Core/Src/function/measure.c:16:1: note: 'false' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   15 | #include "function/f_set.h"
+  +++ |+#include <stdbool.h>
+   16 | 
+../Core/Src/function/measure.c: In function 'touch_mono_3ch':
+../Core/Src/function/measure.c:324:5: error: unknown type name 'bool'
+  324 |     bool touch_detected = false; // Flag to check if board is currently touched
+      |     ^~~~
+../Core/Src/function/measure.c:324:5: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+../Core/Src/function/measure.c:347:34: error: 'true' undeclared (first use in this function)
+  347 |                 touch_detected = true;
+      |                                  ^~~~
+../Core/Src/function/measure.c:347:34: note: 'true' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+../Core/Src/function/measure.c:347:34: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/function/measure.c:373:16: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'freq_smooth'
+  373 |             key.freq_smooth[active_ch] = peak.pos_out[0];
+      |                ^
+../Core/Src/function/measure.c:374:16: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'target_freq'
+  374 |             key.target_freq[active_ch] = peak.pos_out[0];
+      |                ^
+../Core/Src/function/measure.c:380:20: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'target_freq'
+  380 |                 key.target_freq[active_ch] = peak.pos_out[0]; // Triggers Portamento
+      |                    ^
+make[1]: *** [Core/Src/function/subdir.mk:43: Core/Src/function/measure.o] Error 1
+make: *** [makefile:63: all] Error 2
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:00:36 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+../Core/Src/function/measure.c: In function 'touch_mono_3ch':
+../Core/Src/function/measure.c:325:12: error: unknown type name 'bool'
+  325 |     static bool is_touched = false;     // Tracks if finger is currently down
+      |            ^~~~
+../Core/Src/function/measure.c:325:30: error: 'false' undeclared (first use in this function)
+  325 |     static bool is_touched = false;     // Tracks if finger is currently down
+      |                              ^~~~~
+../Core/Src/function/measure.c:16:1: note: 'false' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   15 | #include "function/f_set.h"
+  +++ |+#include <stdbool.h>
+   16 | 
+../Core/Src/function/measure.c:325:30: note: each undeclared identifier is reported only once for each function it appears in
+  325 |     static bool is_touched = false;     // Tracks if finger is currently down
+      |                              ^~~~~
+../Core/Src/function/measure.c:341:16: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'freq_smooth'
+  341 |             key.freq_smooth[ch] = peak.pos_out[0];
+      |                ^
+../Core/Src/function/measure.c:342:26: error: 'true' undeclared (first use in this function)
+  342 |             is_touched = true;
+      |                          ^~~~
+../Core/Src/function/measure.c:342:26: note: 'true' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+../Core/Src/function/measure.c:346:12: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'target_freq'
+  346 |         key.target_freq[ch] = peak.pos_out[0];
+      |            ^
+make[1]: *** [Core/Src/function/subdir.mk:43: Core/Src/function/measure.o] Error 1
+make: *** [makefile:63: all] Error 2
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:01:12 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+../Core/Src/function/measure.c: In function 'touch_mono_3ch':
+../Core/Src/function/measure.c:341:16: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'freq_smooth'
+  341 |             key.freq_smooth[ch] = peak.pos_out[0];
+      |                ^
+../Core/Src/function/measure.c:346:12: error: 'frequency_Info' {aka 'struct frequency_info'} has no member named 'target_freq'
+  346 |         key.target_freq[ch] = peak.pos_out[0];
+      |            ^
+make[1]: *** [Core/Src/function/subdir.mk:43: Core/Src/function/measure.o] Error 1
+make: *** [makefile:63: all] Error 2
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:03:27 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75472	   1136	  72736	 149344	  24760	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:04:26 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75480	   1136	  72736	 149352	  24768	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:27:19 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75520	   1136	  72736	 149392	  24790	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:27:51 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75520	   1136	  72736	 149392	  24790	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:29:02 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75488	   1136	  72736	 149360	  24770	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:30:05 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75448	   1136	  72736	 149320	  24748	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:31:08 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75488	   1136	  72736	 149360	  24770	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:34:35 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/f_set.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/f_set.d" -MT"Core/Src/function/f_set.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/f_set.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75528	   1136	  72736	 149400	  24798	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:35:31 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75528	   1136	  72736	 149400	  24798	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:36:18 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75480	   1136	  72736	 149352	  24768	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:37:16 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75480	   1136	  72736	 149352	  24768	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:39:04 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  75480	   1136	  72736	 149352	  24768	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:42:46 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/f_set.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/f_set.d" -MT"Core/Src/function/f_set.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/f_set.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75488	   1136	  72736	 149360	  24770	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:51:33 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75512	   1136	  72736	 149384	  24788	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:56:33 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/f_set.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/f_set.d" -MT"Core/Src/function/f_set.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/f_set.o"
+arm-none-eabi-gcc "../Core/Src/function/measure.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/measure.d" -MT"Core/Src/function/measure.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/measure.o"
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:57:31 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+22:59:19 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:00:45 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:02:15 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:03:23 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:04:20 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:06:18 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:07:22 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:22:44 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:23:46 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:24:39 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:26:41 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:30:33 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:33:30 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:35:10 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75352	   1136	  72736	 149224	  246e8	Mruda_3.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: Mruda_3.0.0.list
+ 
+arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
+ 
+23:38:34 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
+arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Mruda_3.0.0.elf
+ 
+arm-none-eabi-size  Mruda_3.0.0.elf 
+arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  75360	   1136	  72736	 149232	  246f0	Mruda_3.0.0.elf
 Finished building: default.size.stdout
  
 Finished building: Mruda_3.0.0.list

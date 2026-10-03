@@ -1,17 +1,13 @@
-11:21:47 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
+23:38:34 **** Incremental Build of configuration Debug for project Mruda_3.0.0 ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/function/func_sel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/func_sel.d" -MT"Core/Src/function/func_sel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/func_sel.o"
-../Core/Src/function/func_sel.c: In function 'do_pc_command':
-../Core/Src/function/func_sel.c:466:17: warning: unused variable 'start_index' [-Wunused-variable]
-  466 |         uint8_t start_index = 16 * slot_index;
-      |                 ^~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/function/synth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function/synth.d" -MT"Core/Src/function/synth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function/synth.o"
 arm-none-eabi-gcc -o "Mruda_3.0.0.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Ventures\Mruda\01_Technical\MCU_Software\MCU_3.1.0\Mruda_3.0.0\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mruda_3.0.0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Mruda_3.0.0.elf
  
 arm-none-eabi-size  Mruda_3.0.0.elf 
 arm-none-eabi-objdump -h -S Mruda_3.0.0.elf  > "Mruda_3.0.0.list"
    text	   data	    bss	    dec	    hex	filename
-  68792	   1176	  30312	 100280	  187b8	Mruda_3.0.0.elf
+  75360	   1136	  72736	 149232	  246f0	Mruda_3.0.0.elf
 Finished building: default.size.stdout
  
 Finished building: Mruda_3.0.0.list
@@ -19,5 +15,5 @@ Finished building: Mruda_3.0.0.list
 arm-none-eabi-objcopy -O binary "Mruda_3.0.0.elf" firmware.bin
  
 
-11:21:50 Build Finished. 0 errors, 1 warnings. (took 2s.590ms)
+23:38:36 Build Finished. 0 errors, 0 warnings. (took 2s.698ms)
 

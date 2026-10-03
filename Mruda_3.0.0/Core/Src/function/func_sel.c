@@ -21,38 +21,7 @@
 #include "function/auto_corr.h"
 
 
-typedef enum {
-	none = -1,
-	MiDi = 0,
-	scale_down = 1,
-	scale_up = 2,
-	oct_down = 3,
-	oct_up = 4,
-	tune_down = 5,
-	tune_up = 6,
 
-	touch_sen = 7,
-	reverb = 8,
-	sustain = 9,
-
-	auto_corr = 10,
-	ac_set_down = 11,
-	ac_set_up = 12,
-	ac_s1 = 13,
-	ac_s2 = 14,
-
-
-	p1 = 15,
-	p2 = 16,
-	pre = 17,
-
-	t_scale_down = 18,
-	t_scale_up = 19,
-	t_vol_down = 20,
-	t_vol_up = 21,
-	t_on = 22,
-	t_type = 23,
-}functionID;
 
 typedef struct{
 	int flag;
@@ -80,7 +49,6 @@ void display_menu(const char* label, int val) {
 }
 
 void T_setup(tanpura_drone type, float current_transpose) {
-
     float sa_base = 27.0f;
     float drone_note;
 
@@ -199,9 +167,9 @@ void touch_sens(){
 
 void Reverb(){
 	func_val[reverb] ++;
-	if(func_val[reverb]>10){func_val[reverb] = 0;}
-	set_para.reverb = auto_corr_val[func_val[reverb]];
-	display_menu("TS", func_val[reverb]);
+	if(func_val[reverb]>5){func_val[reverb] = 0;}
+	set_para.reverb = func_val[reverb];
+	display_menu("rb", func_val[reverb]);
 }
 
 
@@ -215,7 +183,7 @@ void Sustain(){
 void Auto_Corr(){
 	func_val[auto_corr] ++;
 	if(func_val[auto_corr]>5)func_val[auto_corr] = 0;
-	set_para.auro_corr = auto_corr_val[func_val[auto_corr]];
+	set_ac_param(func_val[auto_corr]);
 	display_menu("AC", func_val[auto_corr]);
 }
 
@@ -247,30 +215,43 @@ void AC_down(){
 
 
 void AC_s1(){
-	set_para.AC_scale = 0;
-	display_menu("SC", 0);
+	func_val[ac_set_down] = set_para.scale_p1;
+	set_para.AC_scale = set_para.scale_p1;
+	display_menu("SC", set_para.scale_p1);
 	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
 	T_setup(tanpura.sec_note, set_para.transpose);
 }
 
 void AC_s2(){
-	set_para.AC_scale = 2;
-	display_menu("SC", 2);
+	func_val[ac_set_down] = set_para.scale_p2;
+	set_para.AC_scale = set_para.scale_p2;
+	display_menu("SC", set_para.scale_p2);
 	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
 	T_setup(tanpura.sec_note, set_para.transpose);
 }
 
 
 void P1(){
-
-	Creat_sine_table(sine_data,1);
-	display_menu("P1", 1);
+	Creat_sine_table(sine_data,set_para.v1);
+	display_menu("P1", set_para.v1);
+	func_val[pre] = set_para.v1;
+	set_para.preset = set_para.v1;
+	set_para.reverb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][16];
+	set_para.reverb_fb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][17];
+	set_para.reverb_damp = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][18];
 }
+
 
 void P2(){
-	Creat_sine_table(sine_data,1);
-	display_menu("P2", 2);
+	Creat_sine_table(sine_data,set_para.v2);
+	display_menu("P2", set_para.v2);
+	func_val[pre] = set_para.v2;
+	set_para.preset = set_para.v2;
+	set_para.reverb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][16];
+	set_para.reverb_fb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][17];
+	set_para.reverb_damp = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][18];
 }
+
 
 void Preset(){
 	func_val[pre] ++;
@@ -278,6 +259,9 @@ void Preset(){
 	set_para.preset = func_val[pre];
 	Creat_sine_table(sine_data,set_para.preset);
 	display_menu("P", func_val[pre]);
+	set_para.reverb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][16];
+	set_para.reverb_fb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][17];
+	set_para.reverb_damp = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][18];
 }
 
 
@@ -435,62 +419,76 @@ void dispach(){
 
 
 
-void do_pc_command() {
-    if (new_setting_flag == 0) return;
 
-    uint8_t cmd = setting_array[0];
+void update_scale(uint8_t slot){
+    float key_no[13] = {0, 1.1173, 2.0391, 3.1564, 3.8631, 4.9804, 5.9022, 7.0196, 8.1369, 8.8436, 10.176, 10.8827, 12};
 
-    if (cmd <= 5) {
-        // 1. Update state variables FIRST
-        //func_val[p_set] = cmd;
-        set_para.preset = (int)cmd;
+    uint8_t note[12];
+    int8_t microtone[12]; // FIX 1: MUST be int8_t (signed) so it can be negative!
 
-        // 2. Load incoming data into the correct preset slot
-        for (int i = 0; i < 16; i++) {
-            preset[cmd][i] = (float)setting_array[i + 1];
-        }
+    float data[12] = {20,20,20,20, 20,20,20,20, 20,20,20,20};
 
-        // 3. Generate the correct sine table
-        if (cmd < 5) {
-            Creat_sine_table(sine_data, cmd);
-        } else {
-            Creat_sine_table(sine_data_tanpura, 5);
+    for(int i=0; i< 12; i++){
+        // (i+i+1) is the same as (2*i + 1), which perfectly reads your struct!
+        note[i] = raw_flash_data.default_scale[slot][i+i + 1];
+        microtone[i] = raw_flash_data.default_scale[slot][i+i + 2];
+    }
+
+    uint8_t type = raw_flash_data.default_scale[slot][0];
+
+    int index = 0; // FIX 2: MUST initialize to 0!
+
+    // --- NATURAL SCALE ---
+    if(type == 1) {
+        for(int i = 0; i < 12; i++) {
+            if(note[i] == 1) {
+                data[index] = key_no[i] + ((float)microtone[i] * 0.01f);
+                index++;
+            }
         }
     }
 
-    // ==========================================
-    // COMMAND 10-19: SAVE TO FLASH
-    // ==========================================
-    else if (cmd >= 10 && cmd < 20) {
-        uint8_t slot_index = cmd - 10;
-        uint8_t start_index = 16 * slot_index;
-
-        // Write directly from the float array to the flash_data byte array
-        for (int i = 0; i < 16; i++) {
-            //flash_data[start_index + i] = (uint8_t)preset[func_val[p_set]][i];
+    // --- WESTERN SCALE ---
+    else {
+        for(int i = 0; i < 12; i++) {
+            if(note[i] == 1) {
+                data[index] = (float)i + ((float)microtone[i] * 0.01f);
+                index++;
+            }
         }
-
-        Flash_SaveData(flash_data);
     }
 
-    new_setting_flag = 0;
+    for(int i = 0; i < 12; i++) {
+    	if(slot == 0) Scale_Custom_1[i] = data[i];
+    	if(slot == 1) Scale_Custom_2[i] = data[i];
+    	if(slot == 2) Scale_Custom_3[i] = data[i];
+    }
 }
-
 
 
 void update_data(uint8_t type, uint8_t slot){
 	if(type == 0){
 		set_para.preset = (int)slot;
-		if (slot < 5) {Creat_sine_table(sine_data, slot);}
+
+		for (int i = 0; i < 16; i++) {
+		    preset[slot][i] = (float)raw_flash_data.default_voice[slot] [i];
+		        }
+
+		if (slot < 5) {
+			Creat_sine_table(sine_data, slot);
+			set_para.reverb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][18];
+			set_para.reverb_fb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][16];
+			set_para.reverb_damp = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][17];
+		}
 		else {Creat_sine_table(sine_data_tanpura, 5);}
 	}
-
 	if(type == 1){
-
+		update_scale(slot);
+		set_para.AC_scale = slot + 47; // custom scale index
 	}
 
 	if(type == 2){
-
+		//no action required
 	}
 }
 
@@ -498,23 +496,27 @@ void update_data(uint8_t type, uint8_t slot){
 
 void update_flash_packat(){
 	if (new_setting_flag == 0) return;
+	new_setting_flag = 0;
 
 	uint8_t cmd = setting_array[0];
 
 	if(cmd < 7){
-		for (int i = 0; i < 16; i++){raw_flash_data.default_voice[cmd][i] = setting_array[i + 1];}
+		for (int i = 0; i < 30; i++){raw_flash_data.default_voice[cmd][i] = setting_array[i + 1];}
 		update_data(0, cmd);
 		}
 
 	if(cmd > 19 && cmd < 25){
-		for(int i = 0; i<26; i++){raw_flash_data.default_scale[cmd - 20] [i] = setting_array[i + 2] - 64;}
+		for(int i = 0; i<30; i++){raw_flash_data.default_scale[cmd - 20] [i] = setting_array[i + 1] - 64;}
 		update_data(1, cmd-20);
 		}
 
 	if(cmd == 30){
-		for(int i = 0; i<18; i++)	{raw_flash_data.default_setup[i] = setting_array[i + 1] - 64;}
+		for(int i = 0; i<30; i++)	{raw_flash_data.default_setup[i] = setting_array[i + 1] - 64;}
 		update_data(2, 0);
 		}
+
+
+	if(cmd == 100)Flash_SaveData();
 }
 
 

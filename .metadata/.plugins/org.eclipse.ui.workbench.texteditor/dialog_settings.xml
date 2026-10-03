@@ -3,20 +3,20 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
-		<item value=" ac_set_up"/>
-		<item value="ac_set_up"/>
-		<item value="snap"/>
-		<item value="dispach()"/>
-		<item value="index_track"/>
-		<item value="distance_mat"/>
-		<item value="touch_poly_robust"/>
-		<item value="peak.flag"/>
-		<item value="touch_cal"/>
-		<item value="sys_vol"/>
-		<item value="FILTER_SAMPLES"/>
+		<item value="reverb_gen"/>
+		<item value="t1"/>
+		<item value="t_samp_rev"/>
+		<item value="reverb_ge"/>
+		<item value="mod3"/>
+		<item value="rev_mix_level"/>
+		<item value="Midi_status"/>
 		<item value="midi"/>
-		<item value="midi_pitch_bend"/>
-		<item value="operation_mode mode;"/>
-		<item value="TM1637_DisplayString(&quot;PLAY&quot;)"/>
+		<item value="update_scale"/>
+		<item value="setting_arra"/>
+		<item value="setting_array"/>
+		<item value="func_val"/>
+		<item value="Flash_SaveData"/>
+		<item value="TOTAL_DATA_BYTES"/>
+		<item value=" ac_set_up"/>
 	</list>
 </section>

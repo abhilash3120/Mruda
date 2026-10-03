@@ -1,2 +1,2 @@
-../Core/Src/function/f_set.c:93:6:set_defaults	1
-../Core/Src/function/f_set.c:132:6:set_freq	18
+../Core/Src/function/f_set.c:45:6:set_defaults	2
+../Core/Src/function/f_set.c:153:6:set_freq	20

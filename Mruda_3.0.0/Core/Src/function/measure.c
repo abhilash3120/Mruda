@@ -13,7 +13,7 @@
 #include "math.h"
 #include "tm1637.h"
 #include "function/f_set.h"
-
+#include <stdbool.h>
 
 
 float touch_raw[50];
@@ -114,7 +114,7 @@ void touch_mono(){
                 best_amp = current_sum;
 
                 old_pos = best_pos;
-                best_pos = parabolic_fit(i);
+                best_pos = linear_fit(i);
 
                 float raw_vel = fabs(old_pos - best_pos);
 
@@ -145,6 +145,10 @@ void touch_mono(){
 	key.vol[2] = 0;
 
 }
+
+
+
+
 
 void touch_estimate(){
 
@@ -293,6 +297,75 @@ void get_touch_position(){
 	set_mux(mux_sel);
 
 }
+void touch_mono_2(){
+    //get max
+    float best_amp = 0;
+    static float best_pos = -10.0f;
+    static float old_pos = 0;
+
+    // --- Peak detection (pick strongest only) ---
+    peak.flag_old[0] = peak.flag[0];
+    peak.flag[0] = 0;
+    for(uint8_t i = 1; i < 47; i++){
+        if(touch_filtered[i-1] < touch_filtered[i] &&
+           touch_filtered[i+1] < touch_filtered[i])
+        {
+            float current_sum = touch_filtered[i] +
+                                touch_filtered[i-1] +
+                                touch_filtered[i+1];
+
+            float threshold = 200;
+            threshold = (peak.flag_old[0] == 1) ? 100.0f : 200.0f;
+
+            if(current_sum > threshold && current_sum > best_amp){
+                best_amp = current_sum;
+
+                old_pos = best_pos;
+                best_pos = linear_fit(i);
+
+                float raw_vel = fabs(old_pos - best_pos);
+
+                peak.vel[0] = 0.001f*peak.vel[0] + 0.999f*raw_vel;
+                peak.flag[0] = 1; // 1 means finger is currently on the board
+            }
+        }
+    }
+
+    // --- Amplitude and Volume Calculation ---
+    peak.amp[0] = best_amp;
+    peak.amp[0] = 0.9f*peak.amp[0] + 0.1f*peak.amp_old[0];
+    peak.amp_old[0] = peak.amp[0];
+
+    if(peak.amp[0] < 0){ peak.amp[0] = 0; }
+
+    // touch amplitude (final target volume)
+    peak.vol[0] = powf(peak.amp[0]*peak.sys_vol, set_para.touch_exp);
+
+    float final_pos = 0.5f*best_pos - 6.5f + 12.0f;
+    float final_amp = peak.vol[0];
+
+    static int active_key = 0;
+
+    // --- 3-Channel Allocation Logic ---
+    if(peak.flag[0] == 1) {
+        // Finger is on the board
+
+        if(peak.flag_old[0] == 0) {
+            // NEW STRIKE: (Wasn't touched last frame, is touched now)
+            active_key++;
+            if(active_key > 2) active_key = 0; // Rotate 0 -> 1 -> 2
+        }
+
+        // CONTINUOUS UPDATE: Apply to the active key (Handles slides and pressure)
+        key.vol[active_key] = final_amp;
+        peak.pos_out[active_key] = final_pos;
+
+    } else{
+        key.vol[0] = 0.0f;
+        key.vol[1] = 0.0f;
+        key.vol[2] = 0.0f;
+    }
+}
 
 
 void pos_measure_f_cal(){
@@ -302,7 +375,7 @@ void pos_measure_f_cal(){
 
 	    peak.sys_vol=vol_knob*0.00025*0.0002;
 	    //touch position measurement
-		touch_mono();
+	    touch_mono();
 		set_freq();
 	}
 }

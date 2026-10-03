@@ -11,7 +11,7 @@
 
 void enter_edit_mode();
 void update_all_presets();
-void Flash_SaveData(uint8_t *data);
+void Flash_SaveData(void);
 extern uint8_t flash_data[96];
 
 

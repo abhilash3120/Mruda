@@ -8,10 +8,14 @@
 #include <math.h>
 #include <main.h>
 #include "function/auto_corr.h"
-
+#include "function/f_set.h"
+#include "function/measure.h"
 // 1. THE 13-NOTE DEFINITIONS (Natural Scale / Just Intonation)
 // ==========================================
 // Calculated using standard Indian classical harmonic ratios (12 * log2(Ratio))
+
+
+all_raag_list raag_list;
 
 const float NA_Natural[] = {SA, re, RE, ga, GA, ma, MA, PA, dha, DHA,  ni, NI};
 const float NA_Chromatic[] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
@@ -60,9 +64,9 @@ const float Raag_Shree[] = {SA, re, GA, MA, PA, dha, NI};
 const float Raag_Tilak_Kamod[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
 const float Raag_Tilang[] = {SA, GA, ma, PA, ni, NI};
 const float Raag_Yaman[] = {SA, RE, GA, MA, PA, DHA, NI};
-const float Scale_Custom_1[] = {SA, RE, GA, ma, PA, DHA, NI};
-const float Scale_Custom_2[] = {SA, RE, GA, ma, PA, DHA, NI};
-const float Scale_Custom_3[] = {SA, RE, GA, ma, PA, DHA, NI};
+float Scale_Custom_1[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
+float Scale_Custom_2[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
+float Scale_Custom_3[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
 
 
 
@@ -115,12 +119,27 @@ const ScaleDef scale_library[] = {
 {"s_Raag_Tilak_Kamod", Raag_Tilak_Kamod, 8, t_PA},
 {"s_Raag_Tilang", Raag_Tilang, 6, t_PA},
 {"s_Raag_Yaman", Raag_Yaman, 7, t_PA},
-{"s_Scale_Custom_1", Scale_Custom_1, 7, t_PA},
-{"s_Scale_Custom_2", Scale_Custom_2, 7, t_PA},
-{"s_Scale_Custom_3", Scale_Custom_3, 7, t_PA},
+{"s_Scale_Custom_1", Scale_Custom_1, 12, t_PA},
+{"s_Scale_Custom_2", Scale_Custom_2, 12, t_PA},
+{"s_Scale_Custom_3", Scale_Custom_3, 12, t_PA},
 };
 
+float auto_corr_val[6]={0,0.02,0.05,0.12,0.20, 0.35};
 
+float auto_corr_values[6][3]={
+		{0,0,0},
+		{0.02, 0.015, 0.1},
+		{0.05, 0.02, 0.3},
+		{0.1, 0.02, 0.5},
+		{0.2, 0.02, 0.8},
+		{0.35, 0.02, 1.2}
+};
+
+void set_ac_param(int level){
+	set_para.auro_corr = auto_corr_values [level][0];
+	set_para.ac_rf_min = auto_corr_values [level][1];
+	set_para.ac_rf_max = auto_corr_values [level][2];
+}
 
 float auto_correct(int scale_index, float input) {
 
@@ -159,4 +178,3 @@ float auto_correct(int scale_index, float input) {
 
     return nearest_note;
 }
-

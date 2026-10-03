@@ -1,0 +1,274 @@
+/*
+ * usb.c
+ *
+ *  Created on: May 14, 2026
+ *      Author: abhil
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>    // For itoa
+#include <stdint.h>
+
+#include "stm32f4xx.h"
+#include "main.h"
+#include "math.h"
+#include "function/midi.h"
+#include "function/usb.h"
+#include "tm1637.h"
+#include "function/func_sel.h"
+#include "function/f_set.h"
+#include "function/usb.h"
+
+#define VALID_MAGIC            0xDEADBEEF
+#define FLASH_USER_START_ADDR  0x08060000
+#define FLASH_SECTOR_TO_USE    FLASH_SECTOR_7
+//#define TOTAL_DATA_BYTES       96  // Must be a multiple of 4
+
+#define TOTAL_DATA_BYTES       (((sizeof(default_raw_settings) + 3) / 4) * 4)
+
+
+
+// 3. Automatically calculate the 4-byte padded size (189 becomes 192)
+#define TOTAL_DATA_BYTES       (((sizeof(default_raw_settings) + 3) / 4) * 4)
+
+#define VALID_MAGIC            0xDEADBEEF
+#define FLASH_USER_START_ADDR  0x08060000
+#define FLASH_SECTOR_TO_USE    FLASH_SECTOR_7
+
+
+// ==========================================
+// SAVE FUNCTION
+// ==========================================
+void Flash_SaveData(void)
+{
+    FLASH_EraseInitTypeDef EraseInit;
+    uint32_t SectorError;
+
+    HAL_FLASH_Unlock();
+
+    // 1. Erase the Sector
+    EraseInit.TypeErase    = FLASH_TYPEERASE_SECTORS;
+    EraseInit.Sector       = FLASH_SECTOR_TO_USE;
+    EraseInit.NbSectors    = 1;
+    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+
+    HAL_FLASHEx_Erase(&EraseInit, &SectorError);
+
+    uint32_t address = FLASH_USER_START_ADDR;
+    uint8_t *data_ptr = (uint8_t *)&raw_flash_data;
+
+    // 2. Write the Struct Data (in 4-byte chunks)
+    for(int i = 0; i < TOTAL_DATA_BYTES; i += 4)
+    {
+        uint32_t word = 0xFFFFFFFF; // Start with erased flash state
+
+        // Safely determine how many bytes are left to copy (protects against the 189-byte limit)
+        int bytes_to_copy = sizeof(default_raw_settings) - i;
+        if(bytes_to_copy > 4) {
+            bytes_to_copy = 4;
+        }
+
+        // Copy up to 4 bytes into our 'word' variable
+        if (bytes_to_copy > 0) {
+            memcpy(&word, &data_ptr[i], bytes_to_copy);
+        }
+
+        // Write the 4-byte word to flash
+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, word);
+        address += 4;
+    }
+
+    // 3. Write the Magic Word at the very end
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, VALID_MAGIC);
+
+    HAL_FLASH_Lock();
+}
+
+int Flash_LoadData(default_raw_settings *target_struct)
+{
+    // The magic word is located exactly after our padded data length
+    uint32_t magic_address = FLASH_USER_START_ADDR + TOTAL_DATA_BYTES;
+    uint32_t *magic_ptr = (uint32_t *)magic_address;
+
+    // 1. Check if the magic word exists
+    if(*magic_ptr != VALID_MAGIC) {
+        return 0; // Magic number mismatch, flash is empty/corrupted
+    }
+
+    // 2. Found it! Copy the flash data directly into the struct you passed in
+    memcpy(target_struct, (uint8_t *)FLASH_USER_START_ADDR, sizeof(default_raw_settings));
+
+    return 1;
+}
+
+
+
+
+uint8_t flash_data[96];
+void Flash_SaveData1(uint8_t *data)
+{
+    FLASH_EraseInitTypeDef EraseInit;
+    uint32_t SectorError;
+    HAL_FLASH_Unlock();
+
+    EraseInit.TypeErase    = FLASH_TYPEERASE_SECTORS;
+    EraseInit.Sector       = FLASH_SECTOR_TO_USE;
+    EraseInit.NbSectors    = 1;
+    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+
+    HAL_FLASHEx_Erase(&EraseInit, &SectorError);
+    uint32_t address = FLASH_USER_START_ADDR;
+
+    for(int i = 0; i < TOTAL_DATA_BYTES; i += 4)
+    {
+        uint32_t word;
+        memcpy(&word, &data[i], 4);
+
+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, word);
+        address += 4;
+    }
+
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, VALID_MAGIC);
+    HAL_FLASH_Lock();
+}
+
+
+int Flash_LoadData1(uint8_t *data)
+{
+    uint32_t *flashPtr = (uint32_t*)FLASH_USER_START_ADDR;
+
+    uint32_t magicIndex = TOTAL_DATA_BYTES / 4;
+    if(flashPtr[magicIndex] != VALID_MAGIC)
+        return 0; // Magic number mismatch, flash is likely empty/uninitialized
+
+    memcpy(data, (uint8_t*)FLASH_USER_START_ADDR, TOTAL_DATA_BYTES);
+    return 1;
+}
+
+
+uint8_t temp[96];
+void init_preset_flash(){
+
+//	int k =0;
+//	for (int i = 0; i<6 ;i++){
+//		for(int j = 0; j<16;j++){
+//			temp[k++] = default_preset[i][j];
+//		}
+//	}
+//	HAL_Delay(1000);
+
+
+	uint8_t default_preset[6][30] = {
+			{127,127,85,85,59,25,13,17,4,8,0,4,0,4,0,4, 0,0,0, 0,0,0,  0,0,0,0,0,0,0,0},
+			{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,	0,0,0,	0,0,0,	0,0,0,0,0,0,0,0},
+			{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,	0,0,0,	0,0,0,	0,0,0,0,0,0,0,0},
+			{64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,	0,0,0,	0,0,0,	0,0,0,0,0,0,0,0},
+			{64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64, 	0,0,0,	0,0,0,	0,0,0,0,0,0,0,0},
+			{127,127,85,85,59,25,13,17,4,8,0,4,0,4,0,4,	0,0,0,	0,0,0,	0,0,0,0,0,0,0,0}
+	};
+
+	memcpy(raw_flash_data.default_voice, default_preset, sizeof(default_preset));
+
+
+
+	int8_t custom_scales[3][30]={
+			{1,	1,0,1,0,1,0,1,0,1,0, 1,0,1,0,1,0,1,0,1,0, 1,0,1,0,	0,0,0,0,0},
+			{1, 1,0,1,0,1,0,1,0,1,0, 1,0,1,0,1,0,1,0,1,0, 1,0,1,0,	0,0,0,0,0},
+			{1, 1,0,1,0,1,0,1,0,1,0, 1,0,1,0,1,0,1,0,1,0, 1,0,1,0, 	0,0,0,0,0},
+	};
+
+	memcpy(raw_flash_data.default_scale, custom_scales, sizeof(custom_scales));
+
+
+	int8_t default_settings[30] = {
+
+	        1,   // d_midi (Index 1 = "Off")
+	        7,   // d_transpose (Index 7 = "0")
+	        3,   // d_octave (Index 3 = "0")
+	        0,   // d_tune (SpinBox value = 0)
+	        1,   // d_tsens (Index 1 = "2")
+
+	        1,   // d_reverb (Index 1 = "2")
+	        1,   // d_sustain (Index 1 = "2")
+	        0,   // d_voice_def (Index 0 = "0")
+	        1,   // d_voice_p1 (Index 1 = "1")
+	        2,   // d_voice_p2 (Index 2 = "2")
+
+	        3,   // d_auto_corr (Index 3 = "3")
+			0,   // scale at boot
+	        0,   // d_ac_s1
+	        2,   // d_ac_s2
+	        0,   // d_tanpura_state (Index 1 = "Off")
+
+	        0,   // d_tanpura_scale (Index 0 = "C")
+	        2,   // d_tanpura_vol (Index 2 = "3")
+	        0,    // d_tanpura_sec (Index 0 = "PA")
+
+
+			0,0,0,0,0,	0,0,0,0,0,	0,0 // extra slots for setting updates
+	};
+
+	memcpy(raw_flash_data.default_setup, default_settings, sizeof(default_settings));
+
+	//Flash_SaveData(temp);
+}
+
+
+default_raw_settings temp_array;
+void update_all_presets(){
+	HAL_Delay(50);
+
+	Flash_LoadData(&temp_array);
+
+
+	/*
+	 * this part run only once after uploading the program
+	 * as there is no data on the flash to be loaded for preset
+	 * doing this eases the production by avoiding flash through appliction
+	 */
+
+	int sum= 0;
+	for (int i =0 ;i <20; i++){
+		sum = sum + temp_array.default_voice[0][i];
+	}
+
+	if (sum < 5){
+		init_preset_flash();
+		Flash_SaveData();
+	}
+
+	Flash_LoadData(&raw_flash_data);
+	//----------initilisation copy all ----------
+
+	//copy voices to preset
+	for (int i = 0; i < 6; i++) {
+	    for (int j = 0; j < 16; j++) {
+	        preset[i][j] = (float)raw_flash_data.default_voice[i][j];
+	    }
+	}
+
+	//copy scales to custom slots
+	update_scale(0);
+	update_scale(1);
+	update_scale(2);
+
+	HAL_Delay(50);
+}
+
+
+void enter_edit_mode(){
+	TM1637_SetColon(0);
+	TM1637_DisplayString("EdIt");
+
+	while(new_setting_flag == 0){
+		HAL_Delay(600);
+		TM1637_DisplayString("EdIt");
+		HAL_Delay(400);
+		TM1637_DisplayString("    ");
+	}
+	TM1637_DisplayString("EdIt");
+}
+
+
+

@@ -19,12 +19,12 @@ class envelope_set():
 
 
         self.env_slide_list =[
-            self.ui.expo, self.ui.tilt, self.ui.oe, self.ui.ham_mix,
+            self.ui.expo, self.ui.oe, self.ui.ham_mix,
             self.ui.randomness, self.ui.fs_c, self.ui.fs_w
             ]
         
         self.env_para_list = [
-            self.ui.e_expo, self.ui.e_tilt, self.ui.e_oe, self.ui.e_ham_mix,
+            self.ui.e_expo, self.ui.e_oe, self.ui.e_ham_mix,
             self.ui.e_randomness, self.ui.e_fs_c, self.ui.e_fs_w
             ]
         
@@ -41,6 +41,7 @@ class envelope_set():
         self.base_val = np.full(16, 64)
 
         self.ui.reset_dist.clicked.connect(self.reset_dist)
+        
 
 
 
@@ -50,7 +51,7 @@ class envelope_set():
         self.envelope = self.base_val
 
         self.ui.tilt.setValue(0)
-        self.ui.expo.setValue(25)
+        self.ui.expo.setValue(0)
         self.ui.oe.setValue(0)
         self.ui.ham_mix.setValue(0)
         self.ui.randomness.setValue(0)
@@ -68,8 +69,8 @@ class envelope_set():
         
 
 
-    def apply_tilt(self):
-        value = self.ui.tilt.value()*3/100
+    def apply_expo(self):
+        value = self.ui.expo.value()*3/100
 
         for i in range(16):
             self.envelope[i] = self.envelope[i] / (i+1)**value
@@ -77,14 +78,14 @@ class envelope_set():
         self.norm_and_update()
 
 
-    def apply_expo(self):
-        value = self.ui.expo.value()/25
-        print(value)
+    # def apply_expo(self):
+    #     value = self.ui.expo.value()/25
+    #     print(value)
 
-        for i in range(16):
-            self.envelope[i] = self.envelope[i]**value
+    #     for i in range(16):
+    #         self.envelope[i] = self.envelope[i]**value
 
-        self.norm_and_update()
+    #     self.norm_and_update()
 
     
     def apply_oe(self):
@@ -173,11 +174,9 @@ class envelope_set():
         self.norm_and_update()
 
 
-
-
     def update_array(self):
         self.envelope = np.full(16, 64)
-        self.apply_tilt()
+        # self.apply_tilt()
         self.apply_expo()
         self.apply_oe()
         self.apply_formant()

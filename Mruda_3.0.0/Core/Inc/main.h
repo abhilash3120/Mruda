@@ -102,18 +102,92 @@ typedef enum operation{
 
 extern operation_mode mode;
 
+
+typedef enum {
+	NA_Natural_s=0,
+	NA_Chromatic_s=1,
+	Thaat_Bilawal_s=2,
+	Thaat_Kalyan_s=3,
+	Thaat_Khamaj_s=4,
+	Thaat_Kafi_s=5,
+	Thaat_Asavari_s=6,
+	Thaat_Bhairavi_s=7,
+	Thaat_Bhairav_s=8,
+	Thaat_Marva_s=9,
+	Thaat_Purvi_s=10,
+	Thaat_Todi_s=11,
+	Raag_Abhogi_s=12,
+	Raag_Ahir_bhairav_s=13,
+	Raag_Bageshri_s=14,
+	Raag_Bhairav_s=15,
+	Raag_Bhairavi_s=16,
+	Raag_Bhimpalasi_s=17,
+	Raag_Bhupali_s=18,
+	Raag_Bihag_s=19,
+	Raag_Charukeshi_s=20,
+	Raag_Darbari_kanada_s=21,
+	Raag_Desh_s=22,
+	Raag_Durga_s=23,
+	Raag_Hamsadhwani_s=24,
+	Raag_Jog_s=25,
+	Raag_Jonpuri_s=26,
+	Raag_Kalavati_s=27,
+	Raag_Kedar_s=28,
+	Raag_Khamaj_s=29,
+	Raag_Kirvani_s=30,
+	Raag_Lalit_s=31,
+	Raag_Malkauns_s=32,
+	Raag_Marwa_s=33,
+	Raag_Megh_Malhar_s=34,
+	Raag_Miya_ki_malhar_s=35,
+	Raag_Nand_s=36,
+	Raag_Pahadi_s=37,
+	Raag_Pilu_s=38,
+	Raag_Puriya_Dhanashree_s=39,
+	Raag_Raagshree_s=40,
+	Raag_Sarang_s=41,
+	Raag_Shivranjini_s=42,
+	Raag_Shree_s=43,
+	Raag_Tilak_Kamod_s=44,
+	Raag_Tilang_s=45,
+	Raag_Yaman_s=46,
+	Scale_Custom_1_s=47,
+	Scale_Custom_2_s=48,
+	Scale_Custom_3_s=49
+}all_raag_list;
+
+
+
 typedef struct {
     float touch_exp;
-    float auro_corr;
     int octave;
     int transpose;
     float tune;
-    uint8_t AC_scale;
-    float p1;
-    float p2;
-    float p3;
-    float preset;
+    all_raag_list AC_scale; // current value
+
+//    float p1;
+//    float p2; // to be removed later
+//    float p3;
+
+    int v0;
+    int v1; // voice shortcut
+    int v2;
+
+    int preset;
     float reverb;
+    float reverb_fb; // reverb parameter
+    float reverb_damp;
+
+    float attack;
+    float sustain; // adsr thing
+
+
+    float auro_corr;
+    float ac_rf_min;
+    float ac_rf_max;
+    all_raag_list scale_boot; // these three are the setup value
+    all_raag_list scale_p1;   // custom auto-correct scales
+    all_raag_list scale_p2;
 } parameter_t;
 
 
@@ -203,10 +277,45 @@ extern volatile uint32_t dfu_flag;
 
 
 typedef struct{
-	uint8_t default_voice[6][16];
-	int8_t default_scale[3][25];
-	int8_t default_setup[18];
+	uint8_t default_voice[6][30];
+	int8_t default_scale[3][30];
+	int8_t default_setup[30];
 }default_raw_settings;
+
+typedef enum {
+	none = -1,
+	MiDi = 0,
+	scale_down = 1,
+	scale_up = 2,
+	oct_down = 3,
+	oct_up = 4,
+	tune_down = 5,
+	tune_up = 6,
+
+	touch_sen = 7,
+	reverb = 8,
+	sustain = 9,
+
+	auto_corr = 10,
+	ac_set_down = 11,
+	ac_set_up = 12,
+	ac_s1 = 13,
+	ac_s2 = 14,
+
+
+	p1 = 15,
+	p2 = 16,
+	pre = 17,
+
+	t_scale_down = 18,
+	t_scale_up = 19,
+	t_vol_down = 20,
+	t_vol_up = 21,
+	t_on = 22,
+	t_type = 23,
+}functionID;
+
+
 
 
 

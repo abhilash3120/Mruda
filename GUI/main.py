@@ -1,8 +1,7 @@
 
-import hid
-import time
-import mido
 import threading
+from PySide6.QtWidgets import QMessageBox
+import mido
 
 slot_1 = [127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4]
 slot_2 = [1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -11,6 +10,16 @@ slot_4 =  [1.0, 1.00, 1.0, 1.0, 1.00, 1.00, 1.000, 1.00, 1.000, 1.00, 1, 1.000, 
 slot_5 =  [64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64]
 tanpura = [127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4]
 
+
+
+#  Mix || Feedback || damping
+reverb_preset = [[0 ,0 ,0],   #off
+                 [10,65,65],  #Studio
+                 [20,80,45],  #Room
+                 [40,88,30],  #cathedral
+                 [65,96,20],  #Deep space
+                 [80,98,10]   #Dreamy
+                 ]
 
 default_values = [slot_1, slot_2, slot_3, slot_4, slot_5, tanpura]
 Current_values = [slot_1, slot_2, slot_3, slot_4, slot_5, tanpura]
@@ -37,13 +46,27 @@ class setup():
         self.inport = None
         self.outport = None
 
+        self.other_set_slider = [
+            self.ui.slide_rev_feedback, self.ui.slide_rev_damp, self.ui.slide_rev_mix,
+            self.ui.slide_voice_attack, self.ui.slide_voice_sustain, self.ui.slide_voice_timber]
+
+        self.other_set_val = [
+            self.ui.val_rev_feedback, self.ui.val_rev_damp, self.ui.val_rev_mix,
+            self.ui.val_voice_attack, self.ui.val_voice_sustain, self.ui.val_voice_timber            
+        ]
+
+        for slider, value in zip(self.other_set_slider, self.other_set_val):
+            slider.valueChanged.connect(value.setValue)
+            value.valueChanged.connect(slider.setValue)
 
 
         for slider, value in zip(self.slider_list, self.value_list):
             slider.valueChanged.connect(value.setValue)
             value.valueChanged.connect(slider.setValue)
 
-        ui.slot_list.addItems(["Preset 1", "Preset 2", "Preset 3", "Preset 4", "Custom Slot", "Tanpura"])
+
+        ui.slot_list.addItems(["Preset 1", "Preset 2", "Preset 3", "Preset 4", "Preset 5", "Tanpura"])
+        ui.comb_voice_rev.addItems(["Off", "Studio", "Room", "Cathedral" , "Deep Space" , "Dreamy"])
         ui.slot_list.setCurrentIndex(4)
         ui.update.clicked.connect(self.update_slot)
         ui.send.clicked.connect(self.send_values)
@@ -56,21 +79,41 @@ class setup():
         for slider in self.slider_list:
             slider.sliderReleased.connect(self.send_values)
 
+        for slider in self.other_set_slider:
+            slider.sliderReleased.connect(self.send_values)
+
+
+        self.ui.comb_voice_rev.currentIndexChanged.connect(self.reverb_update)
+
 
         dev_list = mido.get_input_names()
         ui.device.addItems(dev_list)
+
+        self.ui.slot_list.currentIndexChanged.connect(self.set_default)
+
+        self.send_flag = 0
         
-        
+
 
     def set_default(self):
-        
         slot = self.ui.slot_list.currentIndex()
         Current_values[slot] = default_values[slot]
-
 
         data = [x * 1 for x in Current_values[slot]]
         for data, slider in zip(data, self.slider_list):
             slider.setValue(int(data))
+
+            for slider in self.other_set_slider:
+                if slot == 5:
+                    slider.setEnabled(False)
+                else:
+                    slider.setEnabled(True)
+
+            if slot ==5 :
+                self.ui.comb_voice_rev.setEnabled(False)
+
+            else :
+                self.ui.comb_voice_rev.setEnabled(True)
 
 
 
@@ -86,7 +129,6 @@ class setup():
                 break
 
 
-
     def update_slot(self):
         slot = self.ui.slot_list.currentIndex()
 
@@ -95,18 +137,31 @@ class setup():
             slider.setValue(int(data))
 
     
-
     def send_values(self):
 
         command = self.ui.slot_list.currentIndex()
-        values = [command] + [slider.value() for slider in self.slider_list]
+        values = [command] + [slider.value() for slider in self.slider_list] + [slider.value() for slider in self.other_set_slider] + 8*[0]
+        #  16+6+8
+        # keep total 30 spaces for future additions 
+
+        
 
         print(values)
         sysex_payload = [0x7D, 0x01] + values
 
         # Create and send the message
-        msg = mido.Message('sysex', data=sysex_payload)
-        self.outport.send(msg)
+        try:
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.outport.send(msg)
+            self.send_flag = 1
+
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
 
 
 
@@ -170,12 +225,23 @@ class setup():
 
 
     def save_to_flash(self):
-        from PySide6.QtWidgets import QMessageBox
-        import mido
+
 
         preset = self.ui.slot_list.currentText()
 
         # Use the explicit StandardButton enum
+
+        if self.send_flag == 0:
+            QMessageBox.information(
+                None,
+                "Info",
+                "Please send the values using the 'Send to Mruda' button before overwriting the Current values.",
+                QMessageBox.StandardButton.Ok
+            )
+            return
+
+
+        
         reply = QMessageBox.question(
             None,
             "Confirm",
@@ -192,26 +258,40 @@ class setup():
         # If it reaches here, the user clicked 'Yes'
         print("Saving...")
 
+        try:
+            values = [100,1]
+            sysex_payload = [0x7D, 0x01] + values
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.outport.send(msg)
 
-        # here first index - 10 is the channel that needs to be stored on the flash
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
 
-        command = 10 + self.ui.slot_list.currentIndex()
-        values = [command] + [slider.value() for slider in self.slider_list]
-
-        padd = 30- len(values)
-
-        values.append([0]*padd)
-
-
-        print(values)
-
-        sysex_payload = [0x7D, 0x01] + values
-
-        msg = mido.Message('sysex', data=sysex_payload)
-        self.outport.send(msg)
 
 
     def send_data(self, values):
-        sysex_payload = [0x7D, 0x01] + values
-        msg = mido.Message('sysex', data=sysex_payload)
-        self.outport.send(msg)
+        try:
+            sysex_payload = [0x7D, 0x01] + values
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.outport.send(msg)
+
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
+
+    def reverb_update(self):
+        print("reverb update")
+        index = self.ui.comb_voice_rev.currentIndex()
+        self.ui.slide_rev_feedback.setValue(reverb_preset[index][1])
+        self.ui.slide_rev_damp.setValue(reverb_preset[index][2])
+        self.ui.slide_rev_mix.setValue(reverb_preset[index][0])
+

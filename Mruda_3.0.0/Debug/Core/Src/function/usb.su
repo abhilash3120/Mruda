@@ -1,5 +1,7 @@
 ../Core/Src/function/usb.c:36:6:Flash_SaveData	64	static
-../Core/Src/function/usb.c:64:5:Flash_LoadData	24	static
-../Core/Src/function/usb.c:78:6:init_preset_flash	24	static
-../Core/Src/function/usb.c:92:6:update_all_presets	32	static
-../Core/Src/function/usb.c:125:6:enter_edit_mode	8	static
+../Core/Src/function/usb.c:82:5:Flash_LoadData	24	static
+../Core/Src/function/usb.c:103:6:Flash_SaveData1	64	static
+../Core/Src/function/usb.c:131:5:Flash_LoadData1	24	static
+../Core/Src/function/usb.c:145:6:init_preset_flash	320	static
+../Core/Src/function/usb.c:213:6:update_all_presets	24	static
+../Core/Src/function/usb.c:254:6:enter_edit_mode	8	static

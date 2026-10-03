@@ -1,0 +1,180 @@
+/*
+ * auto_corr.c
+ *
+ *  Created on: Sep 26, 2026
+ *      Author: abhil
+ */
+
+#include <math.h>
+#include <main.h>
+#include "function/auto_corr.h"
+#include "function/f_set.h"
+#include "function/measure.h"
+// 1. THE 13-NOTE DEFINITIONS (Natural Scale / Just Intonation)
+// ==========================================
+// Calculated using standard Indian classical harmonic ratios (12 * log2(Ratio))
+
+
+all_raag_list raag_list;
+
+const float NA_Natural[] = {SA, re, RE, ga, GA, ma, MA, PA, dha, DHA,  ni, NI};
+const float NA_Chromatic[] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+const float Thaat_Bilawal[] = {SA, RE, GA, ma, PA, DHA, NI};
+const float Thaat_Kalyan[] = {SA, RE, GA, MA, PA, DHA, NI};
+const float Thaat_Khamaj[] = {SA, RE, GA, ma, PA, DHA, ni};
+const float Thaat_Kafi[] = {SA, RE, ga, ma, PA, DHA, ni};
+const float Thaat_Asavari[] = {SA, RE, ga, ma, PA, dha, ni};
+const float Thaat_Bhairavi[] = {SA, re, ga, ma, PA, dha, ni};
+const float Thaat_Bhairav[] = {SA, re, GA, ma, PA, dha, NI};
+const float Thaat_Marva[] = {SA, re, GA, MA, PA, DHA, NI};
+const float Thaat_Purvi[] = {SA, re, GA, MA, PA, dha, NI};
+const float Thaat_Todi[] = {SA, re, ga, MA, PA, dha, NI};
+const float Raag_Abhogi[] = {SA, RE, ga, ma, DHA};
+const float Raag_Ahir_bhairav[] = {SA, re, GA, ma, PA, DHA, ni};
+const float Raag_Bageshri[] = {SA, RE, ga, ma, DHA, ni};
+const float Raag_Bhairav[] = {SA, re, GA, ma, PA, dha, NI};
+const float Raag_Bhairavi[] = {SA, re, ga, ma, PA, dha, ni};
+const float Raag_Bhimpalasi[] = {SA, RE, ga, ma, PA, DHA, ni};
+const float Raag_Bhupali[] = {SA, RE, GA, PA, DHA};
+const float Raag_Bihag[] = {SA, RE, GA, ma, PA, DHA,  NI};
+const float Raag_Charukeshi[] = {SA, RE, GA, ma, PA, dha, ni};
+const float Raag_Darbari_kanada[] = {SA, RE, ga, ma, PA, dha, ni};
+const float Raag_Desh[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+const float Raag_Durga[] = {SA, RE, ma, PA, DHA};
+const float Raag_Hamsadhwani[] = {SA, RE, GA, PA, NI};
+const float Raag_Jog[] = {SA, ga, GA, ma, PA, ni};
+const float Raag_Jonpuri[] = {SA, RE, ga, ma, PA, dha, ni};
+const float Raag_Kalavati[] = {SA, GA, PA, DHA, ni};
+const float Raag_Kedar[] = {SA, RE, ma, MA, PA, DHA, NI};
+const float Raag_Khamaj[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+const float Raag_Kirvani[] = {SA, RE, ga, ma, PA, dha, NI};
+const float Raag_Lalit[] = {SA, re, GA, ma, MA, dha, NI};
+const float Raag_Malkauns[] = {SA, ga, ma, dha, ni};
+const float Raag_Marwa[] = {SA, re, GA, MA, DHA, NI};
+const float Raag_Megh_Malhar[] = {SA, RE, ma, PA, ni};
+const float Raag_Miya_ki_malhar[] = {SA, RE, ga, ma, PA, DHA, ni, NI};
+const float Raag_Nand[] = {SA, RE, GA, ma, MA, PA, DHA, NI};
+const float Raag_Pahadi[] = {SA, RE, GA, ma, PA, DHA, ni};
+const float Raag_Pilu[] = {SA, RE, ga, GA, ma, PA, DHA, ni, NI};
+const float Raag_Puriya_Dhanashree[] = {SA, re, GA, MA, PA, dha, NI};
+const float Raag_Raagshree[] = {SA, RE, GA, ma, DHA, ni};
+const float Raag_Sarang[] = {SA, RE, ma, PA, ni, NI};
+const float Raag_Shivranjini[] = {SA, RE, ga, PA, DHA};
+const float Raag_Shree[] = {SA, re, GA, MA, PA, dha, NI};
+const float Raag_Tilak_Kamod[] = {SA, RE, GA, ma, PA, DHA, ni, NI};
+const float Raag_Tilang[] = {SA, GA, ma, PA, ni, NI};
+const float Raag_Yaman[] = {SA, RE, GA, MA, PA, DHA, NI};
+float Scale_Custom_1[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
+float Scale_Custom_2[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
+float Scale_Custom_3[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
+
+
+
+
+const ScaleDef scale_library[] = {
+{"s_NA_Natural", NA_Natural, 12, t_PA},
+{"s_NA_Chromatic", NA_Chromatic, 12, t_PA},
+{"s_Thaat_Bilawal", Thaat_Bilawal, 7, t_PA},
+{"s_Thaat_Kalyan", Thaat_Kalyan, 7, t_PA},
+{"s_Thaat_Khamaj", Thaat_Khamaj, 7, t_PA},
+{"s_Thaat_Kafi", Thaat_Kafi, 7, t_PA},
+{"s_Thaat_Asavari", Thaat_Asavari, 7, t_PA},
+{"s_Thaat_Bhairavi", Thaat_Bhairavi, 7, t_PA},
+{"s_Thaat_Bhairav", Thaat_Bhairav, 7, t_PA},
+{"s_Thaat_Marva", Thaat_Marva, 7, t_NI},
+{"s_Thaat_Purvi", Thaat_Purvi, 7, t_PA},
+{"s_Thaat_Todi", Thaat_Todi, 7, t_PA},
+{"s_Raag_Abhogi", Raag_Abhogi, 5, t_ma},
+{"s_Raag_Ahir_bhairav", Raag_Ahir_bhairav, 7, t_PA},
+{"s_Raag_Bageshri", Raag_Bageshri, 6, t_ma},
+{"s_Raag_Bhairav", Raag_Bhairav, 7, t_PA},
+{"s_Raag_Bhairavi", Raag_Bhairavi, 7, t_PA},
+{"s_Raag_Bhimpalasi", Raag_Bhimpalasi, 7, t_PA},
+{"s_Raag_Bhupali", Raag_Bhupali, 5, t_PA},
+{"s_Raag_Bihag", Raag_Bihag, 7, t_PA},
+{"s_Raag_Charukeshi", Raag_Charukeshi, 7, t_PA},
+{"s_Raag_Darbari_kanada", Raag_Darbari_kanada, 7, t_PA},
+{"s_Raag_Desh", Raag_Desh, 8, t_PA},
+{"s_Raag_Durga", Raag_Durga, 5, t_PA},
+{"s_Raag_Hamsadhwani", Raag_Hamsadhwani, 5, t_PA},
+{"s_Raag_Jog", Raag_Jog, 6, t_PA},
+{"s_Raag_Jonpuri", Raag_Jonpuri, 7, t_PA},
+{"s_Raag_Kalavati", Raag_Kalavati, 5, t_PA},
+{"s_Raag_Kedar", Raag_Kedar, 7, t_PA},
+{"s_Raag_Khamaj", Raag_Khamaj, 8, t_PA},
+{"s_Raag_Kirvani", Raag_Kirvani, 7, t_PA},
+{"s_Raag_Lalit", Raag_Lalit, 7, t_ma},
+{"s_Raag_Malkauns", Raag_Malkauns, 5, t_ma},
+{"s_Raag_Marwa", Raag_Marwa, 6, t_NI},
+{"s_Raag_Megh_Malhar", Raag_Megh_Malhar, 5, t_PA},
+{"s_Raag_Miya_ki_malhar", Raag_Miya_ki_malhar, 8, t_PA},
+{"s_Raag_Nand", Raag_Nand, 8, t_PA},
+{"s_Raag_Pahadi", Raag_Pahadi, 7, t_PA},
+{"s_Raag_Pilu", Raag_Pilu, 9, t_PA},
+{"s_Raag_Puriya_Dhanashree", Raag_Puriya_Dhanashree, 7, t_PA},
+{"s_Raag_Raagshree", Raag_Raagshree, 6, t_ma},
+{"s_Raag_Sarang", Raag_Sarang, 6, t_PA},
+{"s_Raag_Shivranjini", Raag_Shivranjini, 5, t_PA},
+{"s_Raag_Shree", Raag_Shree, 7, t_PA},
+{"s_Raag_Tilak_Kamod", Raag_Tilak_Kamod, 8, t_PA},
+{"s_Raag_Tilang", Raag_Tilang, 6, t_PA},
+{"s_Raag_Yaman", Raag_Yaman, 7, t_PA},
+{"s_Scale_Custom_1", Scale_Custom_1, 12, t_PA},
+{"s_Scale_Custom_2", Scale_Custom_2, 12, t_PA},
+{"s_Scale_Custom_3", Scale_Custom_3, 12, t_PA},
+};
+
+float auto_corr_val[6]={0,0.02,0.05,0.12,0.20, 0.35};
+
+float auto_corr_values[6][3]={
+		{0,0,0},
+		{0.02, 0.01, 0.2},
+		{0.05, 0.02, 0.4},
+		{0.12, 0.02, 0.6},
+		{0.2, 0.02, 1.0},
+		{0.35, 0.02, 1.5}
+};
+
+void set_ac_param(int level){
+	set_para.auro_corr = auto_corr_values [level][0];
+	set_para.ac_rf_min = auto_corr_values [level][1];
+	set_para.ac_rf_max = auto_corr_values [level][2];
+}
+
+float auto_correct(int scale_index, float input) {
+
+
+    int temp_oct = 0;
+    ScaleDef active_scale = scale_library[scale_index];
+    int len = active_scale.length;
+
+    float nearest_note = 0.0f;     // Stores the actual note to return
+    float min_dist = 100.0f;       // Tracks the shortest distance found
+
+    // Fix 1: Properly subtract 12
+    while (input >= 12.0f) {
+            input -= 12.0f;
+            temp_oct++;
+        }
+
+    // Fix 2 & 3: Use fabsf(a - b) and save the note, not the distance
+    for (int i = 0; i < len; i++) {
+        float temp_dist = fabsf(active_scale.notes[i] - input);
+
+        if (temp_dist < min_dist) {
+            min_dist = temp_dist;
+            nearest_note = active_scale.notes[i];
+        }
+    }
+
+    // Fix 4: The High Sa Wrap-Around check
+    if (fabsf(12.0000f - input) < min_dist) {
+        nearest_note = 12.0000f;
+    }
+
+    if (temp_oct >0) {
+        nearest_note += temp_oct*12.0f;
+    }
+
+    return nearest_note;
+}

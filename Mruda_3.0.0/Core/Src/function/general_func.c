@@ -88,41 +88,36 @@ void amp_setup(int preset_sel){
 
 	for(int k=0;k<len;k++){
 		amp[k+1]=preset[preset_sel][k];
-
 	}
 
-	//expo evelope
-	for(int i=0;i<len;i++){
-		amp[i+1]=amp[i+1]*powf(i+1,set_para.p1);
-	}
-
-	//OE_dist=1.1;
-	for(int i=1;i<9;i++){
-	    amp[2*i] = amp[2*i] * set_para.p2;     // Even harmonic gets boosted
-	    amp[2*i-1]  = amp[2*i-1] / set_para.p2;     // Odd harmonic gets reduced
-	}
-
-	//octave_mix=50;
-	for(int i=0;i<len-1;i++){
-		amp[i+1]=amp[i+1]+(set_para.p3/100)*amp[i+2];
-		amp[i+1]=amp[i+1]*(1.0f + cosf( 3.141592f* (i+1) / 20));
-	}
+//	//expo evelope
+//	for(int i=0;i<len;i++){
+//		amp[i+1]=amp[i+1]*powf(i+1,set_para.p1);
+//	}
+//
+//	//OE_dist=1.1;
+//	for(int i=1;i<9;i++){
+//	    amp[2*i] = amp[2*i] * set_para.p2;     // Even harmonic gets boosted
+//	    amp[2*i-1]  = amp[2*i-1] / set_para.p2;     // Odd harmonic gets reduced
+//	}
+//
+//	//octave_mix=50;
+//	for(int i=0;i<len-1;i++){
+//		amp[i+1]=amp[i+1]+(set_para.p3/100)*amp[i+2];
+//		amp[i+1]=amp[i+1]*(1.0f + cosf( 3.141592f* (i+1) / 20));
+//	}
 
 	// normalising amplitudes
-	for(int i=0;i<len;i++){
-		total_amp=total_amp+amp[i+1];
-	}
-
+	for(int i=0;i<len;i++){total_amp=total_amp+amp[i+1];}
 	if (total_amp == 0) return;
-	for(int i=0;i<len;i++){
-	    		amp[i+1]=amp[i+1]/total_amp;
-	    	}
+	for(int i=0;i<len;i++){amp[i+1]=amp[i+1]/total_amp;}
 }
 
 
 void Creat_sine_table(float* sin_table, uint8_t preset_type){
 	//generate a base waveform that is combination of its harmonics
-	amp_setup(preset_type);
+
+	amp_setup((int)preset_type);
 
 	float phase[16] = {0,-3,3,-2,  -5,4,7,6,   7,9,12,5, -10,-9,-13,8 };
 
@@ -146,7 +141,7 @@ void Tanpura(){
 	static int del = 0;
 
 	del++;
-	if(del<4) return;
+	if(del<3) return;
 	del =0 ;
 
 	  if(tanpura.status==1){

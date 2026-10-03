@@ -12,7 +12,7 @@
 extern int16_t Buffer[BUFFER_SIZE];
 
 void fill_buffer(int16_t *buff, uint16_t size);
-
+void init_reverb(void);
 
 
 

@@ -1,0 +1,632 @@
+/*
+ * func_sel.c
+ *
+ *  Created on: Apr 12, 2026
+ *      Author: abhil
+ */
+
+
+
+#include "stm32f4xx.h"
+#include "main.h"
+#include "math.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include "tm1637.h"
+#include "function/f_set.h"
+#include "function/measure.h"
+#include "function/func_sel.h"
+#include "function/general_func.h"
+#include "function/usb.h"
+#include "function/auto_corr.h"
+
+
+typedef enum {
+	none = -1,
+	MiDi = 0,
+	scale_down = 1,
+	scale_up = 2,
+	oct_down = 3,
+	oct_up = 4,
+	tune_down = 5,
+	tune_up = 6,
+
+	touch_sen = 7,
+	reverb = 8,
+	sustain = 9,
+
+	auto_corr = 10,
+	ac_set_down = 11,
+	ac_set_up = 12,
+	ac_s1 = 13,
+	ac_s2 = 14,
+
+
+	p1 = 15,
+	p2 = 16,
+	pre = 17,
+
+	t_scale_down = 18,
+	t_scale_up = 19,
+	t_vol_down = 20,
+	t_vol_up = 21,
+	t_on = 22,
+	t_type = 23,
+}functionID;
+
+typedef struct{
+	int flag;
+	functionID ID;
+}function_info;
+
+function_info func_butn;
+
+
+default_raw_settings raw_flash_data;
+
+
+int func_val[45];
+
+
+volatile uint8_t new_setting_flag = 0;
+volatile uint8_t setting_array[30] = {0};
+
+
+void display_menu(const char* label, int val) {
+    char buffer[8];
+    snprintf(buffer, sizeof(buffer), "%s%d", label, val);
+    TM1637_SetColon(1);
+    TM1637_DisplayString(buffer);
+}
+
+void T_setup(tanpura_drone type, float current_transpose) {
+
+    float sa_base = 27.0f;
+    float drone_note;
+
+    // Check if autocorrect is off / set to chromatic
+    if (func_val[ac_set_down] == 1) {
+
+        // ==========================================
+        // CHROMATIC MODE (Standard Equal Temperament)
+        // ==========================================
+        switch (type) {
+            case t_PA: drone_note = sa_base - 5.0000f; break; // G  (-5 semitones)
+            case t_ma: drone_note = sa_base - 7.0000f; break; // F  (-7 semitones)
+            case t_ni: drone_note = sa_base - 2.0000f; break; // Bb (-2 semitones)
+            case t_NI: drone_note = sa_base - 1.0000f; break; // B  (-1 semitones)
+            default: drone_note = sa_base - 5.0000f; break;
+        }
+
+    } else {
+        // ==========================================
+        // NATURAL SCALE MODE (Just Intonation/Shruti)
+        // ==========================================
+        // These are the exact microtonal math offsets for the lower octave
+        switch (type) {
+            case t_PA: drone_note = sa_base - 4.98045f; break; // Perfect Shruti Pa
+            case t_ma: drone_note = sa_base - 7.01955f; break; // Perfect Shruti Ma
+            case t_ni: drone_note = sa_base - 2.03910f; break; // Shruti Komal Ni
+            case t_NI: drone_note = sa_base - 1.11730f; break; // Shruti Shuddha Ni
+            default: drone_note = sa_base - 4.98045f; break;
+        }
+    }
+
+    // Apply the drone note and the transpose
+    key.play[3] = drone_note + current_transpose;
+    key.play[4] = sa_base + current_transpose;    // Primary Sa string
+
+    tanpura.sa_note = key.play[4];
+    tanpura.pa_note = key.play[3];
+
+    // Calculate frequencies using high-precision base!
+    key.freq[3] = 440.0f * powf(1.059463094f, (key.play[3] - 48.0f));
+    key.freq[4] = 440.0f * powf(1.059463094f, (key.play[4] - 48.0f));
+
+    key.phase[3] = PHASE_FACT * key.freq[3];
+    key.phase[4] = PHASE_FACT * key.freq[4];
+}
+
+
+
+
+void Midi_status(){
+	if (mode == Midi){
+		mode = Onboard;
+		TM1637_SetColon(1);
+		TM1637_DisplayString("MIOF");
+	}
+	else if (mode == Onboard){
+		mode = Midi;
+		TM1637_SetColon(1);
+		TM1637_DisplayString("MIOn");
+	}
+}
+
+
+void Scale_Down(){
+
+	func_val[scale_down] = func_val[scale_down]-1;
+	func_val[scale_down] = clampf(func_val[scale_down], -9, 9);
+	set_para.transpose = func_val[scale_down];
+	display_menu("SC", func_val[scale_down]);
+}
+
+
+void Scale_Up(){
+	func_val[scale_down] = func_val[scale_down]+1;
+	func_val[scale_down] = clampf(func_val[scale_down], -9, 9);
+	set_para.transpose = func_val[scale_down];
+	display_menu("SC", func_val[scale_down]);
+}
+
+void Oct_Down(){
+	func_val[oct_down] = func_val[oct_down]-1;
+	func_val[oct_down] = clampf(func_val[oct_down], -3, 3);
+	set_para.octave = 12*func_val[oct_down];
+	display_menu("OC", func_val[oct_down]);
+}
+
+void Oct_Up(){
+	func_val[oct_down] = func_val[oct_down]+1;
+	func_val[oct_down] = clampf(func_val[oct_down], -3, 3);
+	set_para.octave = 12*func_val[oct_down];
+	display_menu("OC", func_val[oct_down]);
+}
+
+void Tune_Down(){
+	func_val[tune_down] = func_val[tune_down]-1;
+	func_val[tune_down] = clampf(func_val[tune_down], -60, 60);
+	set_para.tune = (float)func_val[oct_down] / 100.0f;
+	display_menu("tu", func_val[tune_down]);
+}
+
+void Tune_Up(){
+	func_val[tune_down] = func_val[tune_down]+1;
+	func_val[tune_down] = clampf(func_val[tune_down], -59, 59);
+	set_para.tune = (float)func_val[oct_down] / 100.0f;
+	display_menu("tu", func_val[tune_down]);
+}
+
+
+void touch_sens(){
+	func_val[touch_sen] ++;
+	if(func_val[touch_sen]>4){func_val[touch_sen] = 0;}
+	set_para.touch_exp = touch_expo[func_val[touch_sen]];
+	display_menu("TS", func_val[touch_sen]);
+}
+
+
+void Reverb(){
+	func_val[reverb] ++;
+	if(func_val[reverb]>10){func_val[reverb] = 0;}
+	set_para.reverb = auto_corr_val[func_val[reverb]];
+	display_menu("TS", func_val[reverb]);
+}
+
+
+
+void Sustain(){
+
+}
+
+
+
+void Auto_Corr(){
+	func_val[auto_corr] ++;
+	if(func_val[auto_corr]>5)func_val[auto_corr] = 0;
+	set_para.auro_corr = auto_corr_val[func_val[auto_corr]];
+	display_menu("AC", func_val[auto_corr]);
+}
+
+
+
+
+void AC_up(){
+	func_val[ac_set_down] ++;
+	if(func_val[ac_set_down]>49)func_val[ac_set_down] = 0;
+	set_para.AC_scale = func_val[ac_set_down];
+
+	display_menu("SC", func_val[ac_set_down]);
+
+
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+
+void AC_down(){
+	func_val[ac_set_down] --;
+	if(func_val[ac_set_down]<0)func_val[ac_set_down] = 49;
+	set_para.AC_scale = func_val[ac_set_down];
+	display_menu("SC", func_val[ac_set_down]);
+
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+
+void AC_s1(){
+	set_para.AC_scale = 0;
+	display_menu("SC", 0);
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+void AC_s2(){
+	set_para.AC_scale = 2;
+	display_menu("SC", 2);
+	tanpura.sec_note = scale_library[set_para.AC_scale].drone_note;
+	T_setup(tanpura.sec_note, set_para.transpose);
+}
+
+
+void P1(){
+
+	Creat_sine_table(sine_data,1);
+	display_menu("P1", 1);
+}
+
+void P2(){
+	Creat_sine_table(sine_data,1);
+	display_menu("P2", 2);
+}
+
+void Preset(){
+	func_val[pre] ++;
+	if(func_val[pre] >5) {func_val[pre] = 0;}
+	set_para.preset = func_val[pre];
+	Creat_sine_table(sine_data,set_para.preset);
+	display_menu("P", func_val[pre]);
+}
+
+
+
+
+
+
+void t_disp_update(){
+	TM1637_SetColon(1);
+
+	int temp = 0- func_val[t_scale_down];
+
+		switch(temp){
+
+			case -8:
+				TM1637_DisplayString("SCE "); break;
+			case -7:
+				TM1637_DisplayString("SCF "); break;
+			case -6:
+				TM1637_DisplayString("SCF-"); break;
+			case -5:
+				TM1637_DisplayString("SCg "); break;
+			case -4:
+				TM1637_DisplayString("SCg-"); break;
+			case -3:
+				TM1637_DisplayString("SCA "); break;
+			case -2:
+				TM1637_DisplayString("SCA-"); break;
+			case -1:
+				TM1637_DisplayString("SCb "); break;
+			case 0:
+				TM1637_DisplayString("SCC "); break;
+			case 1:
+				TM1637_DisplayString("SCC-"); break;
+			case 2:
+				TM1637_DisplayString("SCd "); break;
+			case 3:
+				TM1637_DisplayString("SCd-"); break;
+			case 4:
+				TM1637_DisplayString("SCE "); break;
+			case 5:
+				TM1637_DisplayString("SCF "); break;
+			case 6:
+				TM1637_DisplayString("SCF-"); break;
+			case 7:
+				TM1637_DisplayString("SCg "); break;
+			case 8:
+				TM1637_DisplayString("SCg-"); break;
+
+	}
+}
+
+
+
+
+
+void T_On(){
+	func_val[t_on] = !func_val[t_on];
+	tanpura.status = func_val[t_on];
+	tanpura.vol = drone_vol_lookup[func_val[t_vol_down]];
+	T_setup(tanpura.sec_note, tanpura.scale);
+	TM1637_SetColon(1);
+	if(func_val[t_on] == 1) TM1637_DisplayString("tnON");
+	if(func_val[t_on] == 0) TM1637_DisplayString("tnOF");
+}
+
+
+
+void T_scale_Down(){
+	func_val[t_scale_down]++;
+	func_val[t_scale_down] = clampf(func_val[t_scale_down], -8, 8);
+	T_setup(tanpura.sec_note, func_val[t_scale_down]);
+	t_disp_update();
+}
+
+void T_scale_Up(){
+	func_val[t_scale_down]--;
+	func_val[t_scale_down] = clampf(func_val[t_scale_down], -8, 8);
+
+	key.play[3] = 22-func_val[t_scale_down];
+	key.play[4] = 27-func_val[t_scale_down];
+
+
+	key.freq[3]=440.0f * powf(1.0594630f, (key.play[3] - 48));
+	key.freq[4]=440.0f * powf(1.0594630f, (key.play[4] - 48));
+
+	key.phase[3] =PHASE_FACT * key.freq[3];
+	key.phase[4] =PHASE_FACT * key.freq[4];
+	t_disp_update();
+}
+
+
+void T_Vol_Down(){
+	func_val[t_vol_down] --;
+	func_val[t_vol_down] = clampf(func_val[t_vol_down], 0, 10);
+	tanpura.vol = drone_vol_lookup[func_val[t_vol_down]];
+	display_menu("VO", func_val[t_vol_down]);
+}
+
+void T_Vol_Up(){
+	func_val[t_vol_down] ++;
+	func_val[t_vol_down] = clampf(func_val[t_vol_down], 0, 10);
+	tanpura.vol = drone_vol_lookup[func_val[t_vol_down]];
+	display_menu("VO", func_val[t_vol_down]);
+}
+
+
+void T_sec(){
+	func_val[t_type] ++;
+	TM1637_SetColon(1);
+	if(func_val[t_type]>3){func_val[t_type]=0;}
+	if(func_val[t_type] == 0){TM1637_DisplayString("tnPA");}
+	if(func_val[t_type] == 1){TM1637_DisplayString("tnnn");}
+	if(func_val[t_type] == 2){TM1637_DisplayString("tnn-");}
+	if(func_val[t_type] == 3){TM1637_DisplayString("tnn ");}
+
+	T_setup(func_val[t_type], func_val[t_scale_down]);
+	tanpura.sec_note = func_val[t_type];
+}
+
+
+void dispach(){
+
+	            switch (func_butn.ID) {
+	            	case MiDi: 			Midi_status(); break;
+	                case scale_down:	Scale_Down();	break;
+	                case scale_up:		Scale_Up();  	break;
+	                case oct_down:		Oct_Down(); 	break;
+	                case oct_up:		Oct_Up(); 		break;
+	                case tune_down:		Tune_Down();	break;
+	                case tune_up:		Tune_Up(); 		break;
+
+	                case touch_sen:		touch_sens();	break;
+	                case reverb:		Reverb();		break;
+	                case sustain:		Sustain();      break;
+	                case auto_corr:		Auto_Corr();	break;
+	                case ac_set_down:	AC_down();		break;
+	                case ac_set_up:		AC_up();		break;
+	                case ac_s1:			AC_s1();		break;
+	                case ac_s2:			AC_s2();		break;
+	                case p1:			P1();			break;
+	                case p2:			P2();			break;
+	                case pre:			Preset();		break;
+	                case t_scale_down:	T_scale_Down();	break;
+	                case t_scale_up:	T_scale_Up();	break;
+	                case t_vol_down:	T_Vol_Down();	break;
+	                case t_vol_up:		T_Vol_Up();		break;
+	                case t_on:			T_On();			break;
+	                case t_type:		T_sec();		break;
+	                default:	break;
+	            }
+	}
+
+
+
+
+
+void do_pc_command() {
+    if (new_setting_flag == 0) return;
+
+    uint8_t cmd = setting_array[0];
+
+    if (cmd <= 5) {
+        set_para.preset = (int)cmd;
+        // 2. Load incoming data into the correct preset slot
+        for (int i = 0; i < 16; i++) {
+            preset[cmd][i] = (float)setting_array[i + 1];
+        }
+
+        // 3. Generate the correct sine table
+        if (cmd < 5) {
+            Creat_sine_table(sine_data, cmd);
+        } else {
+            Creat_sine_table(sine_data_tanpura, 5);
+        }
+    }
+
+    // ==========================================
+    // COMMAND 10-19: SAVE TO FLASH
+    // ==========================================
+    else if (cmd >= 10 && cmd < 20) {
+        uint8_t slot_index = cmd - 10;
+        uint8_t start_index = 16 * slot_index;
+
+        // Write directly from the float array to the flash_data byte array
+        for (int i = 0; i < 16; i++) {
+            //flash_data[start_index + i] = (uint8_t)preset[func_val[p_set]][i];
+        }
+
+        //Flash_SaveData(flash_data);
+    }
+
+    new_setting_flag = 0;
+}
+
+// Note: Make sure Scale_Custom is declared globally somewhere!
+// float Scale_Custom[3][12];
+int temp_slot  = 0;
+void update_scale(uint8_t slot){
+    float key_no[13] = {0, 1.1173, 2.0391, 3.1564, 3.8631, 4.9804, 5.9022, 7.0196, 8.1369, 8.8436, 10.176, 10.8827, 12};
+
+    uint8_t note[12];
+    int8_t microtone[12]; // FIX 1: MUST be int8_t (signed) so it can be negative!
+
+    float data[12] = {20,20,20,20, 20,20,20,20, 20,20,20,20};
+
+    for(int i=0; i< 12; i++){
+        // (i+i+1) is the same as (2*i + 1), which perfectly reads your struct!
+        note[i] = raw_flash_data.default_scale[slot][i+i + 1];
+        microtone[i] = raw_flash_data.default_scale[slot][i+i + 2];
+    }
+
+    uint8_t type = raw_flash_data.default_scale[slot][0];
+    temp_slot = type;
+    int index = 0; // FIX 2: MUST initialize to 0!
+
+    // --- NATURAL SCALE ---
+    if(type == 1) {
+        for(int i = 0; i < 12; i++) {
+            if(note[i] == 1) {
+                data[index] = key_no[i] + ((float)microtone[i] * 0.01f);
+                index++;
+            }
+        }
+    }
+
+    // --- WESTERN SCALE ---
+    else {
+        for(int i = 0; i < 12; i++) {
+            if(note[i] == 1) {
+                data[index] = (float)i + ((float)microtone[i] * 0.01f);
+                index++;
+            }
+        }
+    }
+
+    for(int i = 0; i < 12; i++) {
+    	if(slot == 0) Scale_Custom_1[i] = data[i];
+    	if(slot == 1) Scale_Custom_2[i] = data[i];
+    	if(slot == 2) Scale_Custom_3[i] = data[i];
+    }
+}
+
+
+void update_data(uint8_t type, uint8_t slot){
+	if(type == 0){
+		set_para.preset = (int)slot;
+		for (int i = 0; i < 16; i++) {
+		    preset[slot][i] = (float)raw_flash_data.default_voice[slot] [i];
+		        }
+		if (slot < 5) {
+			Creat_sine_table(sine_data, slot);
+		}
+		else {Creat_sine_table(sine_data_tanpura, 5);}
+	}
+
+	if(type == 1){
+
+		update_scale(slot);
+		set_para.AC_scale = slot + 47; // custom scale index
+	}
+
+	if(type == 2){
+	}
+}
+
+
+
+void update_flash_packat(){
+	if (new_setting_flag == 0) return;
+	new_setting_flag = 0;
+
+	uint8_t cmd = setting_array[0];
+
+	if(cmd < 7){
+		for (int i = 0; i < 16; i++){raw_flash_data.default_voice[cmd][i] = setting_array[i + 1];}
+		update_data(0, cmd);
+		}
+
+	if(cmd > 19 && cmd < 25){
+		for(int i = 0; i<25; i++){raw_flash_data.default_scale[cmd - 20] [i] = setting_array[i + 1] - 64;}
+		update_data(1, cmd-20);
+		}
+
+	if(cmd == 30){
+		for(int i = 0; i<18; i++)	{raw_flash_data.default_setup[i] = setting_array[i + 1] - 64;}
+		update_data(2, 0);
+		}
+
+	if(cmd == 100){
+		Flash_LoadData();
+	}
+}
+
+
+void function_process(){
+	static int counter = 0;
+	static uint8_t trigger_latched = 0;
+	counter ++;
+	if(counter <4) return;  // minimse gpio reads
+	counter =0;
+
+
+	//do_pc_command();
+	update_flash_packat();
+
+
+	if(mode == Edit) return;
+
+	static int function_t;
+	  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9) == 0) { // Button pressed
+
+	      function_t++;
+	      if (function_t == 300) {  // Held for 200ms = 500ms if loop runs every 2.5ms (or adjust if 1ms)
+	    	  func_butn.flag = 1;   // Set flag once
+	          TM1637_SetColon(0);
+	          TM1637_DisplayString("FUNC");
+	      }
+	  } else {
+	      function_t = 0; // Reset counter on release
+
+		  if(func_butn.flag == 1){
+			  TM1637_SetColon(0);
+			  TM1637_DisplayString("PLAY");}
+		  func_butn.flag = 0;
+		  trigger_latched = 0;
+	  }
+
+	  if(func_butn.flag){
+
+		  float max = peak.amp[0];
+		  func_butn.ID = key.snap[0];
+		  if(peak.amp[1]>max){max = peak.amp[1]; func_butn.ID = key.snap[1];}
+		  if(peak.amp[2]>max){max = peak.amp[2]; func_butn.ID = key.snap[2];}
+
+	        if(max > 1500) {
+
+	            if(!trigger_latched) {
+	                dispach();
+	                trigger_latched = 1;
+	            }
+
+	        } else {
+	            trigger_latched = 0;  // Reset when signal drops
+	            func_butn.ID = none;
+	        }
+	    }
+
+}
+
+
+

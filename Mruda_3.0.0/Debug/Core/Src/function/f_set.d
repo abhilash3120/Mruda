@@ -37,7 +37,7 @@ Core/Src/function/f_set.o: ../Core/Src/function/f_set.c \
  ../Core/Inc/main.h ../Core/Inc/tm1637.h ../Core/Inc/function/f_set.h \
  ../Core/Inc/function/measure.h ../Core/Inc/function/general_func.h \
  ../Core/Inc/function/func_sel.h ../Core/Inc/function/midi.h \
- ../Core/Inc/function/auto_corr.h
+ ../Core/Inc/function/auto_corr.h ../Core/Inc/function/usb.h
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h:
 ../Drivers/CMSIS/Include/core_cm4.h:
@@ -81,3 +81,4 @@ Core/Src/function/f_set.o: ../Core/Src/function/f_set.c \
 ../Core/Inc/function/func_sel.h:
 ../Core/Inc/function/midi.h:
 ../Core/Inc/function/auto_corr.h:
+../Core/Inc/function/usb.h:

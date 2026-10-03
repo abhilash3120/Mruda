@@ -12,6 +12,9 @@ extern int func_val[45];
 extern volatile uint8_t new_setting_flag;
 extern default_raw_settings raw_flash_data;
 
+void update_scale(uint8_t slot);
+void T_setup(tanpura_drone type, float current_transpose);
+
 
 void function_process();
 

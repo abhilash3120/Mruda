@@ -18,17 +18,16 @@
 #include "function/func_sel.h"
 #include "function/midi.h"
 #include "function/auto_corr.h"
+#include "function/usb.h"
 
 parameter_t set_para;
 
 
 float touch_expo[5]={1.1,1.25,1.34,1.55,1.7};
-float auto_corr_val[6]={0,0.01,0.02,0.05,0.15, 0.25};
 float reverb_val[10]={0,0.03,0.1,0.171,0.273,0.39,0.523,0.669,0.83,0.98};
-float ST_expo_val[10]={0,-0.2,-0.6,-0.8,-1,-1.2,-1.4,-1.6,-1.8,-2};
-float OE_dist_val[10]={4,3,2.5,2,1.5,1,0.66,0.5,0.2,0.33};
-float octave_mix_val[10]={0,15,30,45,60,75,90,105,120,135};
+float sustain_val[5] ={0,1,2,3,4};
 float drone_vol_lookup[11] = {0.0000, 0.01, 0.033, 0.062, 0.1, 0.14, 0.181, 0.23,  0.28, 0.33, 0.6 };
+
 
 
 float preset[6][16] = {
@@ -41,78 +40,100 @@ float preset[6][16] = {
 };
 
 
-uint8_t default_preset[6][16] = {
-		{127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4},
-		{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1, 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64},
-		{64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64},
-		{127,127,85,85,59,	25,	13,	17,	4,	8,	0,	4,	0,	4,	0,	4}
-};
-
-
-uint8_t raw_scale[3][25]={
-
-};
-
-
-float custom_scales[3][12]={
-		{SA, re, RE, ga, GA, ma, MA, PA, dha, DHA,  ni, NI},
-		{SA, RE, GA, ma, PA, DHA, NI,  0,   0,  0,   0,   0},
-		{SA, re, ga, ma, PA, dha, ni,  0,   0,  0,   0,   0},
-};
-
-
-int8_t default_settings[18] = {
-
-        1,   // d_midi (Index 1 = "Off")
-        7,   // d_transpose (Index 7 = "0")
-        3,   // d_octave (Index 3 = "0")
-        0,   // d_tune (SpinBox value = 0)
-        1,   // d_tsens (Index 1 = "2")
-
-        1,   // d_reverb (Index 1 = "2")
-        1,   // d_sustain (Index 1 = "2")
-        0,   // d_voice_def (Index 0 = "0")
-        1,   // d_voice_p1 (Index 1 = "1")
-        2,   // d_voice_p2 (Index 2 = "2")
-
-        3,   // d_auto_corr (Index 3 = "3")
-		0,   // scale at boot
-        0,   // d_ac_s1
-        2,   // d_ac_s2
-        1,   // d_tanpura_state (Index 1 = "Off")
-
-        0,   // d_tanpura_scale (Index 0 = "C")
-        2,   // d_tanpura_vol (Index 2 = "3")
-        0    // d_tanpura_sec (Index 0 = "PA")
-};
-
 
 
 void set_defaults(){
 
 
-	set_para.touch_exp = touch_expo[2]; //sensivity default
-	set_para.auro_corr = auto_corr_val[3]; //autocorrect default
+//    0,   // d_midi (Index 1 = "Off")
+//    1,   // d_transpose (Index 7 = "0")
+//    2,   // d_octave (Index 3 = "0")
+//    3,   // d_tune (SpinBox value = 0)
+//    4,   // d_tsens (Index 1 = "2")
+//
+//    5,   // d_reverb (Index 1 = "2")
+//    6,   // d_sustain (Index 1 = "2")
+//    7,   // d_voice_def (Index 0 = "0")
+//    8,   // d_voice_p1 (Index 1 = "1")
+//    9,   // d_voice_p2 (Index 2 = "2")
+//
+//    10,   // d_auto_corr (Index 3 = "3")
+//	  11,   // scale at boot
+//    12,   // d_ac_s1
+//    13,   // d_ac_s2
+//    14,   // d_tanpura_state (Index 1 = "Off")
+//
+//    15,   // d_tanpura_scale (Index 0 = "C")
+//    16,   // d_tanpura_vol (Index 2 = "3")
+//    17    // d_tanpura_sec (Index 0 = "PA")
 
-	set_para.p1 = ST_expo_val[0];
-	set_para.p2 = OE_dist_val[5];
-	set_para.p3 = octave_mix_val[0];
+	//midi
+	if(raw_flash_data.default_setup[0] == 1) mode = Midi;
+	else {mode = Onboard;}
 
-	//transpose and shifts default
-	set_para.tune = 0;
-	set_para.transpose = 0;
-	set_para.octave = 0;
+	//transpose
+	set_para.transpose = (int) raw_flash_data.default_setup[1];
+	func_val[scale_down] = set_para.transpose;
 
-	//sound related defautls
-	set_para.reverb = reverb_val[3];
+	//octave
+	set_para.octave = 12*((int) raw_flash_data.default_setup[2]);
+	func_val[oct_down] = set_para.octave;
 
-	//tanpura defaults
-	tanpura.sec_note = t_PA;
-	tanpura.vol = drone_vol_lookup[3];
-	func_val[20]= 3;
-	set_para.preset = 0;
+	//tune
+	set_para.tune = (int) raw_flash_data.default_setup[3];
+	func_val[tune_down] = ((float)set_para.tune)*0.01f;
+
+	//touch sensitivity
+	set_para.touch_exp = touch_expo[raw_flash_data.default_setup[4]]; //sensivity default
+	func_val[touch_sen] = raw_flash_data.default_setup[4];
+
+	//reverb
+	set_para.reverb = raw_flash_data.default_setup[5];
+	func_val[reverb] = raw_flash_data.default_setup[5];
+
+	//sustain
+	set_para.sustain = sustain_val[raw_flash_data.default_setup[6]];
+
+
+	//boot voice
+	set_para.v0 = raw_flash_data.default_setup[7];
+	set_para.preset = set_para.v0;
+	func_val[pre] = set_para.v0;
+
+	Creat_sine_table(sine_data, 0);
+	Creat_sine_table(sine_data_tanpura,5);
+
+	set_para.reverb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][18];
+	set_para.reverb_fb = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][16];
+	set_para.reverb_damp = 0.01f*(float)raw_flash_data.default_voice[set_para.preset][17];
+
+	//other voice ahortcut
+	set_para.v1 = raw_flash_data.default_setup[8];
+	set_para.v2 = raw_flash_data.default_setup[9];
+
+	//auto correct
+	set_ac_param(raw_flash_data.default_setup[10]);
+	func_val[auto_corr] = raw_flash_data.default_setup[10];
+
+
+	//auto_corr scales
+	set_para.scale_boot = raw_flash_data.default_setup[11];
+	set_para.scale_p1 = raw_flash_data.default_setup[12];
+	set_para.scale_p2 = raw_flash_data.default_setup[13];
+
+
+	//tanpura_related
+	tanpura.status = raw_flash_data.default_setup[14]; func_val[t_on] = tanpura.status;
+	tanpura.scale = raw_flash_data.default_setup[15];
+	tanpura.vol = drone_vol_lookup[raw_flash_data.default_setup[16]];
+	tanpura.sec_note = raw_flash_data.default_setup[17];
+	//T_setup(tanpura.sec_note, tanpura.scale);
+
+
+//	//to be deleted later
+//	set_para.p1 = ST_expo_val[0];
+//	set_para.p2 = OE_dist_val[5];
+//	set_para.p3 = octave_mix_val[0];
 }
 
 
@@ -135,8 +156,8 @@ void set_freq() {
     rdt = rt1 - rt2;
 
     float play;
-    for (uint8_t i = 0; i < 3; i++) {
-        if (peak.flag[i] == 1) {
+    for (uint8_t i = 0; i < 1; i++) {
+        if (peak.flag[0] == 1 || peak.flag[1] == 1 || peak.flag[2] == 1) {
 
             key.abs[i] = peak.pos_out[i];
             key.snap[i] = (int)roundf(key.abs[i]) - 6;
@@ -148,10 +169,10 @@ void set_freq() {
 
 
             float rest_factor;
-            float rf_min = 0.1;
-            float rf_max = 1;
+            float rf_min = set_para.ac_rf_min;
+            float rf_max = set_para.ac_rf_max;
 
-            if (peak.vel[0] <= rf_min) {
+            if (peak.vel[i] <= rf_min) {
                 rest_factor = rf_max; // 100% autocorrect below 0.05
             } else if (peak.vel[0] >= rf_max) {
                 rest_factor = 0.0f; // 0% autocorrect above 1.0

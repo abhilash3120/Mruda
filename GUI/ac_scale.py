@@ -1,6 +1,7 @@
 # this sets the custom scales for autocorrect functions
 
 import mido
+from PySide6.QtWidgets import QMessageBox
 
 scale_notation = ["Indian","Western"]
 Scale_type = ["Natural", "Chromatic"]
@@ -66,6 +67,7 @@ class autocorr_set():
         self.update_root_note()
 
         self.ui.scale_to_mruda.clicked.connect(self.prepare_scale)
+        self.ui.play_demo.clicked.connect(self.play_demo)
 
         self.ui.scale_b1.setEnabled(False)
         self.ui.scale_r1.setChecked(True)
@@ -82,6 +84,10 @@ class autocorr_set():
 
         self.ui.type_w_i.currentTextChanged.connect(self.prepare_scale)
         self.ui.scale_nat_ch.currentTextChanged.connect(self.prepare_scale)
+
+        self.ui.scale_burn_mruda.clicked.connect(self.ac_save_flash)
+
+        self.send_flag = 0
 
 
 
@@ -108,7 +114,6 @@ class autocorr_set():
         active_slider_values = []
 
         
-
         if self.ui.type_w_i.currentText() == "Indian":
             active_slider_values.append(1)
         else:
@@ -137,6 +142,73 @@ class autocorr_set():
 
         sysex_payload = [0x7D, 0x01] + active_slider_values
         # Create and send the message
-        msg = mido.Message('sysex', data=sysex_payload)
-        self.conn.outport.send(msg)
 
+        try:
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.conn.outport.send(msg)
+
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
+
+        self.send_flag = 1
+
+
+    def ac_save_flash(self):
+
+        if self.send_flag == 0:
+            QMessageBox.information(
+                None,
+                "Info",
+                "Please send the values using the 'Send to Mruda' button before overwriting the scale.",
+                QMessageBox.StandardButton.Ok
+            )
+            return
+
+
+        reply = QMessageBox.question(
+            None,
+            "Confirm",
+            "Overwrite Settings with current value?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+
+        if reply == QMessageBox.StandardButton.No:
+            return
+
+
+        try:
+            values = [100,1]
+            sysex_payload = [0x7D, 0x01] + values
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.conn.outport.send(msg)
+            print("scale burned")
+
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
+
+
+    def play_demo(self):
+        try:
+            values = [31,1]
+            sysex_payload = [0x7D, 0x01] + values
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.conn.outport.send(msg)
+            print("scale burned")
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )

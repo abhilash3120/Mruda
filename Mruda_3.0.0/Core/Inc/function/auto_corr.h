@@ -13,10 +13,18 @@ typedef struct {
     const char* name;          // OLED Display Name
     const float* notes;        // Pointer to the scale array
     int length;            // Number of notes in the scale
-    tanpura_drone drone_note;          // Smart Tanpura note (Pa, Ma, or Ni)
+    tanpura_drone drone_note;          //Tanpura note (Pa, Ma, or Ni)
 } ScaleDef;
 
 
 float auto_correct(int scale_index, float input);
+void set_ac_param(int level);
+
 extern const ScaleDef scale_library[];
+extern float Scale_Custom_1[12];
+extern float Scale_Custom_2[12];
+extern float Scale_Custom_3[12];
+
+extern all_raag_list raag_list;
+
 #endif /* INC_FUNCTION_AUTO_CORR_H_ */

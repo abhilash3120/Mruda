@@ -1,4 +1,7 @@
 from PySide6.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox
+import mido
+from PySide6.QtWidgets import QMessageBox
+
 raag_list = ["Natural",
 "Chromatic",
 "Thaat_Bilawal",
@@ -62,16 +65,16 @@ class set_Default():
         self.ui.d_octave.addItems(['-3','-2','-1','0','1','2','3'])
         self.ui.d_tune.setValue(0)
         self.ui.d_tsens.addItems(['1','2','3','4','5'])
-        self.ui.d_reverb.addItems(['1','2','3','4','5'])
+        self.ui.d_reverb.addItems(["0 (Off)", "1 (Studio)", "2 (Room)", "3 (Chamber)", "4 (Hall)", "5 (Cathedral)", "6 (Deep Space)", "7 (Dreamy)"])
         self.ui.d_sustain.addItems(['1','2','3','4','5'])
-        self.ui.d_voice_def.addItems(['1','2','3','4','5'])
-        self.ui.d_voice_p1.addItems(['1','2','3','4','5'])
-        self.ui.d_voice_p2.addItems(['1','2','3','4','5'])
-        self.ui.d_auto_corr.addItems(['0','1','2','3','4','5'])
+        self.ui.d_voice_def.addItems(['Preset 1','Preset 2','Preset 3','Preset 4','Preset 5'])
+        self.ui.d_voice_p1.addItems(['Preset 1','Preset 2','Preset 3','Preset 4','Preset 5'])
+        self.ui.d_voice_p2.addItems(['Preset 1','Preset 2','Preset 3','Preset 4','Preset 5'])
+        self.ui.d_auto_corr.addItems(['0 (Off)','1 (Mild)','2 (Low)','3 (Medium)','4 (High)','5 (Agressive)'])
         self.ui.d_ac_boot.addItems(raag_list)
         self.ui.d_ac_s1.addItems(raag_list)
         self.ui.d_ac_s2.addItems(raag_list)
-        self.ui.d_tanpura_state.addItems(['On','Off'])
+        self.ui.d_tanpura_state.addItems(['Off','On'])
         self.ui.d_tanpura_scale.addItems(["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"])
         self.ui.d_tanpura_vol.addItems(['1','2','3','4','5','6','7','8','9'])
         self.ui.d_tanpura_sec.addItems(['PA','ma (Suddh)','ni (Komal)','NI (suddh)'])
@@ -113,6 +116,10 @@ class set_Default():
 
         ui.set_default.clicked.connect(lambda:self.apply_defaults(self.default_values))
         ui.default_send.clicked.connect(self.send_default)
+
+        self.ui.default_burn.clicked.connect(self.def_save_flash)
+
+        self.send_flag = 0
 
 
 
@@ -164,9 +171,74 @@ class set_Default():
         extracted_values = [30]+extracted_values
         print(f"Read values: {extracted_values}")
 
-        import mido
 
         sysex_payload = [0x7D, 0x01] + extracted_values
-        # Create and send the message
-        msg = mido.Message('sysex', data=sysex_payload)
-        self.conn.outport.send(msg)
+        
+
+        try:
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.conn.outport.send(msg)
+            self.send_flag = 1
+            QMessageBox.information(
+                None,
+                "Info",
+                "Setting sent",
+                QMessageBox.StandardButton.Ok
+            )
+
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
+
+
+
+    def def_save_flash(self):
+        if self.send_flag == 0:
+            QMessageBox.information(
+                None,
+                "Info",
+                "Please send the values using the 'Send to Mruda' button before overwriting the defaults.",
+                QMessageBox.StandardButton.Ok
+            )
+            return
+
+
+        reply = QMessageBox.question(
+            None,
+            "Confirm",
+            "Overwrite Settings with current value?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+
+        if reply == QMessageBox.StandardButton.No:
+            return
+
+
+        values = [100,1]
+        sysex_payload = [0x7D, 0x01] + values
+        try:
+            msg = mido.Message('sysex', data=sysex_payload)
+            self.conn.outport.send(msg)
+            QMessageBox.information(
+                None,
+                "Info",
+                "Data burn Successful.\nSetting will be applicable from next Restart.",
+                QMessageBox.StandardButton.Ok
+            )
+            return
+
+        except:
+            QMessageBox.warning(
+                None,
+                "Info",
+                "Please connect to Mruda.",
+                QMessageBox.StandardButton.Ok
+            )
+            return
+
+        print("defaults burned")

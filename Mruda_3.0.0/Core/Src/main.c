@@ -27,6 +27,7 @@ long main_time, main_time_COUNTER;
 
 operation_mode mode;
 
+//
 
 
 
@@ -116,10 +117,9 @@ int main(void)
 
   /* USER CODE BEGIN Init */
 
-  	set_defaults();
   	update_all_presets();
-	Creat_sine_table(sine_data,0);
-	Creat_sine_table(sine_data_tanpura,5);
+  	set_defaults();
+  	init_reverb();
 
   /* USER CODE END Init */
 
@@ -142,7 +142,6 @@ int main(void)
 
   //these is to set the timer to set tjhe dac and excitation signal
 
-
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
@@ -160,7 +159,6 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_dma_buffer, ADC_DMA_LEN);
   HAL_Delay(50);
   key_cal();
-
 
 
   HAL_I2S_Transmit_DMA(&hi2s2, (uint16_t*)Buffer, BUFFER_SIZE);
@@ -186,6 +184,7 @@ int main(void)
 	  uint32_t now = __HAL_TIM_GET_COUNTER(&htim3);
 	  if ((now - last_count) >= 250) // loop of 250ms to run continously
 	  {
+
 	        last_count = now;
 	        get_touch_position();
 	        pos_measure_f_cal();

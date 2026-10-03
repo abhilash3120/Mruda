@@ -1,0 +1,264 @@
+/*
+ * synth.c
+ *
+ *  Created on: Mar 8, 2026
+ *      Author: abhil
+ */
+
+#include "main.h"
+#include "function/general_func.h"
+#include "function/synth.h"
+#include <stdlib.h>
+#include "math.h"
+#include "function/f_set.h"
+#include "function/measure.h"
+#include "function/synth.h"
+
+long t1,t2,dt;
+
+int16_t Buffer[BUFFER_SIZE];
+
+void filter_vol(int ch){
+	static float vol_old[5],vol_smooth_old[5];
+
+	for(uint8_t j=0;j<ch;j++){
+		key.vol[j]=0.2f*key.vol[j]+0.8f*vol_old[j];
+		vol_old[j]=key.vol[j];
+
+		float alpha = (key.vol[j] > key.vol_smooth[j]) ? 0.03f : 0.0005f;
+		key.vol_smooth[j] += alpha * (key.vol[j] - key.vol_smooth[j]);
+		if(key.vol_smooth[j] < 0.0001f)	key.vol_smooth[j] = 0.0f;
+	}
+
+	key.vol[3]=0.003f*key.vol[3]+0.997f*vol_old[3];
+	vol_old[3]=key.vol[3];
+	key.vol_smooth[3]=0.0001f*key.vol[3]+0.9999f*vol_smooth_old[3];
+	vol_smooth_old[3]=key.vol_smooth[3];
+
+	key.vol[4]=0.003f*key.vol[4]+0.997f*vol_old[4];
+	vol_old[4]=key.vol[4];
+	key.vol_smooth[4]=0.0001f*key.vol[4]+0.9999f*vol_smooth_old[4];
+	vol_smooth_old[4]=key.vol_smooth[4];
+}
+
+
+float p[5];
+float t_samp_rev;
+float t_samp;
+
+void buffer_gen(){
+
+	   t_samp_rev=   key.vol_smooth[0]*sine(p[0])+
+			   	   	 key.vol_smooth[1]*sine(p[1])+
+					 key.vol_smooth[2]*sine(p[2]);
+
+	   t_samp=		t_samp_rev+
+			   	   	key.vol_smooth[3]*sine_t(p[3])+
+					key.vol_smooth[4]*sine_t(p[4]);
+
+     // Increment and wrap phase
+     p[0] += key.phase[0];
+			if (p[0] >= TWOPI)
+				p[0] -= TWOPI;
+
+     p[1] += key.phase[1];
+         if (p[1] >= TWOPI)
+         	p[1] -= TWOPI;
+
+     p[2] += key.phase[2];
+         if (p[2] >= TWOPI)
+         	p[2] -= TWOPI;
+
+     p[3] += key.phase[3];
+         if (p[3] >= TWOPI)
+             p[3] -= TWOPI;
+
+     p[4] += key.phase[4];
+         if (p[4] >= TWOPI)
+             p[4] -= TWOPI;
+}
+
+
+void buffer_gen_mono(){
+	filter_vol(1);
+	   t_samp_rev=  key.vol_smooth[0]*sine(p[0]);
+
+	   t_samp=		t_samp_rev+
+			   	   	key.vol_smooth[3]*sine_t(p[3])+
+					key.vol_smooth[4]*sine_t(p[4]);
+
+
+
+     // Increment and wrap phase
+     p[0] += key.phase[0];
+     while  (p[0] >= TWOPI)
+				p[0] -= TWOPI;
+
+
+     p[3] += key.phase[3];
+     while  (p[3] >= TWOPI)
+             p[3] -= TWOPI;
+
+     p[4] += key.phase[4];
+     while  (p[4] >= TWOPI)
+             p[4] -= TWOPI;
+}
+
+
+
+
+
+
+
+
+
+#define COMB1_BUF 1200
+#define COMB2_BUF 1400
+#define COMB3_BUF 1650
+#define COMB4_BUF 1800
+
+#define AP1_DELAY 163
+#define AP2_DELAY 223
+
+
+static float comb1[COMB1_BUF];
+static float comb2[COMB2_BUF];
+static float comb3[COMB3_BUF];
+static float comb4[COMB4_BUF];
+static float ap_buf1[AP1_DELAY];
+static float ap_buf2[AP2_DELAY];
+
+void init_reverb(void) {
+    for (int i = 0; i < COMB1_BUF; i++) comb1[i] = 0.0f;
+    for (int i = 0; i < COMB2_BUF; i++) comb2[i] = 0.0f;
+    for (int i = 0; i < COMB3_BUF; i++) comb3[i] = 0.0f;
+    for (int i = 0; i < COMB4_BUF; i++) comb4[i] = 0.0f;
+    for (int i = 0; i < AP1_DELAY; i++) ap_buf1[i] = 0.0f;
+    for (int i = 0; i < AP2_DELAY; i++) ap_buf2[i] = 0.0f;
+}
+//{mix, feedback, damping}
+float reverb_gen(float input_sample) {
+    // 1. Reverb Parameters
+	float rev_mix_level = set_para.reverb;
+	float REV_FEEDBACK = set_para.reverb_fb;
+	float REV_DAMP = set_para.reverb_damp;
+
+
+    // 2. Static State Variables
+    static int c1_w = 0, c2_w = 0, c3_w = 0, c4_w = 0;
+    static int ap1_idx = 0, ap2_idx = 0;
+    static float damp1 = 0.0f, damp2 = 0.0f, damp3 = 0.0f, damp4 = 0.0f;
+
+
+    // 3. Parallel Comb Filters (Cleaned & Hard-Fault Proof)
+    int r1 = c1_w - 1187;
+    while (r1 < 0) r1 += COMB1_BUF;
+    float c1_out = comb1[r1];
+    damp1 = (c1_out * (1.0f - REV_DAMP)) + (damp1 * REV_DAMP);
+    comb1[c1_w] = input_sample + (damp1 * REV_FEEDBACK);
+    if (++c1_w >= COMB1_BUF) c1_w = 0;
+
+    int r2 = c2_w - 1381;
+    while (r2 < 0) r2 += COMB2_BUF;
+    float c2_out = comb2[r2];
+    damp2 = (c2_out * (1.0f - REV_DAMP)) + (damp2 * REV_DAMP);
+    comb2[c2_w] = input_sample + (damp2 * REV_FEEDBACK);
+    if (++c2_w >= COMB2_BUF) c2_w = 0;
+
+    int r3 = c3_w - 1609;
+    while (r3 < 0) r3 += COMB3_BUF;
+    float c3_out = comb3[r3];
+    damp3 = (c3_out * (1.0f - REV_DAMP)) + (damp3 * REV_DAMP);
+    comb3[c3_w] = input_sample + (damp3 * REV_FEEDBACK);
+    if (++c3_w >= COMB3_BUF) c3_w = 0;
+
+    int r4 = c4_w - 1777;
+    while (r4 < 0) r4 += COMB4_BUF;
+    float c4_out = comb4[r4];
+    damp4 = (c4_out * (1.0f - REV_DAMP)) + (damp4 * REV_DAMP);
+    comb4[c4_w] = input_sample + (damp4 * REV_FEEDBACK);
+    if (++c4_w >= COMB4_BUF) c4_w = 0;
+
+    float comb_sum = (c1_out + c2_out + c3_out + c4_out) * 0.25f;
+
+    // 4. Series All-Pass Filters
+    float ap1_del = ap_buf1[ap1_idx];
+    float ap1_v = comb_sum + (0.5f * ap1_del);
+    float ap1_out = -0.5f * ap1_v + ap1_del;
+    ap_buf1[ap1_idx] = ap1_v;
+    if (++ap1_idx >= AP1_DELAY) ap1_idx = 0;
+
+    float ap2_del = ap_buf2[ap2_idx];
+    float ap2_v = ap1_out + (0.5f * ap2_del);
+    float rev_sample = -0.5f * ap2_v + ap2_del;
+    ap_buf2[ap2_idx] = ap2_v;
+    if (++ap2_idx >= AP2_DELAY) ap2_idx = 0;
+
+    // 5. Dry/Wet Mix
+    float final_out = (1.0f - rev_mix_level) * t_samp + (rev_mix_level) * rev_sample;
+
+    // 6. Hard Clipping
+    if (final_out > 32000.0f) final_out = 32000.0f;
+    else if (final_out < -32000.0f) final_out = -32000.0f;
+
+    t_samp = final_out;
+    return final_out;
+}
+
+
+struct buf_diag_struct {
+    int16_t max_amp;
+    int16_t max_derivative;
+    uint16_t RESET_INTERVAL;
+};
+
+
+
+
+
+void fill_buffer(int16_t *buffer, uint16_t size){
+
+	t1=micros();
+	for (int16_t i=0; i < size; i+=2) {
+
+		buffer_gen_mono();
+		t_samp = reverb_gen((float)t_samp_rev);
+		//buf_diag_update(t_samp);
+
+	    buffer[i] = (int16_t)t_samp;
+	    buffer[i+1] = buffer[i];
+	}
+	t2=micros();
+	dt = t2-t1;
+}
+
+
+
+struct buf_diag_struct buf_diag = {0, 0, 10000};
+
+void buf_diag_update(int16_t input) {
+    static int16_t old_amp = 0;
+    static uint16_t reset_counter = 0;
+
+    // Absolute value (safe)
+    int16_t abs_sample = (input == INT16_MIN) ? INT16_MAX : (input < 0 ? -input : input);
+
+    if (abs_sample > buf_diag.max_amp)
+        buf_diag.max_amp = abs_sample;
+
+    int16_t now_derivative = input - old_amp;
+    int16_t abs_derivative = (now_derivative == INT16_MIN) ? INT16_MAX :
+                            (now_derivative < 0 ? -now_derivative : now_derivative);
+
+    if (abs_derivative > buf_diag.max_derivative)
+        buf_diag.max_derivative = abs_derivative;
+
+    old_amp = input;
+
+    reset_counter++;
+    if (reset_counter >= buf_diag.RESET_INTERVAL) {
+        buf_diag.max_amp = 0;
+        buf_diag.max_derivative = 0;
+        reset_counter = 0;
+    }
+}
